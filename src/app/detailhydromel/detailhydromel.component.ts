@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DetailhydromelHttpService} from '../detailhydromel-http.service';
+import{Article} from '../model/article';
 
 @Component({
   selector: 'app-detailhydromel',
@@ -12,5 +13,8 @@ export class DetailhydromelComponent implements OnInit {
 
   ngOnInit() {
   }
-  hydromel = this.detailHydromelService.findById(1);
+  find(id:number):Article {
+  this.detailHydromelService.findById(id).subscribe(resp => {this.hydromel = resp})
+  return this.hydromel;
+}
 }

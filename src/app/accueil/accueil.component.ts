@@ -7,8 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccueilComponent implements OnInit {
 
-  actualiteSearch: string = null;
-
   constructor() {
   }
 

@@ -1,0 +1,68 @@
+<div class="card card-primary">
+  <div class="card-header">Liste de vos références</div>
+  <div class="card-body">
+    <!--<div class="form-group">
+      <label>Nom:</label>
+      <input type="text" class="form-control" [(ngModel)]="produitSearch" (ngModelChange)="search()">
+    </div>-->
+    <table class="table table-striped">
+      <tr>
+        <th>Identifiant</th>
+        <th>Nom</th>
+        <th>Description</th>
+        <th>Quantité</th>
+        <th>Unité</th>
+        <th>Prix Unitaire HT</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let produit of list()">
+        <td>{{produit.id}}</td>
+        <td>{{produit.nom}}</td>
+        <td>{{produit.description}}</td>
+        <td>{{produit.qte}}</td>
+        <td>{{produit.prixUnitaireHT}}</td>
+        <td>{{produit.unite}}</td>
+        <td>
+          <div class="btn-group btn-group-xs">
+            <button class="btn btn-info" (click)="edit(produit.id)">
+              <fa name="fas fa-edit"></fa>
+            </button>
+            <button class="btn btn-danger" (click)="remove(produit.id)">
+              <fa name="fas fa-trash"></fa>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="card-footer">
+    <button class="btn btn-primary" (click)="add()">
+      <fa name="plus"></fa>
+    </button>
+  </div>
+</div>
+
+<div class="card card-primary" *ngIf="matiereForm">
+  <div class="card-header">Edition de la matière</div>
+  <div class="card-body">
+    <div class="form-group">
+      <label for="duree">Durée:</label>
+      <input type="number" class="form-control" id="duree" [(ngModel)]="matiereForm.duree">
+    </div>
+    <div class="form-group">
+      <label for="nom">Nom:</label>
+      <input type="text" class="form-control" id="nom" [(ngModel)]="matiereForm.nom">
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="btn-group">
+      <button class="btn btn-success" (click)="save()">
+        <fa name="fas fa-check"></fa>
+      </button>
+      <button class="btn btn-warning" (click)="cancel()">
+        <fa name="fas fa-window-close"></fa>
+      </button>
+    </div>
+  </div>
+</div>
+

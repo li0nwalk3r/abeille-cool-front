@@ -1,6 +1,6 @@
 export enum Unite {
-  UNITE,
-  CENTILITRE,
-  KILOGRAMME,
-  GRAMME,
+  Unite = 'Unite',
+  cL = 'Centilitre',
+  kg = 'Kilogramme',
+  g = 'Gramme',
 }

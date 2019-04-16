@@ -7,7 +7,7 @@
     </div>-->
     <table class="table table-striped">
       <tr>
-        <th>Identifiant</th>
+        <!--<th>Identifiant</th>-->
         <th>Nom</th>
         <th>Description</th>
         <th>Quantité</th>
@@ -16,12 +16,12 @@
         <th></th>
       </tr>
       <tr *ngFor="let produit of list()">
-        <td>{{produit.id}}</td>
+        <!--<td>{{produit.id}}</td>-->
         <td>{{produit.nom}}</td>
         <td>{{produit.description}}</td>
         <td>{{produit.qte}}</td>
-        <td>{{produit.prixUnitaireHT}}</td>
         <td>{{produit.unite}}</td>
+        <td>{{produit.prixUnitaireHT}}</td>
         <td>
           <div class="btn-group btn-group-xs">
             <button class="btn btn-info" (click)="edit(produit.id)">
@@ -42,16 +42,37 @@
   </div>
 </div>
 
-<div class="card card-primary" *ngIf="matiereForm">
-  <div class="card-header">Edition de la matière</div>
+<div class="card card-primary" *ngIf="produitForm">
+  <div class="card-header">Déterminez votre produit</div>
   <div class="card-body">
     <div class="form-group">
-      <label for="duree">Durée:</label>
-      <input type="number" class="form-control" id="duree" [(ngModel)]="matiereForm.duree">
+      <label for="nom">Nom:</label>
+      <input type="text" class="form-control" id="nom" [(ngModel)]="produitForm.nom">
     </div>
     <div class="form-group">
-      <label for="nom">Nom:</label>
-      <input type="text" class="form-control" id="nom" [(ngModel)]="matiereForm.nom">
+      <label for="description">Description:</label>
+      <input type="text" class="form-control" id="description" [(ngModel)]="produitForm.description">
+    </div>
+    <div class="form-group">
+      <label for="qte">Quantité:</label>
+      <input type="text" class="form-control" id="qte" [(ngModel)]="produitForm.qte">
+    </div>
+    <div class="form-group">
+      <label for="unite">Unité:</label>
+      <input type="text" class="form-control" id="unite" [(ngModel)]="produitForm.unite">
+    </div>
+<!--    <div class="form-group">
+      <label for="unite">Unité:</label>
+      <select class="form-control" id="unite" [(ngModel)]="produitForm.unite">
+        <option value="Unite">Unite</option>
+        <option value="g">Gramme</option>
+        <option value="kg">Kilogramme</option>
+        <option value="cL">Centilitre</option>
+      </select>
+    </div>-->
+    <div class="form-group">
+      <label for="prixUnitaireHT">Prix Unitaire Hors Taxe:</label>
+      <input type="text" class="form-control" id="prixUnitaireHT" [(ngModel)]="produitForm.prixUnitaireHT">
     </div>
   </div>
   <div class="card-footer">

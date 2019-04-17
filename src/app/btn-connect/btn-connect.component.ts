@@ -10,6 +10,11 @@ export class BtnConnectComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if (sessionStorage.getItem('type')) {
+      this.connect = true;
+    } else {
+      this.connect = false;
+    }
   }
 
 }

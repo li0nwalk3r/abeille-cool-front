@@ -7,12 +7,16 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { ConnexionComponent } from './connexion/connexion.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { FormulaireCommandeClientComponent } from './formulaire-commande-client/formulaire-commande-client.component';
+import {AccueilComponent} from './accueil/accueil.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    FormulaireCommandeClientComponent,
+    AccueilComponent
   ],
   imports: [
     AngularFontAwesomeModule,

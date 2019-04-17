@@ -5,12 +5,12 @@ import {Injectable} from '@angular/core';
 })
 export class AccueilService {
 
-  actualites: Array<Actualite> = new Array<Actualite>();
-
-  constructor() {
-  }
-
-  findAll(): Array<Actualite> {
-    return this.actualites;
-  }
+  // actualites: Array<Actualite> = new Array<Actualite>();
+  //
+  // constructor() {
+  // }
+  //
+  // findAll(): Array<Actualite> {
+  //   return this.actualites;
+  // }
 }

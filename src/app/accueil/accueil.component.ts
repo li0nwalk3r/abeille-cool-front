@@ -15,7 +15,7 @@ export class AccueilComponent implements OnInit {
   ngOnInit() {
   }
 
-  list(): Array<Actualite> {
-    return this.actualiteService.findAll();
-  }
+  // list(): Array<Actualite> {
+  //   return this.actualiteService.findAll();
+  // }
 }

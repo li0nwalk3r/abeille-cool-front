@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {MonPanierHttpService} from '../mon-panier-http.service';
+import {LigneCommande} from '../model/ligne-commande';
 
 @Component({
   selector: 'app-mon-panier',
@@ -7,11 +9,28 @@ import {Component, OnInit} from '@angular/core';
 })
 export class MonPanierComponent implements OnInit {
 
+  // monPanierSearch: string = null;
 
-  constructor() {
+  constructor(private monPanierService: MonPanierHttpService) {
   }
 
   ngOnInit() {
+  }
+
+  // search() {
+  //   if (this.monPanierSearch) {
+  //     this.monPanierService.findByNom(this.monPanierSearch);
+  //   } else {
+  //     this.monPanierService.load();
+  //   }
+  // }
+
+  list(): Array<LigneCommande> {
+    return this.monPanierService.findAll();
+  }
+
+  remove(id: number) {
+    this.monPanierService.delete(id);
   }
 
 }

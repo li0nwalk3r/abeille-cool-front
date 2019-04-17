@@ -16,4 +16,16 @@ export class ConnexionHttpService {
     }
   }
 
+  verif(existmail){
+    if(existmail){
+      return this.http.post('http://localhost:8080/utilisateur/existmail', existmail);
+    }
+  }
+
+  login(utilisateur){
+    if(utilisateur){
+      return this.http.post('http://localhost:8080/utilisateur/login', utilisateur);
+    }
+  }
+
 }

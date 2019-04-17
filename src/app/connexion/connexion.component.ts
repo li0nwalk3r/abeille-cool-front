@@ -10,6 +10,8 @@ import {FormGroup} from "@angular/forms";
   styleUrls: ['./connexion.component.css']
 })
 export class ConnexionComponent implements OnInit {
+  erreurlogin: boolean=false;
+  mailExist: any = false;
   notSameMail: boolean = true;
   mailverif: string = '';
   notSameMdp: boolean = true;
@@ -54,4 +56,24 @@ export class ConnexionComponent implements OnInit {
     return this.notSameMdp;
   }
 
+  checkexistmail() {
+    this.checkmail();
+    this.connexionService.verif(this.utilisateurNouveau.mail).subscribe(resp => {
+      this.mailExist = resp;
+    }, err => console.log(err));
+  }
+
+  login() {
+    if (this.utilisateurEnregistre.mail && this.utilisateurEnregistre.mdp) {
+      this.connexionService.login(this.utilisateurEnregistre).subscribe(resp=>{
+        if(resp){
+          alert("connecté");
+          this.erreurlogin=false;
+        }else{
+          alert("non connecté");
+          this.erreurlogin=true;
+        }
+      }, err=>console.log());
+    }
+  }
 }

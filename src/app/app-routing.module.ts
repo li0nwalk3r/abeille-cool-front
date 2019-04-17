@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {ArticleComponent} from './article/article.component';
 import {ConnexionComponent} from './connexion/connexion.component';
 import {AppComponent} from './app.component';
 import {FormulaireCommandeClientComponent} from './formulaire-commande-client/formulaire-commande-client.component';
@@ -21,10 +22,14 @@ const routes: Routes = [
   {path: 'paiement', component: PaiementComponent},
   {path: 'commandeClient', component: FormulaireCommandeClientComponent},
   {path: 'actualite', component: AccueilComponent},
-  {path: 'facturation/:id', component: FacturationComponent}
+  {path: 'facturation/:id', component: FacturationComponent},
+  {path: 'article', component: ArticleComponent}
 ];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+

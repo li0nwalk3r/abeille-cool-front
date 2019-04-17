@@ -29,7 +29,7 @@ import { PaiementComponent } from './paiement/paiement.component';
     FournisseurProduitsComponent,
     ConnexionComponent,
     MonPanierComponent,
-    AdminFournReferComponent
+    AdminFournReferComponent,
     PaiementComponent
   ],
   imports: [

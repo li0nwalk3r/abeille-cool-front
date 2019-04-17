@@ -1,0 +1,12 @@
+<a href="#" class="lienNoir" *ngIf="!connect"><fa name="far fa-user-circle"></fa> Mon compte</a>
+
+<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" style="padding-top:0;" *ngIf="connect">
+  <fa name="far fa-user-circle"></fa> Mon compte
+</button>
+<div class="dropdown-menu" *ngIf="connect">
+  <a class="dropdown-item" href="#" >Mes informations</a>
+  <a class="dropdown-item" href="#">Mes évenements</a>
+  <a class="dropdown-item" href="#">Mes avis</a>
+  <a class="dropdown-item" href="#">Mes achats passés</a>
+  <a class="dropdown-item" href="#">Mes factures</a>
+</div>

@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { MonPanierComponent } from './mon-panier/mon-panier.component';
 import { CommandeFournisseurComponent } from './commande-fournisseur/commande-fournisseur.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -20,6 +21,8 @@ import {FournisseurProduitsComponent} from './fournisseur-produits/fournisseur-p
     FormulaireCommandeClientComponent,
     FournisseurProduitsComponent,
     AccueilComponent
+    MonPanierComponent,
+    ConnexionComponent
   ],
   imports: [
     FormsModule,
@@ -30,6 +33,9 @@ import {FournisseurProduitsComponent} from './fournisseur-produits/fournisseur-p
     ReactiveFormsModule
   ],
   providers: [],
+  exports: [
+    MonPanierComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

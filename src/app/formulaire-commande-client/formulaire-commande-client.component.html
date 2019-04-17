@@ -1,126 +1,120 @@
-<div class="container">
+<div class="container login-container">
   <h1 align="center">Passer la commande</h1>
   <div *ngIf="user; else notUser">
-    <div
-    <form action="" method="post">
-      <div class="form-group">
-        <label for="numTel">Vos adresses de facturation :</label>
-        <select *ngFor="el of ">
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
+      <div class="form-group login-form-1" align="center">
+        <label for="libelle">Vos adresses de facturation :</label><br>
+        <select id="libelle" [(ngModel)]="idCoor" (ngModelChange)="editCoordonnee()" >
+          <option *ngFor="let el of excoords" [value]="el.id" [text]="el.libelle" ></option>
         </select>
       </div>
-      <div class="form-group">
-        <label for="nom">Nom :</label>
-        <input type="text" class="form-control"
-               name="nom" id="nom" [(ngModel)]=""/>
+      <div *ngIf="coordonneeForm">
+        <div class="container">
+        <div class="form-group">
+          <label for="nom">Nom :</label>
+          <input type="text" class="form-control"
+                 name="nom" [(ngModel)]="coordonneeForm.nom"/>
+        </div>
+        <div class="form-group">
+          <label for="prenom">Prénom :</label>
+          <input type="text" class="form-control"
+                 id="prenom" [(ngModel)]="coordonneeForm.prenom"/>
+        </div>
+        <div class="form-group">
+          <label for="mail">Mail :</label>
+          <input type="email" class="form-control"
+                 id="mail" #mail="ngModel" [(ngModel)]="coordonneeForm.mail"/>
+          <div *ngIf="mail.invalid && (mail.dirty || mail.touched)" class="text-danger bg-light form-control-sm">
+            <div *ngIf="mail.errors.required">
+              Le mail est obligatoire au format text@domaine.com
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="numTel">Numéro de téléphone :</label>
+          <input type="text" class="form-control"
+                 name="numTel" [(ngModel)]="coordonneeForm.numTel"/>
+        </div>
+        <div class="form-group">
+          <label for="rue">Rue :</label>
+          <input type="text" class="form-control"
+                 id="rue" [(ngModel)]="coordonneeForm.rue"/>
+        </div>
+        <div class="form-group">
+          <label for="codePostal">Code Postal :</label>
+          <input type="text" class="form-control"
+                 id="codePostal" [(ngModel)]="coordonneeForm.codePostal"/>
+        </div>
+        <div class="form-group">
+          <label for="ville">Ville :</label>
+          <input type="text" class="form-control"
+                 id="ville" [(ngModel)]="coordonneeForm.ville"/>
+        </div>
+        <div class="form-group">
+          <label for="pays">Pays :</label>
+          <input type="text" class="form-control"
+                 id="pays" [(ngModel)]="coordonneeForm.pays"/>
+        </div>
+          <div class="form-group" align="right">
+            <button class="btn btn-success" [ngClass]="{'isDisabled': !coordonneeForm.nom || !coordonneeForm.prenom || !coordonneeForm.mail || !coordonneeForm.numTel || !coordonneeForm.rue || !coordonneeForm.codePostal || !coordonneeForm.ville || !coordonneeForm.pays}" [disabled]="!coordonneeForm.nom || !coordonneeForm.prenom || !coordonneeForm.mail || !coordonneeForm.numTel || !coordonneeForm.rue || !coordonneeForm.codePostal || !coordonneeForm.ville || !coordonneeForm.pays" (click)="saveCoordonnee()">
+              <fa name="fas fa-check"></fa> Paiement
+            </button>
+          </div>
       </div>
-      <div class="form-group">
-        <label for="prenom">Prénom :</label>
-        <input type="text" class="form-control"
-               name="prenom" id="prenom" [(ngModel)]=""/>
       </div>
-      <div class="form-group">
-        <label for="mail">Mail :</label>
-        <input type="email" class="form-control" placeholder="Mail :"
-               name="mail" id="mail" [(ngModel)]=""/>
-      </div>
-      <div class="form-group">
-        <label for="numTel">Numéro de téléphone :</label>
-        <input type="text" class="form-control"
-               name="numTel" id="numTel" [(ngModel)]=""/>
-      </div>
-      <div class="form-group">
-        <label for="libelle">Libellé :</label>
-        <input type="text" class="form-control"
-               name="libelle" id="libelle" [(ngModel)]=""/>
-      </div>
-      <div class="form-group">
-        <label for="rue">Rue :</label>
-        <input type="text" class="form-control"
-               name="rue" id="rue" [(ngModel)]=""/>
-      </div>
-      <div class="form-group">
-        <label for="codePostal">Code Postal :</label>
-        <input type="text" class="form-control"
-               name="codePostal" id="codePostal" [(ngModel)]=""/>
-      </div>
-      <div class="form-group">
-        <label for="ville">Ville :</label>
-        <input type="text" class="form-control"
-               name="ville" id="ville" [(ngModel)]=""/>
-      </div>
-      <div class="form-group">
-        <label for="pays">Pays :</label>
-        <input type="text" class="form-control"
-               name="pays" id="pays" [(ngModel)]=""/>
-      </div>
-      <div class="form-group" align="right">
-        <button>Paiement</button>
-      </div>
-    </form>
   </div>
   <ng-template #notUser>
-    <form action="" method="post">
+    <br><br>
+    <div class="container">
+      <div class="form-group">
+        <label for="libelle">Libellé de mon adresse :</label>
+        <input type="text" class="form-control"
+               name="libelle" [(ngModel)]="coordonneeForm.libelle"/>
+      </div>
       <div class="form-group">
         <label for="nom">Nom :</label>
         <input type="text" class="form-control"
-               name="nom" id="nom" [(ngModel)]=""/>
+               id="nom" [(ngModel)]="coordonneeForm.nom"/>
       </div>
       <div class="form-group">
         <label for="prenom">Prénom :</label>
         <input type="text" class="form-control"
-               name="prenom" id="prenom" [(ngModel)]=""/>
+               name="prenom"[(ngModel)]="coordonneeForm.prenom"/>
       </div>
       <div class="form-group">
         <label for="mail">Mail :</label>
-        <input type="email" class="form-control" placeholder="Mail :"
-               name="mail" id="mail" [(ngModel)]=""/>
+        <input type="email" class="form-control"
+               name="mail"[(ngModel)]="coordonneeForm.mail"/>
       </div>
       <div class="form-group">
         <label for="numTel">Numéro de téléphone :</label>
         <input type="text" class="form-control"
-               name="numTel" id="numTel" [(ngModel)]=""/>
-      </div>
-      <div class="form-group">
-        <label for="numTel">Vos adresses de facturation :</label>
-        <select [(ngModel)]="">
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="libelle">Libellé :</label>
-        <input type="text" class="form-control"
-               name="libelle" id="libelle" [(ngModel)]=""/>
+               id="numTel" [(ngModel)]="coordonneeForm.numTel"/>
       </div>
       <div class="form-group">
         <label for="rue">Rue :</label>
         <input type="text" class="form-control"
-               name="rue" id="rue" [(ngModel)]=""/>
+               name="rue" [(ngModel)]="coordonneeForm.rue"/>
       </div>
       <div class="form-group">
         <label for="codePostal">Code Postal :</label>
         <input type="text" class="form-control"
-               name="codePostal" id="codePostal" [(ngModel)]=""/>
+               name="codePostal" [(ngModel)]="coordonneeForm.codePostal"/>
       </div>
       <div class="form-group">
         <label for="ville">Ville :</label>
         <input type="text" class="form-control"
-               name="ville" id="ville" [(ngModel)]=""/>
+               name="ville" [(ngModel)]="coordonneeForm.ville"/>
       </div>
       <div class="form-group">
         <label for="pays">Pays :</label>
         <input type="text" class="form-control"
-               name="pays" id="pays" [(ngModel)]=""/>
+               name="pays" [(ngModel)]="coordonneeForm.pays"/>
       </div>
       <div class="form-group" align="right">
-        <button>Paiement</button>
+        <button class="btn btn-success" [ngClass]="{'isDisabled': !coordonneeForm.nom || !coordonneeForm.prenom || !coordonneeForm.mail || !coordonneeForm.numTel || !coordonneeForm.rue || !coordonneeForm.codePostal || !coordonneeForm.ville || !coordonneeForm.pays}" [disabled]="!coordonneeForm.nom || !coordonneeForm.prenom || !coordonneeForm.mail || !coordonneeForm.numTel || !coordonneeForm.rue || !coordonneeForm.codePostal || !coordonneeForm.ville || !coordonneeForm.pays" (click)="saveCoordonnee()">
+          <fa name="fas fa-check"></fa> Paiement
+        </button>
       </div>
-    </form>
+    </div>
   </ng-template>
 </div>

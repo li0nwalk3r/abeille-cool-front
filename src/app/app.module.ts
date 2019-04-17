@@ -12,6 +12,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { FormulaireCommandeClientComponent } from './formulaire-commande-client/formulaire-commande-client.component';
 // import {AccueilComponent} from './accueil/accueil.component';
 import {FournisseurProduitsComponent} from './fournisseur-produits/fournisseur-produits.component';
+import {AuthGuard} from "./auth.guard";
 import { AdministrateurFournisseursReferencesComponent } from './administrateur-fournisseurs-references/administrateur-fournisseurs-references.component';
 
 
@@ -33,7 +34,7 @@ import { AdministrateurFournisseursReferencesComponent } from './administrateur-
     AngularFontAwesomeModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   exports: [
     MonPanierComponent
   ],

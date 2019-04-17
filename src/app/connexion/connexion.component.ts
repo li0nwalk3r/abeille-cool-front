@@ -10,7 +10,9 @@ import {FormGroup} from "@angular/forms";
   styleUrls: ['./connexion.component.css']
 })
 export class ConnexionComponent implements OnInit {
-  erreurlogin: boolean=false;
+  temp: any;
+  idUtilisateur: any = 0;
+  erreurlogin: boolean = false;
   mailExist: any = false;
   notSameMail: boolean = true;
   mailverif: string = '';
@@ -23,12 +25,18 @@ export class ConnexionComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (sessionStorage.getItem("type")) {
+      this.router.navigate(['/index']);
+    }
   }
 
   save() {
 
     this.connexionService.save(this.utilisateurNouveau).subscribe(resp => {
         this.utilisateurNouveau = new Utilisateur();
+        this.temp=resp;
+        this.utilisateurEnregistre=this.temp;
+        this.login();
         this.router.navigate(['/index']);
       },
       err => console.log(err));
@@ -63,17 +71,30 @@ export class ConnexionComponent implements OnInit {
     }, err => console.log(err));
   }
 
+
   login() {
     if (this.utilisateurEnregistre.mail && this.utilisateurEnregistre.mdp) {
-      this.connexionService.login(this.utilisateurEnregistre).subscribe(resp=>{
-        if(resp){
-          alert("connecté");
-          this.erreurlogin=false;
-        }else{
+      this.connexionService.login(this.utilisateurEnregistre).subscribe(resp => {
+        this.idUtilisateur = resp;
+        console.log(this.idUtilisateur);
+        if (this.idUtilisateur != 0) {
+          this.connexionService.findId(this.idUtilisateur).subscribe(resp => {
+            this.temp = resp;
+            this.utilisateurEnregistre = this.temp;
+            sessionStorage.setItem("id", this.utilisateurEnregistre.id.toString());
+            sessionStorage.setItem("mail", this.utilisateurEnregistre.mail);
+            sessionStorage.setItem("type", this.utilisateurEnregistre.type);
+            this.erreurlogin = false;
+            this.utilisateurEnregistre = new Utilisateur();
+            this.idUtilisateur = 0;
+
+            alert("connecté" + sessionStorage.getItem("id") + sessionStorage.getItem("mail") + sessionStorage.getItem("type"));
+          }, err => console.log(err));
+        } else {
           alert("non connecté");
-          this.erreurlogin=true;
+          this.erreurlogin = true;
         }
-      }, err=>console.log());
+      }, err => console.log());
     }
   }
 }

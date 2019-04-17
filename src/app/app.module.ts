@@ -4,16 +4,22 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import {AccueilComponent} from './accueil/accueil.component';
+import {HttpClientModule} from '@angular/common/http';
+import { ActualiteDetailComponent } from './actualite-detail/actualite-detail.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AccueilComponent,
+    ActualiteDetailComponent
   ],
   imports: [
     AngularFontAwesomeModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

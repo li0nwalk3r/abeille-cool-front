@@ -15,9 +15,9 @@ const routes: Routes = [
   {path: 'fournisseur/mes-produits', component: FournisseurProduitsComponent},
   {path: 'administrateur/fournisseurs/references', component: AdministrateurFournisseursReferencesComponent},
   {path: 'commande-client', component: FormulaireCommandeClientComponent},
-  {path: 'mon-panier', component: MonPanierComponent}
-  {path: 'fournisseur/mes-produits', component: FournisseurProduitsComponent,canActivate:[AuthGuard],data: { roles: ["ADMINISTRATEUR","FOURNISSEUR"] }},
-  {path: 'index', component: AppComponent,canActivate:[AuthGuard]}
+  {path: 'mon-panier', component: MonPanierComponent},
+  // {path: 'fournisseur/mes-produits', component: FournisseurProduitsComponent,canActivate:[AuthGuard],data: { roles: ["ADMINISTRATEUR","FOURNISSEUR"] }},
+  // {path: 'index', component: AppComponent,canActivate:[AuthGuard]}
 ];
 
 @NgModule({

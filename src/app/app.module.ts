@@ -35,7 +35,6 @@ import { AdministrateurFournisseursReferencesComponent } from './administrateur-
     ReactiveFormsModule
   ],
   providers: [AuthGuard],
-  providers: [],
   exports: [
     MonPanierComponent
   ],

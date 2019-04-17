@@ -11,8 +11,7 @@ const routes: Routes = [
   {path: 'connexion', component: ConnexionComponent},
   {path: 'index', component: AppComponent},
   {path: 'fournisseur/mes-produits', component: FournisseurProduitsComponent},
-  {path: 'commandeClient', component: FormulaireCommandeClientComponent}
-  {path: 'index', component: AppComponent},
+  {path: 'commande-client', component: FormulaireCommandeClientComponent},
   {path: 'mon-panier', component: MonPanierComponent}
 ];
 

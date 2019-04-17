@@ -10,7 +10,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { FormulaireCommandeClientComponent } from './formulaire-commande-client/formulaire-commande-client.component';
-import {AccueilComponent} from './accueil/accueil.component';
+// import {AccueilComponent} from './accueil/accueil.component';
 import {FournisseurProduitsComponent} from './fournisseur-produits/fournisseur-produits.component';
 
 
@@ -20,7 +20,7 @@ import {FournisseurProduitsComponent} from './fournisseur-produits/fournisseur-p
     ConnexionComponent,
     FormulaireCommandeClientComponent,
     FournisseurProduitsComponent,
-    AccueilComponent
+    // AccueilComponent,
     MonPanierComponent,
     ConnexionComponent
   ],

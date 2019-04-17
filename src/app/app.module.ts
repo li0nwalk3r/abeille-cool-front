@@ -4,16 +4,18 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { CommandeFournisseurComponent } from './commande-fournisseur/commande-fournisseur.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CommandeFournisseurComponent
   ],
   imports: [
     AngularFontAwesomeModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

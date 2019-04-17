@@ -1,0 +1,125 @@
+<div class="card card-primary">
+  <div class="card-header">Liste de vos références</div>
+  <div class="card-body">
+    <!--<div class="form-group">
+      <label>Nom:</label>
+      <input type="text" class="form-control" [(ngModel)]="produitSearch" (ngModelChange)="search()">
+    </div>-->
+    <table class="table table-striped">
+      <tr>
+        <!--<th>Identifiant</th>-->
+        <th>Nom</th>
+        <th>Description</th>
+        <th>Quantité</th>
+        <th>Unité</th>
+        <th>Prix Unitaire HT</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let produit of list()">
+        <!--<td>{{produit.id}}</td>-->
+        <td>{{produit.nom}}</td>
+        <td>{{produit.description}}</td>
+        <td>{{produit.qte}}</td>
+        <td>{{produit.unite}}</td>
+        <td>{{produit.prixUnitaireHT}}</td>
+        <td>
+          <div class="btn-group btn-group-xs">
+            <button class="btn btn-success" (click)="edit(produit.id)">
+              <fa name="fas fa-edit fa-2x"></fa>
+            </button>
+            <button class="btn btn-danger" (click)="remove(produit.id)">
+              <fa name="fas fa-trash fa-2x"></fa>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="card-footer">
+    <button class="btn btn-primary" (click)="add()">
+      <fa name="fas fa-plus-circle fa-2x"></fa>
+    </button>
+  </div>
+</div>
+
+<form #fopr="ngForm" novalidate>
+<div class="card card-primary" *ngIf="produitForm">
+  <div class="card-header">Déterminez votre produit</div>
+  <div class="card-body">
+    <div class="form-group">
+      <label for="nom">Nom:</label>
+      <input type="text" class="form-control" id="nom" name="nom" #nom="ngModel" [(ngModel)]="produitForm.nom" required>
+      <div *ngIf="nom.invalid && (nom.dirty || nom.touched)" class="text-danger bg-light form-control-sm">
+        <div *ngIf="nom.errors.required">
+          Le nom du produit est obligatoire.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <input type="text" class="form-control" id="description" name="description"  [(ngModel)]="produitForm.description">
+
+    </div>
+    <div class="form-group">
+      <label for="qte">Quantité:</label>
+      <input type="number" min = "0" class="form-control" id="qte" name="qte" #qte="ngModel" [(ngModel)]="produitForm.qte" required>
+      <div *ngIf="qte.invalid && (qte.dirty || qte.touched)" class="text-danger bg-light form-control-sm">
+        <div *ngIf="qte.errors.required">
+          La quantité du produit est obligatoire.
+        </div>
+      </div>
+    </div>
+
+   <!-- Si on veut rentrer bêtement l'unité.
+    <div class="form-group">
+      <label for="unite">Unité:</label>
+      <input type="text" class="form-control" id="unite" [(ngModel)]="produitForm.unite">
+    </div>-->
+
+    <div class="form-group">
+      <label for="unite">Unité:</label>
+      <select class="form-control" id="unite" name="unite" #unite="ngModel" [(ngModel)]="produitForm.unite" required>
+        <option *ngFor="let unite of listUnite()" [value]="unite">{{unite}}</option>
+      </select>
+
+      <div *ngIf="unite.invalid && (unite.dirty || unite.touched)" class="text-danger bg-light form-control-sm">
+        <div *ngIf="unite.errors.required">
+          L'unité du produit est nécessaire.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Si on veut une liste déroulante entrée en dur. <div class="form-group">
+      <label for="unite">Unité:</label>
+      <select class="form-control" id="unite" [(ngModel)]="produitForm.unite">
+        <option value="Unite">Unite</option>
+        <option value="g">Gramme</option>
+        <option value="kg">Kilogramme</option>
+        <option value="cL">Centilitre</option>
+      </select>
+    </div>-->
+
+    <div class="form-group">
+      <label for="prixUnitaireHT">Prix Unitaire Hors Taxe:</label>
+      <input type="text" class="form-control" id="prixUnitaireHT" name="prixUnitaireHT" #prixUnitaireHT="ngModel" [(ngModel)]="produitForm.prixUnitaireHT" required>
+      <div *ngIf="prixUnitaireHT.invalid && (prixUnitaireHT.dirty || prixUnitaireHT.touched)" class="text-danger bg-light form-control-sm">
+        <div *ngIf="prixUnitaireHT.errors.required">
+          Le prix HT du produit est nécessaire.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="btn-group">
+      <button class="btn btn-success" (click)="save()" [disabled]="fopr.invalid">
+        <fa name="fas fa-check fa-2x"></fa>
+      </button>
+      <button class="btn btn-warning" (click)="cancel()">
+        <fa name="fas fa-undo fa-2x"></fa>
+      </button>
+    </div>
+  </div>
+</div>
+</form>
+

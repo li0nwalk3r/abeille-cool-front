@@ -7,6 +7,7 @@ import {CommandeFournisseurComponent} from './commande-fournisseur/commande-four
 import {FournisseurProduitsComponent} from "./fournisseur-produits/fournisseur-produits.component";
 import {AdministrateurFournisseursReferencesComponent} from "./administrateur-fournisseurs-references/administrateur-fournisseurs-references.component";
 import {MonPanierComponent} from "./mon-panier/mon-panier.component";
+import {PaiementComponent} from './paiement/paiement.component';
 
 const routes: Routes = [
   {path: 'connexion', component: ConnexionComponent},
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path: 'fournisseur/mes-produits', component: FournisseurProduitsComponent},
   {path: 'administrateur/fournisseurs/references', component: AdministrateurFournisseursReferencesComponent},
   {path: 'commande-client', component: FormulaireCommandeClientComponent},
-  {path: 'mon-panier', component: MonPanierComponent}
+  {path: 'mon-panier', component: MonPanierComponent},
+  {path: 'paiement', component: PaiementComponent}
 ];
 
 @NgModule({

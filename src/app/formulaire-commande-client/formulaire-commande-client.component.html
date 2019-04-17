@@ -55,7 +55,7 @@
                  id="pays" [(ngModel)]="coordonneeForm.pays"/>
         </div>
           <div class="form-group" align="right">
-            <button class="btn btn-success" [ngClass]="{'isDisabled': !coordonneeForm.nom || !coordonneeForm.prenom || !coordonneeForm.mail || !coordonneeForm.numTel || !coordonneeForm.rue || !coordonneeForm.codePostal || !coordonneeForm.ville || !coordonneeForm.pays}" [disabled]="!coordonneeForm.nom || !coordonneeForm.prenom || !coordonneeForm.mail || !coordonneeForm.numTel || !coordonneeForm.rue || !coordonneeForm.codePostal || !coordonneeForm.ville || !coordonneeForm.pays" (click)="saveCoordonnee()">
+            <button class="btn btn-success" routerLink="/paiement" routerLinkActive="active" [ngClass]="{'isDisabled': !coordonneeForm.nom || !coordonneeForm.prenom || !coordonneeForm.mail || !coordonneeForm.numTel || !coordonneeForm.rue || !coordonneeForm.codePostal || !coordonneeForm.ville || !coordonneeForm.pays}" [disabled]="!coordonneeForm.nom || !coordonneeForm.prenom || !coordonneeForm.mail || !coordonneeForm.numTel || !coordonneeForm.rue || !coordonneeForm.codePostal || !coordonneeForm.ville || !coordonneeForm.pays" (click)="saveCoordonnee()">
               <fa name="fas fa-check"></fa> Paiement
             </button>
           </div>
@@ -111,9 +111,9 @@
                name="pays" [(ngModel)]="coordonneeForm.pays"/>
       </div>
       <div class="form-group" align="right">
-        <button class="btn btn-success" [ngClass]="{'isDisabled': !coordonneeForm.nom || !coordonneeForm.prenom || !coordonneeForm.mail || !coordonneeForm.numTel || !coordonneeForm.rue || !coordonneeForm.codePostal || !coordonneeForm.ville || !coordonneeForm.pays}" [disabled]="!coordonneeForm.nom || !coordonneeForm.prenom || !coordonneeForm.mail || !coordonneeForm.numTel || !coordonneeForm.rue || !coordonneeForm.codePostal || !coordonneeForm.ville || !coordonneeForm.pays" (click)="saveCoordonnee()">
+        <a class="btn btn-success" routerLink="/paiement" routerLinkActive="active" [ngClass]="{'isDisabled': !coordonneeForm.nom || !coordonneeForm.prenom || !coordonneeForm.mail || !coordonneeForm.numTel || !coordonneeForm.rue || !coordonneeForm.codePostal || !coordonneeForm.ville || !coordonneeForm.pays}" [disabled]="!coordonneeForm.nom || !coordonneeForm.prenom || !coordonneeForm.mail || !coordonneeForm.numTel || !coordonneeForm.rue || !coordonneeForm.codePostal || !coordonneeForm.ville || !coordonneeForm.pays" (click)="saveCoordonnee()">
           <fa name="fas fa-check"></fa> Paiement
-        </button>
+        </a>
       </div>
     </div>
   </ng-template>

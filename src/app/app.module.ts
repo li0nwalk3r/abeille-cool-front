@@ -13,6 +13,7 @@ import { FormulaireCommandeClientComponent } from './formulaire-commande-client/
 // import {AccueilComponent} from './accueil/accueil.component';
 import {FournisseurProduitsComponent} from './fournisseur-produits/fournisseur-produits.component';
 import { AdministrateurFournisseursReferencesComponent } from './administrateur-fournisseurs-references/administrateur-fournisseurs-references.component';
+import { PaiementComponent } from './paiement/paiement.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { AdministrateurFournisseursReferencesComponent } from './administrateur-
     FournisseurProduitsComponent,
     ConnexionComponent,
     MonPanierComponent,
-    AdministrateurFournisseursReferencesComponent
+    AdministrateurFournisseursReferencesComponent,
+    PaiementComponent
   ],
   imports: [
     FormsModule,

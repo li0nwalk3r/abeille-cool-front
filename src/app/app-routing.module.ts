@@ -4,11 +4,12 @@ import {ConnexionComponent} from './connexion/connexion.component';
 import {AppComponent} from "./app.component";
 import {CommandeFournisseurComponent} from './commande-fournisseur/commande-fournisseur.component';
 import {FournisseurProduitsComponent} from "./fournisseur-produits/fournisseur-produits.component";
+import {AuthGuard} from "./auth.guard";
 
 const routes: Routes = [
   {path: 'connexion', component: ConnexionComponent},
-  {path: 'fournisseur/mes-produits', component: FournisseurProduitsComponent},
-  {path: 'index', component: AppComponent}
+  {path: 'fournisseur/mes-produits', component: FournisseurProduitsComponent,canActivate:[AuthGuard],data: { roles: ["ADMINISTRATEUR","FOURNISSEUR"] }},
+  {path: 'index', component: AppComponent,canActivate:[AuthGuard]}
 ];
 
 @NgModule({

@@ -9,6 +9,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {FournisseurProduitsComponent} from './fournisseur-produits/fournisseur-produits.component';
+import {AuthGuard} from "./auth.guard";
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import {FournisseurProduitsComponent} from './fournisseur-produits/fournisseur-p
     AngularFontAwesomeModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

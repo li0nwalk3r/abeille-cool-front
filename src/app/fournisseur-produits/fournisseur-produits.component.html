@@ -57,11 +57,21 @@
       <label for="qte">Quantité:</label>
       <input type="text" class="form-control" id="qte" [(ngModel)]="produitForm.qte">
     </div>
+
+   <!-- Si on veut rentrer bêtement l'unité.
     <div class="form-group">
       <label for="unite">Unité:</label>
       <input type="text" class="form-control" id="unite" [(ngModel)]="produitForm.unite">
+    </div>-->
+
+    <div class="form-group">
+      <label for="unite">Unité:</label>
+      <select class="form-control" id="unite" [(ngModel)]="produitForm.unite">
+        <option *ngFor="let unite of listUnite()" [value]="unite">{{unite}}</option>
+      </select>
     </div>
-<!--    <div class="form-group">
+
+    <!-- Si on veut une liste déroulante entrée en dur. <div class="form-group">
       <label for="unite">Unité:</label>
       <select class="form-control" id="unite" [(ngModel)]="produitForm.unite">
         <option value="Unite">Unite</option>
@@ -70,6 +80,7 @@
         <option value="cL">Centilitre</option>
       </select>
     </div>-->
+
     <div class="form-group">
       <label for="prixUnitaireHT">Prix Unitaire Hors Taxe:</label>
       <input type="text" class="form-control" id="prixUnitaireHT" [(ngModel)]="produitForm.prixUnitaireHT">

@@ -1,0 +1,95 @@
+@media screen {
+  .vertical-menu {
+    width: 200px;
+  }
+
+
+  .lienNoir {
+    text-decoration: none;
+    color: black;
+  }
+
+  .lienBlanc {
+    text-decoration: none;
+    color: white;
+  }
+
+  .vertical-menu a {
+    background-color: #eee;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+  }
+
+  .login-form-2 {
+    background: #f4a60e;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .vertical-menu a:hover {
+    background-color: #ccc;
+  }
+
+  .vertical-menu a.active {
+    background-color: #4CAF50;
+  }
+
+  /* Remove the navbar's default margin-bottom and rounded borders */
+  #navb {
+    height: 80px;
+    padding-top: 50px;
+  }
+
+  /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+  .row.content {
+    height: 450px;
+    width: 100%;
+  }
+
+  /* Set gray background color and 100% height */
+  .sidenav {
+    padding-top: 20px;
+    background-color: #f1f1f1;
+    height: 100%;
+  }
+
+  .bordure {
+    border-left-style: none;
+    border-right-style: none;
+  }
+
+  .liste {
+    border-style: none;
+    padding-left: 40px;
+    color: white
+  }
+
+  a:hover {
+    text-decoration: none;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #999;
+  }
+
+  tr:hover {
+    background-color: #f2c97d;
+
+  }
+
+  .hydromel {
+    text-align: left;
+    border-style: none;
+  }
+
+  .table table-bordered a {
+    color: white;
+    text-decoration: none;
+  }
+
+}
+
+@media print
+{
+  table table-bordered, col-sm-2 sidenav login-form-2, tr, td, a{
+    display: none;
+  }
+}

@@ -8,22 +8,29 @@ import { MonPanierComponent } from './mon-panier/mon-panier.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { BtnConnectComponent } from './btn-connect/btn-connect.component';
+import { FacturationComponent } from './facturation/facturation.component';
 import { FormulaireCommandeClientComponent } from './formulaire-commande-client/formulaire-commande-client.component';
 // import {AccueilComponent} from './accueil/accueil.component';
 import {FournisseurProduitsComponent} from './fournisseur-produits/fournisseur-produits.component';
-import {AuthGuard} from './auth.guard';
 import { AdminFournReferComponent } from './admin-fourn-refer/admin-fourn-refer.component';
+import {AuthGuard} from "./auth.guard";
+import { PaiementComponent } from './paiement/paiement.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ConnexionComponent,
+    BtnConnectComponent,
+    FacturationComponent,
+    ConnexionComponent,
     FormulaireCommandeClientComponent,
     FournisseurProduitsComponent,
     ConnexionComponent,
     MonPanierComponent,
     AdminFournReferComponent
+    PaiementComponent
   ],
   imports: [
     FormsModule,

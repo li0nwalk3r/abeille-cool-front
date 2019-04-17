@@ -18,10 +18,10 @@ const routes: Routes = [
   {path: 'mon-panier', component: MonPanierComponent},
   // {path: 'fournisseur/mes-produits', component: FournisseurProduitsComponent,canActivate:[AuthGuard],data: { roles: ["ADMINISTRATEUR","FOURNISSEUR"] }},
   // {path: 'index', component: AppComponent,canActivate:[AuthGuard]}
-];
+
   {path: 'commandeClient', component: FormulaireCommandeClientComponent},
   {path: 'facturation/:id', component: FacturationComponent}
-
+];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

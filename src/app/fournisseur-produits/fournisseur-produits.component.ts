@@ -29,6 +29,10 @@ export class FournisseurProduitsComponent implements OnInit {
     return this.fournisseurProduitsService.findAll();
   }
 
+  listUnite(): Array<object> {
+    return this.fournisseurProduitsService.findAllUnite();
+  }
+
   add() {
     this.produitForm = new Produit();
   }

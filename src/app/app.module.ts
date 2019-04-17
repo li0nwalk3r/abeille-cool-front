@@ -8,19 +8,25 @@ import { CommandeFournisseurComponent } from './commande-fournisseur/commande-fo
 import { ConnexionComponent } from './connexion/connexion.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { FormulaireCommandeClientComponent } from './formulaire-commande-client/formulaire-commande-client.component';
+import {AccueilComponent} from './accueil/accueil.component';
+import {FournisseurProduitsComponent} from './fournisseur-produits/fournisseur-produits.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    FormulaireCommandeClientComponent,
+    FournisseurProduitsComponent,
+    AccueilComponent
   ],
   imports: [
-    AngularFontAwesomeModule,
-    BrowserModule,
-    AppRoutingModule,
     FormsModule,
+    BrowserModule,
     HttpClientModule,
+    AppRoutingModule,
+    AngularFontAwesomeModule,
     ReactiveFormsModule
   ],
   providers: [],

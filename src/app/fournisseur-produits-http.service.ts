@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Produit} from "./fournisseur-produits/produit";
-import {Observable} from "rxjs";
+import {HttpClient} from '@angular/common/http';
+import {Produit} from './fournisseur-produits/produit';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FournisseurProduitsHttpService {
   produits: any;
+  unites: any;
 
   constructor(private http: HttpClient) {
     this.load();
+    this.loadUnite();
   }
 
   load() {
@@ -21,8 +23,20 @@ export class FournisseurProduitsHttpService {
         err => console.log(err));
   }
 
+  loadUnite() {
+    this.http.get('http://localhost:8080/unite')
+      .subscribe(resp => {
+          this.unites = resp;
+        },
+        err => console.log(err));
+  }
+
   findAll(): Array<Produit> {
     return this.produits;
+  }
+
+  findAllUnite(): Array<object> {
+    return this.unites;
   }
 
   findById(id: number): Observable<any> {

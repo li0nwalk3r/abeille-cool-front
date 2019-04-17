@@ -17,7 +17,7 @@ const routes: Routes = [
   {path: 'administrateur/fournisseurs/references', component: AdministrateurFournisseursReferencesComponent},
   {path: 'commande-client', component: FormulaireCommandeClientComponent},
   {path: 'mon-panier', component: MonPanierComponent},
-  {path: 'paiement', component: PaiementComponent}
+  {path: 'paiement', component: PaiementComponent},
   {path: 'commandeClient', component: FormulaireCommandeClientComponent},
   {path: 'facturation/:id', component: FacturationComponent}
 ];

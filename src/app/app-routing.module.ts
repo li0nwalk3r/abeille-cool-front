@@ -20,7 +20,7 @@ const routes: Routes = [
   {path: 'mon-panier', component: MonPanierComponent},
   {path: 'paiement', component: PaiementComponent},
   {path: 'commandeClient', component: FormulaireCommandeClientComponent},
-  {path: 'facturation/:id', component: FacturationComponent}
+  {path: 'facturation/:id', component: FacturationComponent},
   {path: 'article', component: ArticleComponent}
 
 ];

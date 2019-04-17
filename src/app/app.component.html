@@ -5,23 +5,43 @@
           <a class="navbar-brand" href="https://fr.dreamstime.com/photographie-stock-refroidissez-l-abeille-image16536572" style="padding:0;"><img src="assets/abeille.jpg"></a>
         </div>
         <div class="col-5"></div>
-        <div class="col-2"><a href="#"><button>Vous êtes un fournisseur <fa name="fas fa-leaf"></fa></button></a></div>
-        <div class="col-1"><a href="#"><fa name="far fa-question-circle"></fa> Besoin d'aide</a></div>
-        <div class="dropdown" style="height:30px;">
-         <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" style="padding-top:0;">
-           <fa name="far fa-user-circle"></fa> Mon compte
-      </button>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">Mes informations</a>
-        <a class="dropdown-item" href="#">Mes évenements</a>
-        <a class="dropdown-item" href="#">Mes avis</a>
-        <a class="dropdown-item" href="#">Mes achats passés</a>
-        <a class="dropdown-item" href="#">Mes factures</a>
-      </div>
-    </div>
-        <div class="col-1"><a href="#"><fa name="fas fa-shopping-cart"></fa> Panier</a></div>
+        <div class="col-2"></div>
+        <div class="col-1"><a href="#" class="lienNoir"><fa name="far fa-question-circle"></fa> Besoin d'aide</a></div>
+        <div class="col-1"><div class="dropdown" style="height:30px;">
+        <app-btn-connect></app-btn-connect>
+         </div>
+        </div>
+        <div class="col-1"><a href="#" class="lienNoir"><fa name="fas fa-shopping-cart"></fa> Panier</a></div>
 </div>
 </nav>
 
 
+  <!-- Navbar latérale -->
+
+  <div class="row h-100">
+    <div class="col-sm-2 sidenav login-form-2" style="background-color:#f4a60e">
+      <table class="table table-bordered" style="margin-left:5px;color:white;border-style:none">
+        <tr ><td class="bordure"><a href="#" class="lienBlanc" >Accueil</a></td></tr>
+        <tr><td class="hydromel"><a href="#" class="lienBlanc">Les hydromels</a></td></tr>
+        <tr><td class="hydromel"><a href="#" class="liste">	Les classiques</a></td></tr>
+        <tr><td class="hydromel"><a href="#" class="liste">	Les rhodomels</a></td></tr>
+        <tr><td class="hydromel"><a href="#" class="liste">	Les mélomels</a></td></tr>
+        <tr><td class="hydromel"><a href="#" class="liste">	Les broggots</a></td></tr>
+        <tr><td class="hydromel"><a href="#" class="liste">	Les oxymels</a></td></tr>
+        <tr><td class="hydromel"><a href="#" class="liste">	Les oenomels</a></td></tr>
+        <tr><td class="bordure"><a href="#" class="lienBlanc">Les évenements</a></td></tr>
+        <tr><td class="bordure"><a href="#" class="lienBlanc">Le livre d'or</a></td></tr>
+        <tr><td class="bordure"><a href="#" class="lienBlanc">Contact</a></td></tr>
+      </table>
+      <!-- <iframe src="http://winky.fr/winky_widget_calendar/?wid=0&m=12&y=2019" style="width: 150px; height: 150px; border: none;"></iframe>-->
+    </div>
+    <div class="col-sm-10 text-left" style="padding-top:50px;padding-left:50px;">
+      <app-facturation></app-facturation>
+    </div>
+
+  </div>
+</div>
+
+
 <router-outlet></router-outlet>
+

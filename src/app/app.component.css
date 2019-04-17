@@ -2,7 +2,11 @@
   width: 200px;
 }
 
-a{text-decoration : none;
+
+.lienNoir{text-decoration : none;
+  color:black;}
+
+.lienBlanc{text-decoration : none;
   color:white;}
 
 .vertical-menu a {
@@ -12,6 +16,10 @@ a{text-decoration : none;
   text-decoration: none;
 }
 
+.login-form-2{
+  background: #f4a60e;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
 .vertical-menu a:hover {
   background-color: #ccc;
 }
@@ -37,15 +45,31 @@ a{text-decoration : none;
 }
 
 .bordure{
-  border-style:solid;
-  border-color:white;
+  border-left-style:none;
+  border-right-style:none;
 }
 
 .liste{
   border-style: none;
-  padding-left:20px;}
+  padding-left:40px;
+  color:white}
 
 a:hover{
   text-decoration:none;
   font-weight:bold;
+  text-shadow: 2px 2px 4px #999;
+}
+
+tr:hover{
+  background-color: #f2c97d;
+
+}
+.hydromel{
+  text-align:left;
+  border-style:none;
+}
+
+.table table-bordered a{
+  color:white;
+  text-decoration: none;
 }

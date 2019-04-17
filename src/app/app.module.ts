@@ -9,13 +9,15 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {FournisseurProduitsComponent} from './fournisseur-produits/fournisseur-produits.component';
+import { AdministrateurFournisseursReferencesComponent } from './administrateur-fournisseurs-references/administrateur-fournisseurs-references.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     FournisseurProduitsComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    AdministrateurFournisseursReferencesComponent
   ],
   imports: [
     FormsModule,

@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {ConnexionComponent} from './connexion/connexion.component';
+import {AppComponent} from "./app.component";
 import {CommandeFournisseurComponent} from './commande-fournisseur/commande-fournisseur.component';
 
 const routes: Routes = [
-  {path: 'commandeFournisseur', component: CommandeFournisseurComponent},
+  {path: 'connexion', component: ConnexionComponent},
+  {path: 'index', component: AppComponent}
 ];
 
 @NgModule({

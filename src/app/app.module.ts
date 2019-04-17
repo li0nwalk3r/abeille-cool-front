@@ -14,7 +14,7 @@ import {FournisseurProduitsComponent} from './fournisseur-produits/fournisseur-p
 @NgModule({
   declarations: [
     AppComponent,
-    FournisseurProduitsComponent
+    FournisseurProduitsComponent,
     ConnexionComponent
   ],
   imports: [
@@ -22,7 +22,7 @@ import {FournisseurProduitsComponent} from './fournisseur-produits/fournisseur-p
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
     ReactiveFormsModule
   ],
   providers: [],

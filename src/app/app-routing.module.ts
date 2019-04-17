@@ -12,7 +12,7 @@ const routes: Routes = [
   {path: 'connexion', component: ConnexionComponent},
   {path: 'index', component: AppComponent},
   {path: 'fournisseur/mes-produits', component: FournisseurProduitsComponent},
-  {path: 'administrateur/fournisseurs/references', component: AdministrateurFournisseursReferencesComponent}
+  {path: 'administrateur/fournisseurs/references', component: AdministrateurFournisseursReferencesComponent},
   {path: 'commande-client', component: FormulaireCommandeClientComponent},
   {path: 'mon-panier', component: MonPanierComponent}
 ];

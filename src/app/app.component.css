@@ -1,0 +1,51 @@
+.vertical-menu {
+  width: 200px;
+}
+
+a{text-decoration : none;
+  color:white;}
+
+.vertical-menu a {
+  background-color: #eee;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.vertical-menu a:hover {
+  background-color: #ccc;
+}
+
+.vertical-menu a.active {
+  background-color: #4CAF50;
+}
+/* Remove the navbar's default margin-bottom and rounded borders */
+#navb{
+  height:80px;
+  padding-top:50px;
+}
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {height: 450px;
+              width:100%;}
+
+/* Set gray background color and 100% height */
+.sidenav {
+  padding-top: 20px;
+  background-color: #f1f1f1;
+  height: 100%;
+}
+
+.bordure{
+  border-style:solid;
+  border-color:white;
+}
+
+.liste{
+  border-style: none;
+  padding-left:20px;}
+
+a:hover{
+  text-decoration:none;
+  font-weight:bold;
+}

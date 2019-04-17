@@ -1,0 +1,66 @@
+
+<h1>Facture</h1>
+<p></p>
+<p>Date : {{facture?.date}}<br>
+Référence : {{facture?.ref}}</p>
+<p></p>
+<div class="row">
+  <div class="col-6">
+  <h4>Adresse facturation</h4>
+    <p> Nom Prénom<br>
+      Rue <br>
+      Code postal Ville <br>
+      Pays <br> <br> <br></p>
+  </div>
+
+<div class="col-6">
+  <h4>Adresse société</h4>
+  <p>{{admin?.nom}} {{admin?.prenom}} <br>
+     {{admin?.rue}} <br>
+     {{admin?.codePostal}} {{admin?.ville}} <br>
+     {{admin?.pays}} <br> <br> <br></p>
+</div>
+</div>
+<div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Libellé</th>
+      <th>Prix unitaire</th>
+      <th>Quantité</th>
+      <th>Prix total</th>
+    </tr>
+    </thead>
+    <tr>
+      <td>Libellé</td>
+      <td>Prix</td>
+      <td>Qte</td>
+      <td>prix total</td>
+    </tr>
+    <tr>
+      <td>Libellé</td>
+      <td>Prix</td>
+      <td>Qte</td>
+      <td>prix total</td>
+    </tr>
+    <tr>
+      <td>Libellé</td>
+      <td>Prix</td>
+      <td>Qte</td>
+      <td>prix total</td>
+    </tr>
+    <tfoot>
+
+      <td></td>
+      <td></td>
+      <th style="text-align:right;">Total </th>
+      <th>prix total</th>
+    </tfoot>
+  </table>
+  <br>
+  <div class="row">
+    <div class="col-10"></div>
+    <div class="col-2"><button class="btn btn-secondary" (click)="imprimer();">Imprimer <fa name="fas fa-print"></fa></button></div>
+  </div>
+
+</div>

@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {Produit} from '../model/produit';
-import {Unite} from '../model/unite';
-import {FournisseurProduitsHttpService} from '../fournisseur-produits-http.service';
+import {Produit} from "../model/produit";
+import {FournisseurProduitsHttpService} from "../fournisseur-produits-http.service";
 
 @Component({
-  selector: 'app-fournisseur-produits',
-  templateUrl: './fournisseur-produits.component.html',
-  styleUrls: ['./fournisseur-produits.component.css']
+  selector: 'app-admin-fourn-refer',
+  templateUrl: './admin-fourn-refer.component.html',
+  styleUrls: ['./admin-fourn-refer.component.css']
 })
-export class FournisseurProduitsComponent implements OnInit {
+export class AdminFournReferComponent implements OnInit {
 
   produitSearch: string = null;
   produitForm: Produit = null;

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MonPanierComponent } from './mon-panier.component';
+import { BtnConnectComponent } from './btn-connect.component';
 
-describe('MonPanierComponent', () => {
-  let component: MonPanierComponent;
-  let fixture: ComponentFixture<MonPanierComponent>;
+describe('BtnConnectComponent', () => {
+  let component: BtnConnectComponent;
+  let fixture: ComponentFixture<BtnConnectComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MonPanierComponent ]
+      declarations: [ BtnConnectComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MonPanierComponent);
+    fixture = TestBed.createComponent(BtnConnectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

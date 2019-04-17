@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Produit} from './model/produit';
-import {Observable} from 'rxjs';
+import {HttpClient} from "@angular/common/http";
+import {Produit} from "./model/produit";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
-export class FournisseurProduitsHttpService {
+export class AdminFournReferService {
   produits: any;
   unites: any;
 

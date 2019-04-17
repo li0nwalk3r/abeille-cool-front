@@ -10,14 +10,15 @@ import {Coordonnee} from '../model/coordonnee';
   styleUrls: ['./formulaire-commande-client.component.css']
 })
 export class FormulaireCommandeClientComponent implements OnInit {
+  idCoor: number
   user : boolean;
   clientForm: Client = null;
-  coordonneeForm: Coordonnee = null;
   excli : Client;
   excoords : Array<Coordonnee>;
+  coordonneeForm : Coordonnee = new Coordonnee();
 
   constructor(private clientService: ClientHttpService, private coordonneeService: CoordonneeHttpService) {
-    this.user = true;
+    this.user = false;
     this.clientService.findById(71).subscribe(resp => {this.excli=resp},
       err => console.log(err));
     this.coordonneeService.findByClientId(71).subscribe(resp => {this.excoords=resp},
@@ -35,14 +36,14 @@ export class FormulaireCommandeClientComponent implements OnInit {
     this.coordonneeForm = new Coordonnee();
   }
 
-  editCoordonnee(id: number) {
-    this.coordonneeService.findById(id).subscribe(resp => {this.coordonneeForm = resp})
+  editCoordonnee() {
+    this.coordonneeService.findById(this.idCoor).subscribe(resp => {this.coordonneeForm = resp})
   }
 
   saveCoordonnee() {
     this.coordonneeService.save(this.coordonneeForm);
 
-    this.coordonneeForm = null;
+    this.coordonneeForm = new Coordonnee();;
   }
 
   removeCoordonnee(id: number) {

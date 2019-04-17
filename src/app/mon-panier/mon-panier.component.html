@@ -12,22 +12,20 @@
         <th>Type de miel</th>
         <th>Volume</th>
         <th>Degré</th>
-        <th>Date de mise en bouteille</th>
         <th>Prix</th>
         <th>Stock disponible</th>
         <th>Nombre achetés</th>
         <th></th>
       </tr>
-<!--      <tr *ngFor="let el of list()">-->
-<!--        <td>{{el.id}}</td>-->
-<!--        <td>{{el.version}}</td>-->
-<!--        <td>{{el.civilite}}</td>-->
-<!--        <td>{{el.nom}}</td>-->
-<!--        <td>{{el.prenom}}</td>-->
-<!--        <td>{{el.dtNaissance}}</td>-->
-<!--        <td>{{el.adr?.rue}}</td>-->
-<!--        <td>{{el.adr?.codePostal}}</td>-->
-<!--        <td>{{el.adr?.ville}}</td>-->
+      <tr *ngFor="let el of list()">
+        <td>{{el.article.nom}}</td>
+        <td>{{el.article.typeHydromel}}</td>
+        <td>{{el.article.typeMiel}}</td>
+        <td>{{el.article.volume}}</td>
+        <td>{{el.article.degreAlcool}}</td>
+        <td>{{el.article.prix}}</td>
+        <td>{{el.article.qte}}</td>
+        <td>{{el.qte}}</td>
 <!--        <td>-->
 <!--          <div class="btn-group btn-group-xs">-->
 <!--            <button class="btn btn-info" (click)="edit(el.id)">-->
@@ -38,7 +36,7 @@
 <!--            </button>-->
 <!--          </div>-->
 <!--        </td>-->
-<!--      </tr>-->
+      </tr>
     </table>
   </div>
 <!--  <div class="card-footer">-->

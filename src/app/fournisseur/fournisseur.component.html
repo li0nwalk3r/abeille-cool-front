@@ -1,0 +1,51 @@
+<div class="container">
+  <h3>Edition de mon profil</h3>
+  <form #fournisseur="ngForm" novalidate>
+    <!--        <div *ngIf="erreurlogin &&(mail1.dirty || mail1.touched)&&(mdp1.dirty || mdp1.touched)"-->
+    <!--             class="text-danger bg-light form-control-sm">-->
+    <!--          <div *ngIf="erreurlogin">-->
+    <!--            La combinaison email et mot de passe est invalide-->
+    <!--          </div>-->
+    <!--        </div>-->
+    <div class="form-group">
+      <label for="mail">e-mail :</label>
+      <input type="email" class="form-control" placeholder="e-mail" required
+             name="mail" id="mail"/>
+
+      <!--          <div *ngIf="mail1.invalid && (mail1.dirty || mail1.touched)" class="text-danger bg-light form-control-sm">-->
+      <!--            <div *ngIf="mail1.errors.required">-->
+      <!--              Le mail est obligatoire au format text@domaine.com-->
+      <!--            </div>-->
+      <!--          </div>-->
+    </div>
+    <div class="form-group">
+      <label for="raisonSociale">raison sociale :</label>
+      <input type="text" class="form-control" placeholder="raison sociale" required
+             name="raisonSociale" id="raisonSociale"/>
+    </div>
+    <div class="form-group">
+      <label for="siret">siret :</label>
+      <input type="text" class="form-control" placeholder="siret" required
+             name="siret" id="siret"/>
+    </div>
+    <div class="form-group">
+      <label for="statutJuridique">statut juridique :</label>
+      <input type="text" class="form-control" placeholder="statut juridique" required
+             name="statutJuridique" id="statutJuridique"/>
+    </div>
+    <div class="form-group">
+      <label for="numeroTVA">numéro de TVA :</label>
+      <input type="text" class="form-control" placeholder="numero de TVA" required
+             name="numeroTVA" id="numeroTVA"/>
+    </div>
+    <div class="form-group mt-4">
+      <button type="button" class="btnSubmit mr-2">
+        Enregistrer les modifications
+      </button>
+      <button type="button" class="btnSubmit ml-2">
+        Changer le mot de passe
+      </button>
+    </div>
+
+  </form>
+</div>

@@ -11,6 +11,7 @@ import {AdminFournReferComponent} from "./admin-fourn-refer/admin-fourn-refer.co
 import {PaiementComponent} from './paiement/paiement.component';
 import {FacturationComponent} from './facturation/facturation.component';
 import {AccueilComponent} from './accueil/accueil.component';
+import {FournisseurComponent} from "./fournisseur/fournisseur.component";
 
 const routes: Routes = [
   {path: 'connexion', component: ConnexionComponent},
@@ -23,7 +24,9 @@ const routes: Routes = [
   {path: 'commandeClient', component: FormulaireCommandeClientComponent},
   {path: 'actualite', component: AccueilComponent},
   {path: 'facturation/:id', component: FacturationComponent},
-  {path: 'article', component: ArticleComponent}
+  {path: 'article', component: ArticleComponent},
+  {path: 'fournisseur', component: FournisseurComponent},
+  {path: '**', redirectTo: 'index' }
 ];
 
 @NgModule({

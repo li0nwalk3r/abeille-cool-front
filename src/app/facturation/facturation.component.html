@@ -1,0 +1,53 @@
+
+<h1>Facture</h1>
+<p></p>
+<p>Date : {{facture?.date}}<br>
+Référence : {{facture?.ref}}</p>
+<p></p>
+<div class="row">
+  <div class="col-6">
+  <h4>Adresse facturation</h4>
+    <p> {{coordonnee?.nom}} {{coordonnee?.prenom}}<br>
+      {{coordonnee?.rue}} <br>
+      {{coordonnee?.codePostal}} {{coordonnee?.ville}} <br>
+      {{coordonnee?.pays}} <br> <br> <br></p>
+  </div>
+
+<div class="col-6">
+  <h4>Adresse société</h4>
+  <p>{{admin?.nom}} {{admin?.prenom}} <br>
+     {{admin?.rue}} <br>
+     {{admin?.codePostal}} {{admin?.ville}} <br>
+     {{admin?.pays}} <br> <br> <br></p>
+</div>
+</div>
+<div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Libellé</th>
+      <th>Prix unitaire</th>
+      <th>Quantité</th>
+      <th>Prix total</th>
+    </tr>
+    </thead>
+    <tr *ngFor="let ligneComm of listLigneCommande">
+      <td>{{ligneComm.article.nom}}</td>
+      <td>{{ligneComm.article.prix}}</td>
+      <td>{{ligneComm.article.qte}}</td>
+      <td>{{(ligneComm.article.qte*ligneComm.article.prix)}}</td>
+    </tr>
+    <tfoot>
+      <td></td>
+      <td></td>
+      <th style="text-align:right;">Total </th>
+      <th>{{pxTotal}}</th>
+    </tfoot>
+  </table>
+  <br>
+  <div class="row">
+    <div class="col-10"></div>
+    <div class="col-2"><button class="btn btn-secondary" (click)="imprimer();">Imprimer <fa name="fas fa-print"></fa></button></div>
+  </div>
+
+</div>

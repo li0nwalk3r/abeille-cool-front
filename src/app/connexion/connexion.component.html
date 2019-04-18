@@ -2,20 +2,39 @@
   <div class="row">
     <div class="col-md-6 login-form-1">
       <h3>Vous avez déjà un compte ?</h3>
-      <form action="" method="post">
+      <form #client="ngForm" novalidate>
+        <div *ngIf="erreurlogin &&(mail1.dirty || mail1.touched)&&(mdp1.dirty || mdp1.touched)" class="text-danger bg-light form-control-sm">
+          <div *ngIf="erreurlogin">
+            La combinaison email et mot de passe est invalide
+          </div>
+        </div>
         <div class="form-group">
           <label for="mail1">e-mail :</label>
-          <input type="email" class="form-control" placeholder="e-mail"
-                 name="mail" id="mail1" [(ngModel)]="utilisateurEnregistre.mail"/>
+          <input type="email" class="form-control" placeholder="e-mail" required
+                 name="mail1" id="mail1" #mail1="ngModel" [(ngModel)]="utilisateurEnregistre.mail"/>
+
+          <div *ngIf="mail1.invalid && (mail1.dirty || mail1.touched)" class="text-danger bg-light form-control-sm">
+            <div *ngIf="mail1.errors.required">
+              Le mail est obligatoire au format text@domaine.com
+            </div>
+          </div>
         </div>
         <div class="form-group">
           <label for="mdp1">mot de passe :</label>
-          <input type="password" class="form-control"
-                 placeholder="mot de passe" name="mdp" id="mdp1"
+          <input type="password" class="form-control" required
+                 placeholder="mot de passe" name="mdp1" id="mdp1" #mdp1="ngModel"
                  [(ngModel)]="utilisateurEnregistre.mdp"/>
+
+          <div *ngIf="mdp1.invalid && (mdp1.dirty || mdp1.touched)" class="text-danger bg-light form-control-sm">
+            <div *ngIf="mdp1.errors.required">
+              Le mot de passe est obligatoire
+            </div>
+          </div>
         </div>
         <div class="form-group">
-          <input type="submit" class="btnSubmit" value="Se connecter"/>
+          <button type="button" class="btnSubmit" [disabled]="client.invalid"
+                  (click)="login()">Se connecter
+          </button>
         </div>
         <div class="form-group">
 
@@ -29,17 +48,26 @@
       <form #nouveau="ngForm" novalidate>
         <div class="form-group">
           <label for="mail2">e-mail :</label> <input required
-          type="email" class="form-control" id="mail2" name="mail2"
-                                                     [(ngModel)]="utilisateurNouveau.mail" placeholder="e-mail" #mail2="ngModel"/>
+                                                     type="email" class="form-control" id="mail2" name="mail2"
+                                                     [(ngModel)]="utilisateurNouveau.mail" placeholder="e-mail"
+                                                     #mail2="ngModel" (ngModelChange)="checkexistmail()"/>
           <div *ngIf="mail2.invalid && (mail2.dirty || mail2.touched)" class="text-danger bg-light form-control-sm">
             <div *ngIf="mail2.errors.required">
               Le mail est obligatoire au format text@domaine.com
             </div>
           </div>
+          <div *ngIf="mailExist && (mail2.dirty || mail2.touched)" class="text-danger bg-light form-control-sm">
+            <div *ngIf="mailExist">
+              Le mail existe déjà
+            </div>
+          </div>
         </div>
         <div class="form-group">
           <label for="mail3">Confirmez votre e-mail :</label> <input type="email" class="form-control"
-                                          placeholder="confirmez l'e-mail" id="mail3" name="mail3"   #mail3="ngModel" (blur)="checkmail()" [(ngModel)]="mailverif" />
+                                                                     placeholder="confirmez l'e-mail" id="mail3"
+                                                                     name="mail3" #mail3="ngModel"
+                                                                     [(ngModel)]="mailverif"
+                                                                     (ngModelChange)="checkmail()"/>
           <div *ngIf="(notSameMail && (mail3.dirty || mail3.touched))" class="text-danger bg-light form-control-sm">
             <div *ngIf="(notSameMail)">
               Le mail ne correspond pas
@@ -49,8 +77,10 @@
         </div>
         <div class="form-group">
           <label for="mdp2">mot de passe :</label> <input required
-          type="password" class="form-control" id="mdp2" name="mdp2"
-          [(ngModel)]="utilisateurNouveau.mdp" placeholder="mot de passe" #mdp2="ngModel"/>
+                                                          type="password" class="form-control" id="mdp2" name="mdp2"
+                                                          [(ngModel)]="utilisateurNouveau.mdp"
+                                                          placeholder="mot de passe" #mdp2="ngModel"
+                                                          (ngModelChange)="checkmdp()"/>
           <div *ngIf="mdp2.invalid && (mdp2.dirty || mdp2.touched)" class="text-danger bg-light form-control-sm">
             <div *ngIf="mdp2.errors.required">
               Le mot de passe est obligatoire
@@ -59,15 +89,25 @@
         </div>
         <div class="form-group">
           Confirmez votre mot de passe : <input type="password" class="form-control"
-                                                placeholder="confirmez le mot de passe" id="mdp3" name="mdp3" #mdp3="ngModel" (blur)="checkmdp()" [(ngModel)]="mdpverif"/>
-          <div *ngIf="(notSameMdp && (mail3.dirty || mail3.touched))" class="text-danger bg-light form-control-sm">
+                                                placeholder="confirmez le mot de passe" id="mdp3" name="mdp3"
+                                                #mdp3="ngModel" [(ngModel)]="mdpverif" (ngModelChange)="checkmdp()"/>
+          <div *ngIf="(notSameMdp && (mdp3.dirty || mdp3.touched))" class="text-danger bg-light form-control-sm">
             <div *ngIf="(notSameMdp)">
               Le mot de passe ne correspond pas
             </div>
           </div>
         </div>
+        <div class="form-group">
+          <label for="type">Type de compte :</label>
+          <select class="form-control" id="type" name="type" [(ngModel)]="utilisateurNouveau.type" required>
+            <option value="CLIENT">Client</option>
+            <option value="FOURNISSEUR">Fournisseur</option>
+          </select>
+        </div>
         <div class="form-group mt-2">
-          <button type="button" class="btnSubmit" [disabled]="nouveau.invalid||notSameMail||notSameMdp" (click)="save()">S'inscrire</button>
+          <button type="button" class="btnSubmit" [disabled]="nouveau.invalid||notSameMail||notSameMdp||mailExist"
+                  (click)="save()">S'inscrire
+          </button>
         </div>
       </form>
     </div>

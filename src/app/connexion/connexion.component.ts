@@ -10,6 +10,10 @@ import {FormGroup} from "@angular/forms";
   styleUrls: ['./connexion.component.css']
 })
 export class ConnexionComponent implements OnInit {
+  temp: any;
+  idUtilisateur: any = 0;
+  erreurlogin: boolean = false;
+  mailExist: any = false;
   notSameMail: boolean = true;
   mailverif: string = '';
   notSameMdp: boolean = true;
@@ -21,12 +25,18 @@ export class ConnexionComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (sessionStorage.getItem("type")) {
+      this.router.navigate(['/index']);
+    }
   }
 
   save() {
 
     this.connexionService.save(this.utilisateurNouveau).subscribe(resp => {
         this.utilisateurNouveau = new Utilisateur();
+        this.temp=resp;
+        this.utilisateurEnregistre=this.temp;
+        this.login();
         this.router.navigate(['/index']);
       },
       err => console.log(err));
@@ -54,4 +64,44 @@ export class ConnexionComponent implements OnInit {
     return this.notSameMdp;
   }
 
+  checkexistmail() {
+    this.checkmail();
+    this.connexionService.verif(this.utilisateurNouveau.mail).subscribe(resp => {
+      this.mailExist = resp;
+    }, err => console.log(err));
+  }
+
+
+  login() {
+    if (this.utilisateurEnregistre.mail && this.utilisateurEnregistre.mdp) {
+      this.connexionService.login(this.utilisateurEnregistre).subscribe(resp => {
+        this.idUtilisateur = resp;
+        if (this.idUtilisateur != 0) {
+          this.connexionService.findId(this.idUtilisateur).subscribe(resp => {
+            this.temp = resp;
+            this.utilisateurEnregistre = this.temp;
+            sessionStorage.setItem("id", this.utilisateurEnregistre.id.toString());
+            sessionStorage.setItem("mail", this.utilisateurEnregistre.mail);
+            sessionStorage.setItem("type", this.utilisateurEnregistre.type);
+            if(sessionStorage.getItem("type")=="CLIENT"){
+              sessionStorage.setItem("type_id",this.utilisateurEnregistre.client.id.toString());
+            }else if(sessionStorage.getItem("type")=="FOURNISSEUR"){
+              sessionStorage.setItem("type_id",this.utilisateurEnregistre.fournisseur.id.toString());
+            }else if(sessionStorage.getItem("type")=="ADMINISTRATEUR"){
+              sessionStorage.setItem("type_id",this.utilisateurEnregistre.administrateur.id.toString());
+            }
+            this.erreurlogin = false;
+            this.utilisateurEnregistre = new Utilisateur();
+            this.idUtilisateur = 0;
+            
+
+
+          }, err => console.log(err));
+        } else {
+
+          this.erreurlogin = true;
+        }
+      }, err => console.log());
+    }
+  }
 }

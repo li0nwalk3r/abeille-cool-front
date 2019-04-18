@@ -9,7 +9,7 @@ import {AdministrateurHttpService} from './administrateur-http.service';
 import {CommandeClientHttpService} from '../formulaire-commande-client/commande-client-http.service';
 import {CoordonneeHttpService} from '../formulaire-commande-client/coordonnee-http.service';
 import {LigneCommande} from '../model/ligne-commande';
-import {LigneCommandeHttpService} from '../ligne-commande-http.service';
+import {LigneCommandeHttpService} from './ligne-commande-http.service';
 
 @Component({
   selector: 'app-facturation',

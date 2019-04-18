@@ -16,6 +16,9 @@ import {FournisseurProduitsComponent} from './fournisseur-produits/fournisseur-p
 import { AdminFournReferComponent } from './admin-fourn-refer/admin-fourn-refer.component';
 import {AuthGuard} from "./auth.guard";
 import { PaiementComponent } from './paiement/paiement.component';
+import {AccueilComponent} from './accueil/accueil.component';
+import { ActualiteDetailComponent } from './actualite-detail/actualite-detail.component';
+import {ArticleComponent} from "./article/article.component";
 
 
 @NgModule({
@@ -30,7 +33,10 @@ import { PaiementComponent } from './paiement/paiement.component';
     ConnexionComponent,
     MonPanierComponent,
     AdminFournReferComponent,
-    PaiementComponent
+    PaiementComponent,
+    AccueilComponent,
+    ArticleComponent,
+    ActualiteDetailComponent
   ],
   imports: [
     FormsModule,

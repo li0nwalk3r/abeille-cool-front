@@ -10,6 +10,7 @@ import {MonPanierComponent} from "./mon-panier/mon-panier.component";
 import {AdminFournReferComponent} from "./admin-fourn-refer/admin-fourn-refer.component";
 import {PaiementComponent} from './paiement/paiement.component';
 import {FacturationComponent} from './facturation/facturation.component';
+import {AccueilComponent} from './accueil/accueil.component';
 
 const routes: Routes = [
   {path: 'connexion', component: ConnexionComponent},
@@ -20,9 +21,9 @@ const routes: Routes = [
   {path: 'mon-panier', component: MonPanierComponent},
   {path: 'paiement', component: PaiementComponent},
   {path: 'commandeClient', component: FormulaireCommandeClientComponent},
+  {path: 'actualite', component: AccueilComponent},
   {path: 'facturation/:id', component: FacturationComponent},
   {path: 'article', component: ArticleComponent}
-
 ];
 
 @NgModule({

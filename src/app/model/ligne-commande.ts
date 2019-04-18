@@ -7,8 +7,7 @@ export class LigneCommande {
   article: Article;
   commandeClient: CommandeClient;
 
-
-  constructor(id: number, qte: number, article: Article, commandeClient: CommandeClient) {
+  constructor(qte?: number, article?: Article, id?: number, commandeClient?: CommandeClient) {
     this.id = id;
     this.qte = qte;
     this.article = article;

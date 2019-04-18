@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Article} from './model/article';
-import {LigneCommande} from './model/ligneCommande';
+import {LigneCommande} from './model/ligne-commande';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class DetailhydromelHttpService {
   }
 
   create(article: Article, qte:number): Observable<any>{
-    return this.http.post('http://localhost:8080/ligneCommande',new LigneCommande(qte, article));
+    return this.http.post('http://localhost:8080/ligneCommande',new LigneCommande(qte,  article));
   }
 
   findAvis(article: Article): Observable<any>{

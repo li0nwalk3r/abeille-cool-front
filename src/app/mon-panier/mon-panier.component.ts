@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MonPanierHttpService} from './mon-panier-http.service';
 import {LigneCommande} from '../model/ligne-commande';
 import {Observable} from "rxjs";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-mon-panier',
@@ -14,7 +14,7 @@ export class MonPanierComponent implements OnInit {
   paramId: number;
 
 
-  constructor(private route: ActivatedRoute, private monPanierService: MonPanierHttpService) {
+  constructor(private route: ActivatedRoute, private monPanierService: MonPanierHttpService,private router: Router) {
     this.route.params.subscribe(param => {
       this.paramId = param.id;
 
@@ -23,6 +23,10 @@ export class MonPanierComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  commande(){
+    this.router.navigate(['commande-client']);
   }
 
   list(): Array<LigneCommande> {

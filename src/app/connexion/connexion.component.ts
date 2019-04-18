@@ -85,6 +85,7 @@ export class ConnexionComponent implements OnInit {
             sessionStorage.setItem("id", this.utilisateurEnregistre.id.toString());
             sessionStorage.setItem("mail", this.utilisateurEnregistre.mail);
             sessionStorage.setItem("type", this.utilisateurEnregistre.type);
+            sessionStorage.setItem("connect", "true");
             if (sessionStorage.getItem("type") == "CLIENT") {
               sessionStorage.setItem("type_id", this.utilisateurEnregistre.client.id.toString());
             } else if (sessionStorage.getItem("type") == "FOURNISSEUR") {

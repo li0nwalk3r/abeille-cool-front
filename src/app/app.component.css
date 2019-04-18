@@ -1,10 +1,9 @@
 @media screen {
-   .vertical-menu {
+  .vertical-menu {
     width: 200px;
   }
 
   body{
-    height:1000px;
     overflow-y: scroll;
   }
   .lienNoir {
@@ -31,6 +30,7 @@
 
   .vertical-menu a:hover {
     background-color: #ccc;
+    cursor: crosshair;
   }
 
   .vertical-menu a.active {
@@ -71,6 +71,7 @@
     text-decoration: none;
     font-weight: bold;
     text-shadow: 2px 2px 4px #999;
+    cursor: pointer;
   }
 
   tr:hover {

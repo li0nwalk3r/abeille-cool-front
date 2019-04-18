@@ -13,6 +13,10 @@ export class AppComponent {
 
   }
 
+  Panier(){
+    this.router.navigate(['mon-panier/']);
+  }
+
   Accueil() {
     this.router.navigate(['']);
   }

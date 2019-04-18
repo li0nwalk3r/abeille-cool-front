@@ -16,8 +16,9 @@
         <th>Stock disponible</th>
         <th>Nombre achetés</th>
         <th></th>
+        <th></th>
       </tr>
-      <tr *ngFor="let el of list()">
+      <tr *ngFor="let el of lignesCommande">
         <td>{{el.article.nom}}</td>
         <td>{{el.article.typeHydromel}}</td>
         <td>{{el.article.typeMiel}}</td>
@@ -26,23 +27,15 @@
         <td>{{el.article.prix}}</td>
         <td>{{el.article.qte}}</td>
         <td>{{el.qte}}</td>
-<!--        <td>-->
-<!--          <div class="btn-group btn-group-xs">-->
-<!--            <button class="btn btn-info" (click)="edit(el.id)">-->
-<!--              <fa name="fas fa-edit"></fa>-->
-<!--            </button>-->
-<!--            <button class="btn btn-danger" (click)="remove(el.id)">-->
-<!--              <fa name="fas fa-trash"></fa>-->
-<!--            </button>-->
-<!--          </div>-->
-<!--        </td>-->
+        <td>
+          <div class="btn-group btn-group-xs">
+            <button class="btn btn-danger" (click)="remove(el.id)">
+              <fa name="fas fa-trash"></fa>
+            </button>
+          </div>
+        </td>
       </tr>
     </table>
   </div>
-<!--  <div class="card-footer">-->
-<!--    <button class="btn btn-primary" (click)="add()">-->
-<!--      <fa name="plus"></fa>-->
-<!--    </button>-->
-<!--  </div>-->
 </div>
 

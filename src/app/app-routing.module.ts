@@ -20,13 +20,14 @@ const routes: Routes = [
   {path: 'fournisseur/mes-produits', component: FournisseurProduitsComponent},
   {path: 'administrateur/fournisseurs/references', component: AdminFournReferComponent},
   {path: 'commande-client', component: FormulaireCommandeClientComponent},
-  {path: 'mon-panier', component: MonPanierComponent},
   {path: 'paiement', component: PaiementComponent},
   {path: 'commandeClient', component: FormulaireCommandeClientComponent},
   {path: 'actualite', component: AccueilComponent},
   {path: 'facturation/:id', component: FacturationComponent},
   {path: 'article', component: ArticleComponent},
   {path: 'fournisseur', component: FournisseurComponent},
+  {path: 'article', component: ArticleComponent},
+  {path: 'mon-panier/:id', component: MonPanierComponent},
   {path: '**', redirectTo: 'index' }
 ];
 

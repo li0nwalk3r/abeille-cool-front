@@ -2,35 +2,34 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {LigneCommande} from './model/ligne-commande';
+import {ActivatedRoute} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
 export class MonPanierHttpService {
-  lignesCommande: any;
 
   constructor(private http: HttpClient) {
-    this.load();
+
   }
 
-  load() {
-    this.http.get('http://localhost:8080/ligneCommande')
-      .subscribe(resp => {
-          this.lignesCommande = resp;
-        },
-        err => console.log(err));
+
+
+  findAllByCommandeClient(paramId: number): Observable<any> {
+    return this.http.get('http://localhost:8080/ligneCommande/by-commande-client-id/' + paramId);
   }
 
   findAll(): Array<LigneCommande> {
-    return this.lignesCommande;
+    return ;
   }
+
 
   findById(id: number): Observable<any> {
     return this.http.get('http://localhost:8080/ligneCommande/' + id);
   }
 
-  delete(id: number) {
-    this.http.delete('http://localhost:8080/ligneCommande/' + id).subscribe(resp => this.load(),
+  delete(id: number, paramId: number) {
+    this.http.delete('http://localhost:8080/ligneCommande/' + id).subscribe(resp => this.findAllByCommandeClient(paramId),
       err => console.log(err));
   }
 }

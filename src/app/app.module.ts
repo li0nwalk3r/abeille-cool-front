@@ -8,12 +8,15 @@ import { CommandeFournisseurComponent } from './commande-fournisseur/commande-fo
 import { ConnexionComponent } from './connexion/connexion.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {FournisseurProduitsComponent} from './fournisseur-produits/fournisseur-produits.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    CommandeFournisseurComponent,
+    FournisseurProduitsComponent,
   ],
   imports: [
     AngularFontAwesomeModule,

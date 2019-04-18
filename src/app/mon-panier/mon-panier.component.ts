@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MonPanierHttpService} from '../mon-panier-http.service';
+import {MonPanierHttpService} from './mon-panier-http.service';
 import {LigneCommande} from '../model/ligne-commande';
 import {Observable} from "rxjs";
 import {ActivatedRoute} from "@angular/router";

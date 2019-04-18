@@ -43,7 +43,7 @@ import {DetailhydromelComponent} from "./detailhydromel/detailhydromel.component
     ConnexionComponent,
     CommandeFournisseurComponent,
     FournisseurProduitsComponent,
-    FormulaireArticleComponent
+    FormulaireArticleComponent,
     DetailhydromelComponent
   ],
   imports: [

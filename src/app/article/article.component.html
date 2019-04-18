@@ -1,10 +1,63 @@
+<!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h2> Bienvenue dans la rubrique des hydromels</h2>
 
-  <h3>Bla bla sue ce qu'est l'hydromel</h3>
-</div>
-<div class="form-group">
-  <label>Nom de l'hydromel à rechercher:</label>
-  <input type="text" class="form-control" >
-  <button>Rechercher</button>
-</div>
+
+  <div style="text-align:center">
+    <h2 style="background-color: #f4a60e;color: white"><b>Bienvenue dans la rubrique des hydromels</b></h2>
+
+    <h3 style="color: #f4a60e">Caractéristiques des hydromels</h3>
+    <p>
+      L'hydromel est une boisson fermentée, faite d'eau et de miel. La fermentation peut être produite par des levures endogènes (présentes dans le miel) ou exogènes (que l'on rajoute).
+
+      L'hydromel titre généralement entre 10° et 18°.
+    </p>
+  </div>
+  <p> </p>
+  <div class="form-group">
+    <label>Nom de l'hydromel à rechercher : </label>
+    <input type="text" style="margin-left: 5px">
+    <button class="btn" style="background-color: #f4a60e;color: white;margin-left: 5px">Rechercher</button>
+  </div>
+
+
+  <div class="container">
+    <div class="card-group" style="padding-top: 10px" *ngFor="let art of list()">
+      <div class="card" style="border-color: #f4a60e;border-width: thin ">
+        <div class="card-body text-center" style="height: 325px">
+          <img class="card-img" src="{{art.photoURL}}" alt="Hydromel image" style="width:65%;margin-top: auto;margin-bottom: auto" >
+        </div>
+      </div>
+      <div class="card" style="text-align:left; background-color: #f4a60e; margin-bottom: auto;color: white;width: initial">
+        <div class="card-body" >
+          <p class="card-text">Nom de l'hydromel:   <b>{{art.nom}}</b></p>
+          <p class="card-text" >Type d'hydromel:   <b>{{art.typeHydromel}}</b></p>
+          <p class="card-text">Type de miel:   <b>{{art.typeMiel}}</b></p>
+          <p class="card-text">Volume de la bouteille:   <b>{{art.volume}}</b>  cL</p>
+          <p class="card-text">Degré d'alcool:   <b>{{art.degreAlcool}}</b>  °</p>
+        </div>
+        <div class="card-footer">
+          <p class="card-text">Prix:   <b>{{art.prix}}  €</b></p>
+          <p class="card-text">Stock disponible:   <b>{{art.qte}}</b></p>
+          <p class="card-text" >Quantité:<input type="number" min="0" max="{{art.qte}}" style="padding: 2px;width: 60px;height: 30px">
+            <button class="btn" style="background-color:white;margin-left: 2px;color: #f4a60e">
+            <fa name="fas fa-shopping-basket"></fa>
+            </button></p>
+          <div class="btn-group btn-group-xs">
+            <a class="btn" style="background-color: white;color: #f4a60e;margin-bottom: 2px" [routerLink]="['/detailhydromel/'+ art.id]"><b>En savoir plus</b>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+    <h4 style="padding-top: 15px">Mention légales</h4>
+    <p>
+      bla bla bla
+    </p>
+
+
+
+

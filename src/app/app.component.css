@@ -1,4 +1,9 @@
 @media screen {
+  body{
+    height:1000px;
+    overflow-y: scroll;
+  }
+
   .vertical-menu {
     width: 200px;
   }

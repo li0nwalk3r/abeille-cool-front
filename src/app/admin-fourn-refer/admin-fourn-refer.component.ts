@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Produit} from "../model/produit";
-import {FournisseurProduitsHttpService} from "../fournisseur-produits-http.service";
+import {FournisseurProduitsHttpService} from "../fournisseur-produits/fournisseur-produits-http.service";
 
 @Component({
   selector: 'app-admin-fourn-refer',

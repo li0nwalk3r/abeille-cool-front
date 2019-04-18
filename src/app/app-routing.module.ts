@@ -12,12 +12,13 @@ import {FacturationComponent} from './facturation/facturation.component';
 import {AccueilComponent} from './accueil/accueil.component';
 import {FournisseurComponent} from "./fournisseur/fournisseur.component";
 import {CommandeFournisseurComponent} from './commande-fournisseur/commande-fournisseur.component';
+import {DetailhydromelComponent} from "./detailhydromel/detailhydromel.component";
 
 const routes: Routes = [
   {path: 'connexion', component: ConnexionComponent},
+  {path: 'detailhydromel/:id', component: DetailhydromelComponent},
   {path: 'commandeFournisseur', component: CommandeFournisseurComponent},
   {path: 'fournisseurProduit', component: FournisseurProduitsComponent},
-  {path: 'index', component: AppComponent},
   {path: 'fournisseur/mes-produits', component: FournisseurProduitsComponent},
   {path: 'administrateur/fournisseurs/references', component: AdminFournReferComponent},
   {path: 'commande-client', component: FormulaireCommandeClientComponent},
@@ -29,7 +30,9 @@ const routes: Routes = [
   {path: 'fournisseur', component: FournisseurComponent},
   {path: 'article', component: ArticleComponent},
   {path: 'mon-panier/:id', component: MonPanierComponent},
-  {path: '**', redirectTo: 'index' }
+
+  {path: '', redirectTo:'actualite', pathMatch:'full'},
+  {path: '**', redirectTo: 'actualite' }
 ];
 
 @NgModule({

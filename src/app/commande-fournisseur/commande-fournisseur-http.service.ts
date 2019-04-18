@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
-import {Produit} from './fournisseur-produits/produit';
+import {Produit} from '../fournisseur-produits/produit';
 import {Observable} from 'rxjs';
-import {CommandeFournisseur} from "./commande-fournisseur/commandeFournisseur";
+import {CommandeFournisseur} from "../model/commandeFournisseur";
 
 @Injectable({
   providedIn: 'root'

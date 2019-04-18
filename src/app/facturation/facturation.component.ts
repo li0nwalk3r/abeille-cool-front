@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {FacturationHttpService} from '../facturation-http.service';
+import {FacturationHttpService} from './facturation-http.service';
 import {ActivatedRoute} from '@angular/router';
 import {Facturation} from '../model/facturation';
 import {Administrateur} from '../model/administrateur';
 import {CommandeClient} from '../model/commande-client';
 import {Coordonnee} from '../model/coordonnee';
-import {AdministrateurHttpService} from '../administrateur-http.service';
-import {CommandeClientHttpService} from '../commande-client-http.service';
-import {CoordonneeHttpService} from '../coordonnee-http.service';
+import {AdministrateurHttpService} from './administrateur-http.service';
+import {CommandeClientHttpService} from '../formulaire-commande-client/commande-client-http.service';
+import {CoordonneeHttpService} from '../formulaire-commande-client/coordonnee-http.service';
 import {LigneCommande} from '../model/ligne-commande';
 import {LigneCommandeHttpService} from '../ligne-commande-http.service';
 import {forEach} from '@angular/router/src/utils/collection';

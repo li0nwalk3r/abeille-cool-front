@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Actualite} from '../model/actualite';
-import {ActualiteHttpService} from '../actualite-http.service';
+import {ActualiteHttpService} from '../actualite-detail/actualite-http.service';
 
 @Component({
   selector: 'app-accueil',

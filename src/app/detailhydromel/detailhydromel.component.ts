@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {DetailhydromelHttpService} from '../detailhydromel-http.service';
+import {DetailhydromelHttpService} from './detailhydromel-http.service';
 import {Article} from '../model/article';
 import {ActivatedRoute} from '@angular/router';
 import {Avis} from '../model/avis';

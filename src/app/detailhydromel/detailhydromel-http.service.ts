@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Article} from './model/article';
-import {LigneCommande} from './model/ligneCommande';
+import {Article} from '../model/article';
+import {LigneCommande} from '../model/ligneCommande';
 
 @Injectable({
   providedIn: 'root'

@@ -25,8 +25,8 @@ export class AccueilComponent implements OnInit {
     }, err => console.log(err));
   }
 
-  listById(id: number) {
-    this.actualiteService.findById(id).subscribe(resp => {
+  listByDate() {
+    this.actualiteService.findByDate().subscribe(resp => {
       this.actualite = resp;
     }, err => console.log(err));
   }

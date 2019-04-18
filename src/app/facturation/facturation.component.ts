@@ -10,7 +10,6 @@ import {CommandeClientHttpService} from '../formulaire-commande-client/commande-
 import {CoordonneeHttpService} from '../formulaire-commande-client/coordonnee-http.service';
 import {LigneCommande} from '../model/ligne-commande';
 import {LigneCommandeHttpService} from '../ligne-commande-http.service';
-import {forEach} from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-facturation',

@@ -18,6 +18,7 @@
         <th>Quantité</th>
         <th>Unité</th>
         <th>Prix Unitaire HT</th>
+        <th>Valider/rejeter</th>
       </tr>
       <tr *ngFor="let produit of produits">
         <!--<td>{{produit.id}}</td>-->
@@ -27,11 +28,21 @@
         <td>{{produit.qte}}</td>
         <td>{{produit.unite}}</td>
         <td>{{produit.prixUnitaireHT}}</td>
+        <td>
+          <div class="btn-group btn-group-xs" >
+            <button class="btn btn-success" style="background-color:#f4a60e" (click)="accepter(produit.id)">
+              <fa name="fas fa-check fa-2x"></fa>
+            </button>
+            <button class="btn btn-danger" style="background-color:#f4a60e" (click)="rejeter(produit.id)">
+              <fa name="fas fa-trash fa-2x"></fa>
+            </button>
+          </div>
+        </td>
       </tr>
     </table>
   </div>
   <div class="card-footer text-right">
-    <button class="btn btn-success" (click)="commander()">
+    <button class="btn btn-success" style="background-color:#f4a60e" (click)="commander()">
       <fa name="fas fa-shopping-basket fa-2x"></fa>
     </button>
   </div>

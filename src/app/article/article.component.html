@@ -3,9 +3,9 @@
 
 
   <div style="text-align:center">
-    <h2> Bienvenue dans la rubrique des hydromels</h2>
-    <p> </p>
-    <h3>Bla bla sur l'hydromel</h3>
+    <h2 style="background-color: #f4a60e;color: white"><b>Bienvenue dans la rubrique des hydromels</b></h2>
+
+    <h3 style="color: #f4a60e">Caractéristiques des hydromels</h3>
     <p>
       L'hydromel est une boisson fermentée, faite d'eau et de miel. La fermentation peut être produite par des levures endogènes (présentes dans le miel) ou exogènes (que l'on rajoute).
 
@@ -20,7 +20,7 @@
   </div>
 
 
-  <div class="container anyClass">
+  <div class="container">
     <div class="card-group" style="padding-top: 10px" *ngFor="let art of list()">
       <div class="card" style="border-color: #f4a60e;border-width: thin ">
         <div class="card-body text-center" style="height: 325px">
@@ -38,7 +38,7 @@
         <div class="card-footer">
           <p class="card-text">Prix:   <b>{{art.prix}}  €</b></p>
           <p class="card-text">Stock disponible:   <b>{{art.qte}}</b></p>
-          <p class="card-text" >Quantité:<input type="text" style="padding: 2px;width: 60px;height: 30px">
+          <p class="card-text" >Quantité:<input type="number" min="0" max="{{art.qte}}" style="padding: 2px;width: 60px;height: 30px">
             <button class="btn" style="background-color:white;margin-left: 2px;color: #f4a60e">
             <fa name="fas fa-shopping-basket"></fa>
             </button></p>
@@ -51,10 +51,13 @@
       </div>
 
     </div>
-
-
-
-
   </div>
 
-  <p>   </p>
+    <h4 style="padding-top: 15px">Mention légales</h4>
+    <p>
+      bla bla bla
+    </p>
+
+
+
+

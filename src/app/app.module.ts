@@ -21,6 +21,7 @@ import {ArticleComponent} from "./article/article.component";
 import { FournisseurComponent } from './fournisseur/fournisseur.component';
 import {CommandeFournisseurComponent} from "./commande-fournisseur/commande-fournisseur.component";
 import { FormulaireArticleComponent } from './formulaire-article/formulaire-article.component';
+import {DetailhydromelComponent} from "./detailhydromel/detailhydromel.component";
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { FormulaireArticleComponent } from './formulaire-article/formulaire-arti
     CommandeFournisseurComponent,
     FournisseurProduitsComponent,
     FormulaireArticleComponent
+    DetailhydromelComponent
   ],
   imports: [
     FormsModule,

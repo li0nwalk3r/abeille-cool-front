@@ -10,6 +10,7 @@ import {FormGroup} from "@angular/forms";
   styleUrls: ['./connexion.component.css']
 })
 export class ConnexionComponent implements OnInit {
+  inscription: boolean = false;
   temp: any;
   idUtilisateur: any = 0;
   erreurlogin: boolean = false;
@@ -26,7 +27,8 @@ export class ConnexionComponent implements OnInit {
 
   ngOnInit() {
     if (sessionStorage.getItem("type")) {
-      this.router.navigate(['/index']);
+      this.inscription = false;
+      this.router.navigate(['']);
     }
   }
 
@@ -34,10 +36,10 @@ export class ConnexionComponent implements OnInit {
 
     this.connexionService.save(this.utilisateurNouveau).subscribe(resp => {
         this.utilisateurNouveau = new Utilisateur();
-        this.temp=resp;
-        this.utilisateurEnregistre=this.temp;
+        this.temp = resp;
+        this.utilisateurEnregistre = this.temp;
+        this.inscription = true;
         this.login();
-        this.router.navigate(['/index']);
       },
       err => console.log(err));
   }
@@ -83,19 +85,28 @@ export class ConnexionComponent implements OnInit {
             sessionStorage.setItem("id", this.utilisateurEnregistre.id.toString());
             sessionStorage.setItem("mail", this.utilisateurEnregistre.mail);
             sessionStorage.setItem("type", this.utilisateurEnregistre.type);
-            if(sessionStorage.getItem("type")=="CLIENT"){
-              sessionStorage.setItem("type_id",this.utilisateurEnregistre.client.id.toString());
-            }else if(sessionStorage.getItem("type")=="FOURNISSEUR"){
-              sessionStorage.setItem("type_id",this.utilisateurEnregistre.fournisseur.id.toString());
-            }else if(sessionStorage.getItem("type")=="ADMINISTRATEUR"){
-              sessionStorage.setItem("type_id",this.utilisateurEnregistre.administrateur.id.toString());
+            sessionStorage.setItem("connect", "true");
+            if (sessionStorage.getItem("type") == "CLIENT") {
+              sessionStorage.setItem("type_id", this.utilisateurEnregistre.client.id.toString());
+            } else if (sessionStorage.getItem("type") == "FOURNISSEUR") {
+              sessionStorage.setItem("type_id", this.utilisateurEnregistre.fournisseur.id.toString());
+            } else if (sessionStorage.getItem("type") == "ADMINISTRATEUR") {
+              sessionStorage.setItem("type_id", this.utilisateurEnregistre.administrateur.id.toString());
             }
             this.erreurlogin = false;
             this.utilisateurEnregistre = new Utilisateur();
             this.idUtilisateur = 0;
-            
-
-
+            if (this.inscription) {
+              if (sessionStorage.getItem("type") == "CLIENT") {
+                this.router.navigate(['client']);
+              } else if (sessionStorage.getItem("type") == "FOURNISSEUR") {
+                this.router.navigate(['fournisseur']);
+              }else{
+                this.router.navigate(['']);
+              }
+            } else {
+              this.router.navigate(['']);
+            }
           }, err => console.log(err));
         } else {
 

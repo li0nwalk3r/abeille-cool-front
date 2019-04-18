@@ -49,6 +49,9 @@
   </div>
 </div>
 
+<div  style="height:60px;">
+</div>
+
 <form #fopr="ngForm" novalidate>
 <div class="card card-primary" *ngIf="produitForm">
   <div class="card-header">Déterminez votre produit</div>
@@ -134,7 +137,7 @@
       <button class="btn btn-success" style="background-color:#f4a60e" (click)="save()" [disabled]="fopr.invalid">
         <fa name="fas fa-check fa-2x"></fa>
       </button>
-      <button class="btn btn-warning" (click)="cancel()">
+      <button class="btn btn-success" style="background-color:#f4a60e" (click)="cancel()">
         <fa name="fas fa-undo fa-2x"></fa>
       </button>
     </div>

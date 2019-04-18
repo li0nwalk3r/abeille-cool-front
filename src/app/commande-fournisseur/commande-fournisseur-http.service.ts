@@ -1,24 +1,23 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
-import {Produit} from './fournisseur-produits/produit';
+
 import {Observable} from 'rxjs';
-import {CommandeFournisseur} from "./commande-fournisseur/commandeFournisseur";
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommandeFournisseurHttpService {
 
-produits: any;
+  produits: any;
 
   constructor(private http: HttpClient) {
   }
 
   findAllProduitByFournisseur(): Observable<any> {
     return this.http.get('http://localhost:8080/produit/by-fournisseur');
-   }
-
+  }
 
 
   // save(commandefournisseur: CommandeFournisseur) {

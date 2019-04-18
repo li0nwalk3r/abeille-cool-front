@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ClientHttpService} from '../client-http.service';
-import {CoordonneeHttpService} from '../coordonnee-http.service';
+import {ClientHttpService} from './client-http.service';
+import {CoordonneeHttpService} from './coordonnee-http.service';
 import {Client} from '../model/client';
 import {Coordonnee} from '../model/coordonnee';
 

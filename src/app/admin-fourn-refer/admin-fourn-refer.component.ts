@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Produit} from "../model/produit";
-import {FournisseurProduitsHttpService} from "../fournisseur-produits-http.service";
+import {FournisseurProduitsHttpService} from "../fournisseur-produits/fournisseur-produits-http.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-admin-fourn-refer',
@@ -12,8 +13,12 @@ export class AdminFournReferComponent implements OnInit {
   produitSearch: string = null;
   produitForm: Produit = null;
 
-  constructor(private fournisseurProduitsService: FournisseurProduitsHttpService) {
+  constructor(private fournisseurProduitsService: FournisseurProduitsHttpService,private router: Router) {
 
+  }
+
+  commander(){
+    this.router.navigate(['commandeFournisseur']);
   }
 
   search() {

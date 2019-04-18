@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Produit} from '../model/produit';
 import {Unite} from '../model/unite';
-import {FournisseurProduitsHttpService} from '../fournisseur-produits-http.service';
+import {FournisseurProduitsHttpService} from './fournisseur-produits-http.service';
 import {CatProd} from "../model/categorie";
 import {ProduitCatProd} from "../model/produitCatProd";
 

@@ -12,13 +12,14 @@ import {FacturationComponent} from './facturation/facturation.component';
 import {AccueilComponent} from './accueil/accueil.component';
 import {FournisseurComponent} from "./fournisseur/fournisseur.component";
 import {CommandeFournisseurComponent} from './commande-fournisseur/commande-fournisseur.component';
+import {DetailhydromelComponent} from "./detailhydromel/detailhydromel.component";
 import {FormulaireArticleComponent} from './formulaire-article/formulaire-article.component';
 
 const routes: Routes = [
   {path: 'connexion', component: ConnexionComponent},
+  {path: 'detailhydromel/:id', component: DetailhydromelComponent},
   {path: 'commandeFournisseur', component: CommandeFournisseurComponent},
   {path: 'fournisseurProduit', component: FournisseurProduitsComponent},
-  {path: 'index', component: AppComponent},
   {path: 'fournisseur/mes-produits', component: FournisseurProduitsComponent},
   {path: 'administrateur/fournisseurs/references', component: AdminFournReferComponent},
   {path: 'commande-client', component: FormulaireCommandeClientComponent},
@@ -28,11 +29,12 @@ const routes: Routes = [
   {path: 'facturation/:id', component: FacturationComponent},
   {path: 'article', component: ArticleComponent},
   {path: 'fournisseur', component: FournisseurComponent},
-  {path: 'article', component: ArticleComponent},
+  {path: 'article/:type', component: ArticleComponent},
   {path: 'mon-panier/:id', component: MonPanierComponent},
   {path: 'formulaire-article', component: FormulaireArticleComponent},
   {path: 'formulaire-article/:id', component: FormulaireArticleComponent},
-  {path: '**', redirectTo: 'index' }
+  {path: '', redirectTo:'actualite', pathMatch:'full'},
+  {path: '**', redirectTo: 'actualite' }
 ];
 
 @NgModule({

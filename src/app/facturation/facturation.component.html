@@ -7,10 +7,10 @@ Référence : {{facture?.ref}}</p>
 <div class="row">
   <div class="col-6">
   <h4>Adresse facturation</h4>
-    <p> Nom Prénom<br>
-      Rue <br>
-      Code postal Ville <br>
-      Pays <br> <br> <br></p>
+    <p> {{coordonnee?.nom}} {{coordonnee?.prenom}}<br>
+      {{coordonnee?.rue}} <br>
+      {{coordonnee?.codePostal}} {{coordonnee?.ville}} <br>
+      {{coordonnee?.pays}} <br> <br> <br></p>
   </div>
 
 <div class="col-6">
@@ -31,30 +31,17 @@ Référence : {{facture?.ref}}</p>
       <th>Prix total</th>
     </tr>
     </thead>
-    <tr>
-      <td>Libellé</td>
-      <td>Prix</td>
-      <td>Qte</td>
-      <td>prix total</td>
-    </tr>
-    <tr>
-      <td>Libellé</td>
-      <td>Prix</td>
-      <td>Qte</td>
-      <td>prix total</td>
-    </tr>
-    <tr>
-      <td>Libellé</td>
-      <td>Prix</td>
-      <td>Qte</td>
-      <td>prix total</td>
+    <tr *ngFor="let ligneComm of listLigneCommande">
+      <td>{{ligneComm.article.nom}}</td>
+      <td>{{ligneComm.article.prix}}</td>
+      <td>{{ligneComm.article.qte}}</td>
+      <td>{{(ligneComm.article.qte*ligneComm.article.prix)}}</td>
     </tr>
     <tfoot>
-
       <td></td>
       <td></td>
       <th style="text-align:right;">Total </th>
-      <th>prix total</th>
+      <th>{{pxTotal}}</th>
     </tfoot>
   </table>
   <br>

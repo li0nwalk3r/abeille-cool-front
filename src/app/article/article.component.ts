@@ -8,13 +8,19 @@ import {Article} from '../model/article';
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent implements OnInit {
-
+  user : boolean;
 
   constructor(private articleService: ArticleHttpService) {
 
   }
 
   ngOnInit() {
+    // if(sessionStorage.getItem("type")=="ADMINISTRATEUR"){
+    //   this.user=true;
+    // }else{
+    //   this.user=false;
+    // }
+    this.user=true;
   }
   list(): Array<Article> {
     return this.articleService.findAll();

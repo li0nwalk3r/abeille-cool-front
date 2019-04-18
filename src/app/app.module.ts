@@ -20,9 +20,7 @@ import { ActualiteDetailComponent } from './actualite-detail/actualite-detail.co
 import {ArticleComponent} from "./article/article.component";
 import { FournisseurComponent } from './fournisseur/fournisseur.component';
 import {CommandeFournisseurComponent} from "./commande-fournisseur/commande-fournisseur.component";
-
-
-
+import { FormulaireArticleComponent } from './formulaire-article/formulaire-article.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +42,7 @@ import {CommandeFournisseurComponent} from "./commande-fournisseur/commande-four
     ConnexionComponent,
     CommandeFournisseurComponent,
     FournisseurProduitsComponent,
+    FormulaireArticleComponent
   ],
   imports: [
     FormsModule,

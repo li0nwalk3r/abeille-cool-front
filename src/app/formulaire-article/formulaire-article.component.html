@@ -1,0 +1,76 @@
+<div class="container">
+  <h1 align="center">Editer l'article</h1>
+
+  <div class="container">
+    <div class="form-group">
+      <label for="nom">Nom :</label>
+      <input type="text" class="form-control"
+             id="nom" [(ngModel)]="articleForm.nom"/>
+    </div>
+    <div class="form-group">
+      <label for="detail">Détail :</label>
+      <input type="text" class="form-control"
+             id="detail" [(ngModel)]="articleForm.detail"/>
+    </div>
+    <div class="form-group">
+      <label for="prix">Prix :</label>
+      <input type="number" class="form-control"
+             id="prix" #mail="ngModel" [(ngModel)]="articleForm.prix"/>
+    </div>
+    <div class="form-group">
+      <label for="qte">Quantité :</label>
+      <input type="number" class="form-control"
+             id="qte" [(ngModel)]="articleForm.qte"/>
+    </div>
+    <div class="form-group">
+      <label for="photoURL">URL de la photo :</label>
+      <input type="text" class="form-control"
+             id="photoURL" [(ngModel)]="articleForm.photoURL"/>
+    </div>
+    <div class="form-group">
+      <label for="degreAlcool">Degré d'alcool :</label>
+      <input type="number" class="form-control"
+             id="degreAlcool" [(ngModel)]="articleForm.degreAlcool"/>
+    </div>
+    <div class="form-group">
+      <label for="volume">Volume :</label>
+      <input type="number" class="form-control"
+             id="volume" [(ngModel)]="articleForm.volume"/>
+    </div>
+    <div class="form-group">
+      <label for="typeMiel">Type de miel :</label>
+      <input type="text" class="form-control"
+             id="typeMiel" [(ngModel)]="articleForm.typeMiel"/>
+    </div>
+    <div class="form-group">
+      <label for="typeHydromel">Type d'hydromel :</label>
+      <select id="typeHydromel" [(ngModel)]="articleForm.typeHydromel">
+        <option value="Rhodomel">Rhodomel</option>
+        <option value="Melomel">Melomel</option>
+        <option value="Braggot">Braggot</option>
+        <option value="Oxymel">Oxymel</option>
+        <option value="Oenomel">Oenomel</option>
+        <option value="Classique">Classique</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="archive">Archivé :</label>
+      <input type="checkbox" class="form-control"
+             id="archive" [(ngModel)]="articleForm.archive"/>
+    </div>
+
+    <a class="btn btn-success" routerLink="/article" routerLinkActive="active"
+       [ngClass]="{'isDisabled': !articleForm.nom || !articleForm.detail || !articleForm.prix || !articleForm.qte || !articleForm.photoURL || !articleForm.degreAlcool || !articleForm.volume || !articleForm.typeMiel}"
+       [class.disabled]="!articleForm.nom || !articleForm.detail || !articleForm.prix || !articleForm.qte || !articleForm.photoURL || !articleForm.degreAlcool || !articleForm.volume || !articleForm.typeMiel"
+       (click)="save()">
+      <fa name="fas fa-check"></fa>
+      Sauvegarder
+    </a>
+    <a class="btn btn-secondary" routerLink="/article" routerLinkActive="active">
+      <fa name="fas fa-undo"></fa>
+      Retour
+    </a>
+
+  </div>
+</div>
+

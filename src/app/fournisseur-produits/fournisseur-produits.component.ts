@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Produit} from '../model/produit';
 import {Unite} from '../model/unite';
 import {FournisseurProduitsHttpService} from '../fournisseur-produits-http.service';
+import {CatProd} from "../model/categorie";
+import {ProduitCatProd} from "../model/produitCatProd";
 
 @Component({
   selector: 'app-fournisseur-produits',
@@ -12,6 +14,8 @@ export class FournisseurProduitsComponent implements OnInit {
 
   produitSearch: string = null;
   produitForm: Produit = null;
+  catProdForm: CatProd = null;
+  produitCategorieForm: ProduitCatProd = null;
 
   constructor(private fournisseurProduitsService: FournisseurProduitsHttpService) {
 
@@ -31,6 +35,10 @@ export class FournisseurProduitsComponent implements OnInit {
 
   listUnite(): Array<object> {
     return this.fournisseurProduitsService.findAllUnite();
+  }
+
+  listCategorie(): Array<object> {
+    return this.fournisseurProduitsService.findAllCategorie();
   }
 
   add() {

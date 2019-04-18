@@ -13,6 +13,7 @@
         <th>Quantité</th>
         <th>Unité</th>
         <th>Prix Unitaire HT</th>
+<!--        <th>Catégorie du Produit</th>-->
         <th></th>
       </tr>
       <tr *ngFor="let produit of list()">
@@ -22,9 +23,15 @@
         <td>{{produit.qte}}</td>
         <td>{{produit.unite}}</td>
         <td>{{produit.prixUnitaireHT}}</td>
+<!--        <td>-->
+<!--          <div class="form-check" *ngFor="let categorie of listCategorie()">-->
+<!--          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">-->
+<!--          <label class="form-check-label" for="inlineCheckbox1">1</label>-->
+<!--        </div>-->
+<!--        </td>-->
         <td>
           <div class="btn-group btn-group-xs">
-            <button class="btn btn-success" (click)="edit(produit.id)">
+            <button class="btn btn-success" style="background-color:#f4a60e" (click)="edit(produit.id)">
               <fa name="fas fa-edit fa-2x"></fa>
             </button>
             <button class="btn btn-danger" (click)="remove(produit.id)">
@@ -36,7 +43,7 @@
     </table>
   </div>
   <div class="card-footer">
-    <button class="btn btn-primary" (click)="add()">
+    <button class="btn btn-primary" style="background-color:#f4a60e" (click)="add()">
       <fa name="fas fa-plus-circle fa-2x"></fa>
     </button>
   </div>
@@ -46,6 +53,15 @@
 <div class="card card-primary" *ngIf="produitForm">
   <div class="card-header">Déterminez votre produit</div>
   <div class="card-body">
+
+<!--        <div class="form-group">-->
+<!--          <label>Catégories:</label>-->
+<!--          <div class="form-check" *ngFor="let categorie of listCategorie()">-->
+<!--            <input class="form-check-input" type="checkbox" id="categorie" [(ngModel)]="produitForm.categories">-->
+<!--            <label>{{categorie.nom}}</label>-->
+<!--          </div>-->
+<!--        </div>-->
+
     <div class="form-group">
       <label for="nom">Nom:</label>
       <input type="text" class="form-control" id="nom" name="nom" #nom="ngModel" [(ngModel)]="produitForm.nom" required>
@@ -109,10 +125,13 @@
         </div>
       </div>
     </div>
+
   </div>
+
+
   <div class="card-footer">
     <div class="btn-group">
-      <button class="btn btn-success" (click)="save()" [disabled]="fopr.invalid">
+      <button class="btn btn-success" style="background-color:#f4a60e" (click)="save()" [disabled]="fopr.invalid">
         <fa name="fas fa-check fa-2x"></fa>
       </button>
       <button class="btn btn-warning" (click)="cancel()">

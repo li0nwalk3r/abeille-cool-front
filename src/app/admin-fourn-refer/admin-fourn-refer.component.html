@@ -23,14 +23,11 @@
         <td>{{produit.unite}}</td>
         <td>{{produit.prixUnitaireHT}}</td>
         <td>
-          <div class="btn-group btn-group-xs">
-            <button class="btn btn-success" (click)="edit(produit.id)">
-              <fa name="fas fa-edit fa-2x"></fa>
+
+            <button class="btn btn-success">
+              <fa name="fas fa-shopping-basket fa-2x"></fa>
             </button>
-            <button class="btn btn-danger" (click)="remove(produit.id)">
-              <fa name="fas fa-trash fa-2x"></fa>
-            </button>
-          </div>
+
         </td>
       </tr>
     </table>

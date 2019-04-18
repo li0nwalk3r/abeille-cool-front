@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Fournisseur} from './fournisseur-produits/fournisseur';
+
 import {Produit} from './fournisseur-produits/produit';
 import {Observable} from 'rxjs';
 import {CommandeFournisseur} from "./commande-fournisseur/commandeFournisseur";

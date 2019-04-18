@@ -12,8 +12,6 @@ import {FournisseurProduitsComponent} from './fournisseur-produits/fournisseur-p
 import { BtnConnectComponent } from './btn-connect/btn-connect.component';
 import { FacturationComponent } from './facturation/facturation.component';
 import { FormulaireCommandeClientComponent } from './formulaire-commande-client/formulaire-commande-client.component';
-// import {AccueilComponent} from './accueil/accueil.component';
-import {FournisseurProduitsComponent} from './fournisseur-produits/fournisseur-produits.component';
 import { AdminFournReferComponent } from './admin-fourn-refer/admin-fourn-refer.component';
 import {AuthGuard} from "./auth.guard";
 import { PaiementComponent } from './paiement/paiement.component';
@@ -21,6 +19,7 @@ import {AccueilComponent} from './accueil/accueil.component';
 import { ActualiteDetailComponent } from './actualite-detail/actualite-detail.component';
 import {ArticleComponent} from "./article/article.component";
 import { FournisseurComponent } from './fournisseur/fournisseur.component';
+import {CommandeFournisseurComponent} from "./commande-fournisseur/commande-fournisseur.component";
 
 
 
@@ -41,7 +40,7 @@ import { FournisseurComponent } from './fournisseur/fournisseur.component';
     AccueilComponent,
     ArticleComponent,
     ActualiteDetailComponent,
-    FournisseurComponent
+    FournisseurComponent,
     ConnexionComponent,
     CommandeFournisseurComponent,
     FournisseurProduitsComponent,

@@ -1,5 +1,5 @@
-import {Unite} from "./unite";
-import {Fournisseur} from "./fournisseur";
+import {Unite} from "../model/unite";
+import {Fournisseur} from "../model/fournisseur";
 
 export class Produit {
   fournisseur: Fournisseur;

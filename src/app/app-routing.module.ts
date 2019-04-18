@@ -5,20 +5,18 @@ import {ConnexionComponent} from './connexion/connexion.component';
 import {AppComponent} from './app.component';
 import {FormulaireCommandeClientComponent} from './formulaire-commande-client/formulaire-commande-client.component';
 import {FournisseurProduitsComponent} from "./fournisseur-produits/fournisseur-produits.component";
-import {AdministrateurFournisseursReferencesComponent} from "./administrateur-fournisseurs-references/administrateur-fournisseurs-references.component";
-import {AuthGuard} from "./auth.guard";
 import {MonPanierComponent} from "./mon-panier/mon-panier.component";
 import {AdminFournReferComponent} from "./admin-fourn-refer/admin-fourn-refer.component";
 import {PaiementComponent} from './paiement/paiement.component';
 import {FacturationComponent} from './facturation/facturation.component';
 import {AccueilComponent} from './accueil/accueil.component';
 import {FournisseurComponent} from "./fournisseur/fournisseur.component";
-import {AppComponent} from './app.component';
 import {CommandeFournisseurComponent} from './commande-fournisseur/commande-fournisseur.component';
-import {FournisseurProduitsComponent} from './fournisseur-produits/fournisseur-produits.component';
 
 const routes: Routes = [
   {path: 'connexion', component: ConnexionComponent},
+  {path: 'commandeFournisseur', component: CommandeFournisseurComponent},
+  {path: 'fournisseurProduit', component: FournisseurProduitsComponent},
   {path: 'index', component: AppComponent},
   {path: 'fournisseur/mes-produits', component: FournisseurProduitsComponent},
   {path: 'administrateur/fournisseurs/references', component: AdminFournReferComponent},
@@ -31,9 +29,6 @@ const routes: Routes = [
   {path: 'article', component: ArticleComponent},
   {path: 'fournisseur', component: FournisseurComponent},
   {path: '**', redirectTo: 'index' }
-  {path: 'index', component: AppComponent},
-  {path: 'commandeFournisseur', component: CommandeFournisseurComponent},
-  {path: 'fournisseurProduit', component: FournisseurProduitsComponent},
 ];
 
 @NgModule({

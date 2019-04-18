@@ -1,21 +1,27 @@
 
 <div class="container mt-5">
-<table class="table table-striped">
+  <img src="/assets/abeille-dessin-anime-pouce-air_70172-221.jpg">
+<table class="table table-hover">
   <tr>
     <th>Fournisseur</th>
     <th>Nom</th>
-    <th>Prix Unitaire</th>
+    <th>Prix Unitaire HT</th>
     <th>Quantité</th>
     <th>Quantité souhaité</th>
+    <th>Prix totale</th>
     <th>Passer commande</th>
   </tr>
-  <tr>
-    <td>exemple</td>
-    <td>exemple</td>
-    <td>exemple</td>
-    <td>exemple</td>
-    <td><input type="number"/></td>
-    <td><button class="btn border-dark">passer commande</button></td>
+  <tr *ngFor="let produit of produits" >
+    <td>{{produit.fournisseur.raisonSociale}}</td>
+    <td>{{produit.nom}}</td>
+    <td>{{produit.prixUnitaireHT|currency:'EUR'}}</td>
+    <td>{{produit.qte}}</td>
+    <td ><input name="qtefournisseur" [(ngModel)]="produit.qteDemande" (ngModelChange)="calcul()" type="number" required [maxLength]="produit.qte"/></td>
+    <td>{{produit.prixTotal}}</td>
+    <td><button class="btn" (click)="valider()">Acheter</button></td>
   </tr>
 </table>
+<div id="validation2" class="card mt-5" *ngIf="valide" >
+  <div id="validation" class="card-body"><h6>Votre commande est validée</h6></div>
+</div>
 </div>

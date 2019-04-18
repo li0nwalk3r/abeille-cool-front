@@ -8,6 +8,7 @@ import { MonPanierComponent } from './mon-panier/mon-panier.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {FournisseurProduitsComponent} from './fournisseur-produits/fournisseur-produits.component';
 import { BtnConnectComponent } from './btn-connect/btn-connect.component';
 import { FacturationComponent } from './facturation/facturation.component';
 import { FormulaireCommandeClientComponent } from './formulaire-commande-client/formulaire-commande-client.component';
@@ -20,6 +21,8 @@ import {AccueilComponent} from './accueil/accueil.component';
 import { ActualiteDetailComponent } from './actualite-detail/actualite-detail.component';
 import {ArticleComponent} from "./article/article.component";
 import { FournisseurComponent } from './fournisseur/fournisseur.component';
+
+
 
 
 @NgModule({
@@ -39,6 +42,9 @@ import { FournisseurComponent } from './fournisseur/fournisseur.component';
     ArticleComponent,
     ActualiteDetailComponent,
     FournisseurComponent
+    ConnexionComponent,
+    CommandeFournisseurComponent,
+    FournisseurProduitsComponent,
   ],
   imports: [
     FormsModule,

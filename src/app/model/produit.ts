@@ -1,4 +1,5 @@
 import {Unite} from "./unite";
+import {ProduitCatProd} from "./produitCatProd";
 
 export class Produit {
   id: number;
@@ -6,11 +7,12 @@ export class Produit {
   nom: string;
   description: string;
   qte: number;
-  prixUnitaireHT: number
+  prixUnitaireHT: number;
   unite: Unite;
+  produitCatProd: ProduitCatProd;
 
 
-  constructor(id?: number, version?: number, nom?: string, description?: string, qte?: number, prixUnitaireHT?: number, unite?: Unite) {
+  constructor(id?: number, version?: number, nom?: string, description?: string, qte?: number, prixUnitaireHT?: number, unite?: Unite, produitCatProd?: ProduitCatProd) {
     this.id = id;
     this.version = version;
     this.nom = nom;
@@ -18,5 +20,6 @@ export class Produit {
     this.qte = qte;
     this.prixUnitaireHT = prixUnitaireHT;
     this.unite = unite;
+    this. produitCatProd =  produitCatProd;
   }
 }

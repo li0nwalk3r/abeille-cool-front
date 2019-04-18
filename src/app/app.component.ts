@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,40 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'abeille-cool-front';
+
+  constructor(private router: Router) {
+
+  }
+
+  Accueil() {
+    this.router.navigate(['']);
+  }
+
+  Hydromels() {
+    this.router.navigate(['article']);
+  }
+
+  Classiques() {
+    this.router.navigate(['article']);
+  }
+
+  Rhodomels() {
+    this.router.navigate(['article']);
+  }
+
+  Melomels() {
+    this.router.navigate(['article']);
+  }
+
+  Broggots() {
+    this.router.navigate(['article']);
+  }
+
+  Oxymels() {
+    this.router.navigate(['article']);
+  }
+
+  Oenomels() {
+    this.router.navigate(['article']);
+  }
 }

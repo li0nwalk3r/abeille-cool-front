@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {ArticleHttpService} from './article-http.service';
 import {Article} from '../model/article';
 
@@ -10,11 +10,13 @@ import {Article} from '../model/article';
 export class ArticleComponent implements OnInit {
 
 
+
   constructor(private articleService: ArticleHttpService) {
 
   }
 
   ngOnInit() {
+
   }
   list(): Array<Article> {
     return this.articleService.findAll();

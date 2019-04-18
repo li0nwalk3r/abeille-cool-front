@@ -13,9 +13,7 @@ export class Article {
   archive: boolean;
 
 
-
-
-  constructor(id?: number, version?: number, nom?: string, detail?: string, prix?: number, qte?: number, photoURL?: string, degre?: number, volume?: number, typeMiel?: string, typeHydromel?: string, archive?: boolean) {
+  constructor(id?: number, version?: number, nom?: string, detail?: string, prix?: number, qte?: number, photoURL?: string, degreAlcool?: number, volume?: number, typeMiel?: string, typeHydromel?: string, archive?: boolean) {
     this.id = id;
     this.version = version;
     this.nom = nom;
@@ -23,7 +21,7 @@ export class Article {
     this.prix = prix;
     this.qte = qte;
     this.photoURL = photoURL;
-    this.degreAlcool = degre;
+    this.degreAlcool = degreAlcool;
     this.volume = volume;
     this.typeMiel = typeMiel;
     this.typeHydromel = typeHydromel;

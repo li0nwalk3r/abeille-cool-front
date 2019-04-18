@@ -1,27 +1,78 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="container-fluid" style="padding-left:0;padding-right:0;">
+  <nav class="navbar navbar-expand-lg navbar-white bg-white" id="navb"
+       style="background-color:white;border-style:none;">
+    <div class="row content" style="height:80px;">
+      <div class="col-sm-2">
+        <a class="navbar-brand" href="https://fr.dreamstime.com/photographie-stock-refroidissez-l-abeille-image16536572"
+           style="padding:0;"><img src="assets/abeille.jpg"></a>
+      </div>
+      <div class="col-5"></div>
+      <div class="col-2"></div>
+      <div class="col-1"><a href="#" class="lienNoir">
+        <fa name="far fa-question-circle"></fa>
+        Besoin d'aide</a></div>
+      <div class="col-1">
+        <div class="dropdown" style="height:30px;">
+          <app-btn-connect></app-btn-connect>
+        </div>
+      </div>
+      <div class="col-1"><a href="#" class="lienNoir">
+        <fa name="fas fa-shopping-cart"></fa>
+        Panier</a></div>
+    </div>
+  </nav>
+
+
+  <!-- Navbar latérale -->
+
+  <div class="row h-100">
+    <div class="col-sm-2 sidenav login-form-2" style="background-color:#f4a60e">
+      <table class="table table-bordered" style="margin-left:5px;color:white;border-style:none">
+        <tr>
+          <td class="bordure"><a href="#" class="lienBlanc">Accueil</a></td>
+        </tr>
+        <tr>
+          <td class="hydromel"><a href="#" class="lienBlanc">Les hydromels</a></td>
+        </tr>
+        <tr>
+          <td class="hydromel"><a href="#" class="liste"> Les classiques</a></td>
+        </tr>
+        <tr>
+          <td class="hydromel"><a href="#" class="liste"> Les rhodomels</a></td>
+        </tr>
+        <tr>
+          <td class="hydromel"><a href="#" class="liste"> Les mélomels</a></td>
+        </tr>
+        <tr>
+          <td class="hydromel"><a href="#" class="liste"> Les broggots</a></td>
+        </tr>
+        <tr>
+          <td class="hydromel"><a href="#" class="liste"> Les oxymels</a></td>
+        </tr>
+        <tr>
+          <td class="hydromel"><a href="#" class="liste"> Les oenomels</a></td>
+        </tr>
+        <tr>
+          <td class="bordure"><a href="#" class="lienBlanc">Les évenements</a></td>
+        </tr>
+        <tr>
+          <td class="bordure"><a href="#" class="lienBlanc">Le livre d'or</a></td>
+        </tr>
+        <tr>
+          <td class="bordure"><a href="#" class="lienBlanc">Contact</a></td>
+        </tr>
+      </table>
+
+    </div>
+    <div class="col-sm-10 text-left" style="padding-top:50px;padding-left:50px;">
+      <div style="overflow-y: scroll;width: auto;height: 805px">
+          <router-outlet></router-outlet>
+      </div>
+    </div>
+
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
 
-<ul>
-  <li>
-      <button class="btn btn-success">
-        <fa name="fas fa-edit"></fa>
-      </button>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
-<router-outlet></router-outlet>
+
+

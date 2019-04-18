@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {ArticleHttpService} from './article-http.service';
 import {Article} from '../model/article';
 
@@ -8,15 +8,16 @@ import {Article} from '../model/article';
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent implements OnInit {
+  user : boolean;
 
+  constructor(private articleService: ArticleHttpService) {}
 
-
-  constructor(private articleService: ArticleHttpService) {
-
-  }
-
-  ngOnInit() {
-
+  ngOnInit(){
+    if(sessionStorage.getItem("type")=="ADMINISTRATEUR"){
+      this.user=true;
+    }else{
+      this.user=false;
+    }
   }
   list(): Array<Article> {
     return this.articleService.findAll();

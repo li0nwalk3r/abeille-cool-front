@@ -21,6 +21,8 @@ import { ActualiteDetailComponent } from './actualite-detail/actualite-detail.co
 import {ArticleComponent} from "./article/article.component";
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,

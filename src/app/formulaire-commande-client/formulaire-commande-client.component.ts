@@ -18,7 +18,7 @@ export class FormulaireCommandeClientComponent implements OnInit {
   coordonneeForm : Coordonnee = new Coordonnee();
 
   constructor(private clientService: ClientHttpService, private coordonneeService: CoordonneeHttpService) {
-    this.user = true;
+    this.user = false;
     this.clientService.findById(71).subscribe(resp => {this.excli=resp},
       err => console.log(err));
     this.coordonneeService.findByClientId(71).subscribe(resp => {this.excoords=resp},

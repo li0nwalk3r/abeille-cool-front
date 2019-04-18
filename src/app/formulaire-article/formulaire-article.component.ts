@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ArticleHttpService} from '../article-http.service';
 import {ActivatedRoute} from '@angular/router';
-import {Coordonnee} from '../model/coordonnee';
 import {Article} from '../model/article';
+import {ArticleHttpService} from '../article/article-http.service';
 
 @Component({
   selector: 'app-formulaire-article',

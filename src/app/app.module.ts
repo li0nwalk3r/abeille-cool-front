@@ -32,7 +32,7 @@ import { ActualiteDetailComponent } from './actualite-detail/actualite-detail.co
     ConnexionComponent,
     MonPanierComponent,
     AdminFournReferComponent,
-    PaiementComponent
+    PaiementComponent,
     AccueilComponent,
     ActualiteDetailComponent
   ],

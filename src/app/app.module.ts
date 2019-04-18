@@ -19,6 +19,7 @@ import { PaiementComponent } from './paiement/paiement.component';
 import {AccueilComponent} from './accueil/accueil.component';
 import { ActualiteDetailComponent } from './actualite-detail/actualite-detail.component';
 import {ArticleComponent} from "./article/article.component";
+import { FournisseurComponent } from './fournisseur/fournisseur.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import {ArticleComponent} from "./article/article.component";
     PaiementComponent,
     AccueilComponent,
     ArticleComponent,
-    ActualiteDetailComponent
+    ActualiteDetailComponent,
+    FournisseurComponent
   ],
   imports: [
     FormsModule,

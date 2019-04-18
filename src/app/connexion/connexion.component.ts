@@ -76,7 +76,6 @@ export class ConnexionComponent implements OnInit {
     if (this.utilisateurEnregistre.mail && this.utilisateurEnregistre.mdp) {
       this.connexionService.login(this.utilisateurEnregistre).subscribe(resp => {
         this.idUtilisateur = resp;
-        console.log(this.idUtilisateur);
         if (this.idUtilisateur != 0) {
           this.connexionService.findId(this.idUtilisateur).subscribe(resp => {
             this.temp = resp;
@@ -84,14 +83,22 @@ export class ConnexionComponent implements OnInit {
             sessionStorage.setItem("id", this.utilisateurEnregistre.id.toString());
             sessionStorage.setItem("mail", this.utilisateurEnregistre.mail);
             sessionStorage.setItem("type", this.utilisateurEnregistre.type);
+            if(sessionStorage.getItem("type")=="CLIENT"){
+              sessionStorage.setItem("type_id",this.utilisateurEnregistre.client.id.toString());
+            }else if(sessionStorage.getItem("type")=="FOURNISSEUR"){
+              sessionStorage.setItem("type_id",this.utilisateurEnregistre.fournisseur.id.toString());
+            }else if(sessionStorage.getItem("type")=="ADMINISTRATEUR"){
+              sessionStorage.setItem("type_id",this.utilisateurEnregistre.administrateur.id.toString());
+            }
             this.erreurlogin = false;
             this.utilisateurEnregistre = new Utilisateur();
             this.idUtilisateur = 0;
+            
 
-            alert("connecté" + sessionStorage.getItem("id") + sessionStorage.getItem("mail") + sessionStorage.getItem("type"));
+
           }, err => console.log(err));
         } else {
-          alert("non connecté");
+
           this.erreurlogin = true;
         }
       }, err => console.log());

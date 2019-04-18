@@ -8,11 +8,12 @@ import {Observable} from 'rxjs';
 })
 export class ActualiteHttpService {
 
+  actualite : any;
   constructor(private http: HttpClient) {
 
   }
 
-  findAll() {
+  findAll() : Observable<any> {
     return this.http.get('http://localhost:8080/actualite');
   }
 

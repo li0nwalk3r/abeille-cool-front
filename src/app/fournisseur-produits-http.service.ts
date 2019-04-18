@@ -9,10 +9,12 @@ import {Observable} from 'rxjs';
 export class FournisseurProduitsHttpService {
   produits: any;
   unites: any;
+  catProd: any;
 
   constructor(private http: HttpClient) {
     this.load();
     this.loadUnite();
+    this.loadCategorie();
   }
 
   load() {
@@ -31,12 +33,24 @@ export class FournisseurProduitsHttpService {
         err => console.log(err));
   }
 
+  loadCategorie() {
+    this.http.get('http://localhost:8080/catProd')
+      .subscribe(resp => {
+          this.catProd = resp;
+        },
+        err => console.log(err));
+  }
+
   findAll(): Array<Produit> {
     return this.produits;
   }
 
   findAllUnite(): Array<object> {
     return this.unites;
+  }
+
+  findAllCategorie(): Array<object> {
+    return this.catProd;
   }
 
   findById(id: number): Observable<any> {

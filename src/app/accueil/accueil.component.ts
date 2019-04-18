@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Actualite} from '../model/actualite';
 import {ActualiteHttpService} from '../actualite-http.service';
 
@@ -8,11 +8,10 @@ import {ActualiteHttpService} from '../actualite-http.service';
   styleUrls: ['./accueil.component.css']
 })
 export class AccueilComponent implements OnInit {
-  temp:any;
-  actualites:Array<Actualite>=new Array<Actualite>();
-  actualite : Actualite = new Actualite();
+  actualites: Array<Actualite> = new Array<Actualite>();
+  actualite: Actualite = new Actualite();
 
-  constructor(private actualiteService: ActualiteHttpService ) {
+  constructor(private actualiteService: ActualiteHttpService) {
   }
 
   ngOnInit() {
@@ -20,15 +19,15 @@ export class AccueilComponent implements OnInit {
   }
 
   list() {
-    this.actualiteService.findAll().subscribe(resp=>{
-      this.temp=resp;
-      this.actualites=this.temp;
-    },err=>console.log(err));
+    this.actualiteService.findAll().subscribe(resp => {
+      this.actualites = resp; // là on met la réponse dans actualites et on peut boucler directement sur actualites dans le html
+      return resp; // là on met la réponse dans la liste et on peut boucler dans la liste au niveau html
+    }, err => console.log(err));
   }
 
-  listById(id:number) {
-    this.actualiteService.findById(id).subscribe(resp=>{
+  listById(id: number) {
+    this.actualiteService.findById(id).subscribe(resp => {
       this.actualite = resp;
-    },err=>console.log(err));
+    }, err => console.log(err));
   }
 }

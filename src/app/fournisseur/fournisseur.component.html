@@ -1,51 +1,94 @@
 <div class="container">
   <h3>Edition de mon profil</h3>
-  <form #fournisseur="ngForm" novalidate>
-    <!--        <div *ngIf="erreurlogin &&(mail1.dirty || mail1.touched)&&(mdp1.dirty || mdp1.touched)"-->
-    <!--             class="text-danger bg-light form-control-sm">-->
-    <!--          <div *ngIf="erreurlogin">-->
-    <!--            La combinaison email et mot de passe est invalide-->
-    <!--          </div>-->
-    <!--        </div>-->
+  <form #fournisseurEdit="ngForm" novalidate>
     <div class="form-group">
       <label for="mail">e-mail :</label>
-      <input type="email" class="form-control" placeholder="e-mail" required
-             name="mail" id="mail"/>
-
-      <!--          <div *ngIf="mail1.invalid && (mail1.dirty || mail1.touched)" class="text-danger bg-light form-control-sm">-->
-      <!--            <div *ngIf="mail1.errors.required">-->
-      <!--              Le mail est obligatoire au format text@domaine.com-->
-      <!--            </div>-->
-      <!--          </div>-->
+      <input type="email" class="form-control" placeholder="e-mail" required name="mail" id="mail" #mail="ngModel"
+             [(ngModel)]="utilisateur.mail" (ngModelChange)="checkexistmail()"/>
+      <div *ngIf="mail.invalid && (mail.dirty || mail.touched)" class="text-danger bg-light form-control-sm">
+        <div *ngIf="mail.errors.required">
+          Le mail est obligatoire au format text@domaine.com
+        </div>
+      </div>
+      <div *ngIf="mailExist && (mail.dirty || mail.touched)" class="text-danger bg-light form-control-sm">
+        <div *ngIf="mailExist">
+          Ce mail est interdit
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="raisonSociale">raison sociale :</label>
-      <input type="text" class="form-control" placeholder="raison sociale" required
-             name="raisonSociale" id="raisonSociale"/>
+      <input type="text" class="form-control" placeholder="raison sociale"
+             name="raisonSociale" id="raisonSociale" [(ngModel)]="utilisateur.fournisseur.raisonSociale"/>
     </div>
     <div class="form-group">
       <label for="siret">siret :</label>
-      <input type="text" class="form-control" placeholder="siret" required
-             name="siret" id="siret"/>
+      <input type="text" class="form-control" placeholder="siret"
+             name="siret" id="siret" [(ngModel)]="utilisateur.fournisseur.siret"/>
     </div>
     <div class="form-group">
       <label for="statutJuridique">statut juridique :</label>
-      <input type="text" class="form-control" placeholder="statut juridique" required
-             name="statutJuridique" id="statutJuridique"/>
+      <input type="text" class="form-control" placeholder="statut juridique"
+             name="statutJuridique" id="statutJuridique" [(ngModel)]="utilisateur.fournisseur.statutJuridique"/>
     </div>
     <div class="form-group">
       <label for="numeroTVA">numéro de TVA :</label>
-      <input type="text" class="form-control" placeholder="numero de TVA" required
-             name="numeroTVA" id="numeroTVA"/>
+      <input type="text" class="form-control" placeholder="numero de TVA"
+             name="numeroTVA" id="numeroTVA" [(ngModel)]="utilisateur.fournisseur.numeroTva"/>
     </div>
     <div class="form-group mt-4">
-      <button type="button" class="btnSubmit mr-2">
+      <button type="button" class="btnSubmit mr-2" (click)="saveedit()"  [disabled]="fournisseurEdit.invalid||mailExist">
         Enregistrer les modifications
       </button>
-      <button type="button" class="btnSubmit ml-2">
+      <button type="button" class="btnSubmit ml-2" (click)="add()">
         Changer le mot de passe
       </button>
     </div>
 
   </form>
+
+  <div class="card card-primary" *ngIf="mdpChange">
+    <form #changeMdp="ngForm" novalidate>
+      <div class="form-group">
+        <label for="mdp2">Ancien mot de passe :</label> <input required
+                                                                type="password" class="form-control" id="mdp2" name="mdp2"
+                                                                [(ngModel)]="utilisateur.mdp"
+                                                                placeholder="mot de passe" #mdp2="ngModel"
+                                                                (ngModelChange)="checkmdp()"/>
+        <div *ngIf="mdp2.invalid && (mdp2.dirty || mdp2.touched)" class="text-danger bg-light form-control-sm">
+          <div *ngIf="mdp2.errors.required">
+            Le mot de passe est obligatoire
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="mdp2">Nouveau mot de passe :</label> <input required
+                                                        type="password" class="form-control" id="mdp2" name="mdp2"
+                                                        [(ngModel)]="utilisateur.mdp"
+                                                        placeholder="mot de passe" #mdp2="ngModel"
+                                                        (ngModelChange)="checkmdp()"/>
+        <div *ngIf="mdp2.invalid && (mdp2.dirty || mdp2.touched)" class="text-danger bg-light form-control-sm">
+          <div *ngIf="mdp2.errors.required">
+            Le mot de passe est obligatoire
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        Confirmez votre mot de passe : <input type="password" class="form-control"
+                                              placeholder="confirmez le mot de passe" id="mdp3" name="mdp3"
+                                              #mdp3="ngModel" [(ngModel)]="mdpverif" (ngModelChange)="checkmdp()"/>
+        <div *ngIf="(notSameMdp && (mdp3.dirty || mdp3.touched))" class="text-danger bg-light form-control-sm">
+          <div *ngIf="(notSameMdp)">
+            Le mot de passe ne correspond pas
+          </div>
+        </div>
+      </div>
+      <div class="form-group mt-2">
+        <button type="button" class="btnSubmit" [disabled]="changeMdp.invalid||notSameMdp"
+                (click)="save()">Changer
+        </button>
+      </div>
+    </form>
+  </div>
+
 </div>

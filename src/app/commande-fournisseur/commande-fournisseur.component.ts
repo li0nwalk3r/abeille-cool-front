@@ -1,9 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 import {CommandeFournisseurHttpService} from './commande-fournisseur-http.service';
-import {Produit} from '../fournisseur-produits/produit';
+
 import {HttpClient} from '@angular/common/http';
 import {Subscription} from 'rxjs';
+import {Produit} from "../model/produit";
 
 @Component({
   selector: 'commandeFournisseur',

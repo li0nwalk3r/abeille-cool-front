@@ -20,6 +20,7 @@ import { ActualiteDetailComponent } from './actualite-detail/actualite-detail.co
 import {ArticleComponent} from "./article/article.component";
 import { FournisseurComponent } from './fournisseur/fournisseur.component';
 import {CommandeFournisseurComponent} from "./commande-fournisseur/commande-fournisseur.component";
+import {DetailhydromelComponent} from "./detailhydromel/detailhydromel.component";
 
 
 
@@ -44,6 +45,7 @@ import {CommandeFournisseurComponent} from "./commande-fournisseur/commande-four
     ConnexionComponent,
     CommandeFournisseurComponent,
     FournisseurProduitsComponent,
+    DetailhydromelComponent
   ],
   imports: [
     FormsModule,

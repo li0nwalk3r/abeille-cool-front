@@ -10,22 +10,24 @@ import {Coordonnee} from '../model/coordonnee';
   styleUrls: ['./formulaire-commande-client.component.css']
 })
 export class FormulaireCommandeClientComponent implements OnInit {
-  idCoor: number
-  user : boolean;
+  idCoor: number;
+  idClient: number;
   clientForm: Client = null;
   excli : Client;
   excoords : Array<Coordonnee>;
   coordonneeForm : Coordonnee = new Coordonnee();
 
   constructor(private clientService: ClientHttpService, private coordonneeService: CoordonneeHttpService) {
-    this.user = false;
-    this.clientService.findById(71).subscribe(resp => {this.excli=resp},
-      err => console.log(err));
-    this.coordonneeService.findByClientId(71).subscribe(resp => {this.excoords=resp},
-      err => console.log(err));
+    this.clientService.findById(this.idClient).subscribe(resp => {this.excli=resp},
+      this.excli=null);
+    this.coordonneeService.findByClientId(this.idClient).subscribe(resp => {this.excoords=resp},
+      this.excoords=null);
   }
 
   ngOnInit() {
+    if(sessionStorage.getItem("type")=="CLIENT"){
+      this.idClient=Number(sessionStorage.getItem("type_id"));
+    }
   }
 
   listCoordonnee(): Array<Coordonnee> {

@@ -10,10 +10,16 @@ import {Produit} from "../model/produit";
   styleUrls: ['./fournisseur.component.css']
 })
 export class FournisseurComponent implements OnInit {
+  valid;
   temp: any;
   utilisateur: Utilisateur = new Utilisateur();
-  mdpChange:boolean=false;
+  mdpChange: boolean = false;
   mailExist: any = false;
+  utilisateurTest: Utilisateur = new Utilisateur();
+  mdpverif;
+  ancienmdp;
+  notSameMdp: boolean = true;
+  erreurmdp: boolean = false;
 
   constructor(private fournisseurService: FournisseurHttpService) {
   }
@@ -23,7 +29,7 @@ export class FournisseurComponent implements OnInit {
   }
 
   charge() {
-    this.utilisateur.fournisseur=new Fournisseur();
+    this.utilisateur.fournisseur = new Fournisseur();
     this.fournisseurService.findId(Number(sessionStorage.getItem('id'))).subscribe(resp => {
         this.temp = resp;
         this.utilisateur = this.temp;
@@ -31,11 +37,12 @@ export class FournisseurComponent implements OnInit {
       , err => console.log(err));
   }
 
-  saveedit(){
-    this.fournisseurService.saveedit(this.utilisateur).subscribe(resp=>{
+  saveedit() {
+    this.fournisseurService.saveedit(this.utilisateur).subscribe(resp => {
       this.temp = resp;
       this.utilisateur = this.temp;
-    }, err=>console.log(err));
+      sessionStorage.setItem("mail", this.utilisateur.mail);
+    }, err => console.log(err));
   }
 
   checkexistmail() {
@@ -45,6 +52,46 @@ export class FournisseurComponent implements OnInit {
   }
 
   add() {
-    this.mdpChange=true;
+    this.mdpChange = true;
+  }
+
+  checkmdp() {
+    let pass = this.utilisateur.mdp;
+    let confirmPass = this.mdpverif;
+    if (pass === confirmPass) {
+      this.notSameMdp = false;
+    } else {
+      this.notSameMdp = true;
+    }
+    return this.notSameMdp;
+  }
+
+  savemdp() {
+    this.fournisseurService.findId(sessionStorage.getItem("id")).subscribe(resp => {
+        this.temp = resp;
+        this.utilisateurTest = this.temp;
+        this.utilisateurTest.mdp=this.ancienmdp;
+        this.fournisseurService.verifmdp(this.utilisateurTest).subscribe(resp => {
+          this.valid = resp;
+          if (this.valid) {
+            this.erreurmdp = false;
+            this.saveedit();
+            this.mdpChange=false;
+            this.utilisateur.mdp="";
+            this.ancienmdp="";
+            this.mdpverif="";
+          } else {
+            this.erreurmdp = true;
+            this.utilisateur.mdp="";
+            this.ancienmdp="";
+            this.mdpverif="";
+          }
+        }, err => console.log(err))
+
+
+      },
+
+      err => console.log(err));
+
   }
 }

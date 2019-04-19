@@ -37,10 +37,10 @@
              name="numeroTVA" id="numeroTVA" [(ngModel)]="utilisateur.fournisseur.numeroTva"/>
     </div>
     <div class="form-group mt-4">
-      <button type="button" class="btnSubmit mr-2" (click)="saveedit()"  [disabled]="fournisseurEdit.invalid||mailExist">
+      <button type="button" class="btn mr-2" (click)="saveedit()" [disabled]="fournisseurEdit.invalid||mailExist">
         Enregistrer les modifications
       </button>
-      <button type="button" class="btnSubmit ml-2" (click)="add()">
+      <button type="button" class="btn ml-2" (click)="add()">
         Changer le mot de passe
       </button>
     </div>
@@ -49,43 +49,50 @@
 
   <div class="card card-primary" *ngIf="mdpChange">
     <form #changeMdp="ngForm" novalidate>
+      <div *ngIf="erreurmdp &&(amdp.dirty || amdp.touched)&&(mdp.dirty || mdp.touched)&&(mdp2.dirty || mdp2.touched)" class="text-danger bg-light form-control-sm">
+        <div *ngIf="erreurmdp">
+          Erreur sur le mot de passe
+        </div>
+      </div>
       <div class="form-group">
-        <label for="mdp2">Ancien mot de passe :</label> <input required
-                                                                type="password" class="form-control" id="mdp2" name="mdp2"
-                                                                [(ngModel)]="utilisateur.mdp"
-                                                                placeholder="mot de passe" #mdp2="ngModel"
-                                                                (ngModelChange)="checkmdp()"/>
-        <div *ngIf="mdp2.invalid && (mdp2.dirty || mdp2.touched)" class="text-danger bg-light form-control-sm">
-          <div *ngIf="mdp2.errors.required">
-            Le mot de passe est obligatoire
+        <label for="amdp">Ancien mot de passe :</label> <input required
+                                                               type="password" class="form-control" id="amdp"
+                                                               name="amdp"
+                                                               [(ngModel)]="ancienmdp"
+                                                               placeholder=" ancien mot de passe" #amdp="ngModel"/>
+        <div *ngIf="amdp.invalid && (amdp.dirty || amdp.touched)" class="text-danger bg-light form-control-sm">
+          <div *ngIf="amdp.errors.required">
+            L'ancien mot de passe est obligatoire
           </div>
         </div>
       </div>
       <div class="form-group">
-        <label for="mdp2">Nouveau mot de passe :</label> <input required
-                                                        type="password" class="form-control" id="mdp2" name="mdp2"
-                                                        [(ngModel)]="utilisateur.mdp"
-                                                        placeholder="mot de passe" #mdp2="ngModel"
-                                                        (ngModelChange)="checkmdp()"/>
-        <div *ngIf="mdp2.invalid && (mdp2.dirty || mdp2.touched)" class="text-danger bg-light form-control-sm">
-          <div *ngIf="mdp2.errors.required">
-            Le mot de passe est obligatoire
+        <label for="mdp">Nouveau mot de passe :</label> <input required
+                                                               type="password" class="form-control" id="mdp" name="mdp"
+                                                               [(ngModel)]="utilisateur.mdp"
+                                                               placeholder="mot de passe" #mdp="ngModel"
+                                                               (ngModelChange)="checkmdp()"/>
+        <div *ngIf="mdp.invalid && (mdp.dirty || mdp.touched)" class="text-danger bg-light form-control-sm">
+          <div *ngIf="mdp.errors.required">
+            Le nouveau mot de passe est obligatoire
           </div>
         </div>
       </div>
       <div class="form-group">
-        Confirmez votre mot de passe : <input type="password" class="form-control"
-                                              placeholder="confirmez le mot de passe" id="mdp3" name="mdp3"
-                                              #mdp3="ngModel" [(ngModel)]="mdpverif" (ngModelChange)="checkmdp()"/>
-        <div *ngIf="(notSameMdp && (mdp3.dirty || mdp3.touched))" class="text-danger bg-light form-control-sm">
+        <label for="mdp2"> Confirmez votre mot de passe :</label> <input type="password" class="form-control"
+                                                                         placeholder="confirmez le mot de passe"
+                                                                         id="mdp2" name="mdp2"
+                                                                         #mdp2="ngModel" [(ngModel)]="mdpverif"
+                                                                         (ngModelChange)="checkmdp()"/>
+        <div *ngIf="(notSameMdp && (mdp2.dirty || mdp2.touched))" class="text-danger bg-light form-control-sm">
           <div *ngIf="(notSameMdp)">
             Le mot de passe ne correspond pas
           </div>
         </div>
       </div>
       <div class="form-group mt-2">
-        <button type="button" class="btnSubmit" [disabled]="changeMdp.invalid||notSameMdp"
-                (click)="save()">Changer
+        <button type="button" class="btn" [disabled]="changeMdp.invalid||notSameMdp"
+                (click)="savemdp()">Changer
         </button>
       </div>
     </form>

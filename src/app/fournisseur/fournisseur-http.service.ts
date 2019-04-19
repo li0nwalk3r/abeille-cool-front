@@ -21,4 +21,8 @@ export class FournisseurHttpService {
       return this.http.post('http://localhost:8080/utilisateur/existmail', existmail);
     }
   }
+
+  verifmdp(utilisateur){
+    return this.http.post('http://localhost:8080/utilisateur/verifmdp', utilisateur);
+  }
 }

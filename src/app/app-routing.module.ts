@@ -27,10 +27,9 @@ const routes: Routes = [
   {path: 'actualite', component: AccueilComponent},
   {path: 'facturation/:id', component: FacturationComponent},
   {path: 'article', component: ArticleComponent},
-  {path: 'fournisseur', component: FournisseurComponent},
   {path: 'article/:type', component: ArticleComponent},
+  {path: 'fournisseur', component: FournisseurComponent},
   {path: 'mon-panier/:id', component: MonPanierComponent},
-
   {path: '', redirectTo:'actualite', pathMatch:'full'},
   {path: '**', redirectTo: 'actualite' }
 ];

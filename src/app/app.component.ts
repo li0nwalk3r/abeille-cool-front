@@ -8,6 +8,8 @@ import {Router} from "@angular/router";
 })
 export class AppComponent {
   title = 'abeille-cool-front';
+  articleHydromels: string = null;
+  articleRhodomels: string = null;
 
   constructor(private router: Router) {
 

@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 import {Article} from '../model/article';
+import {EnumValue} from '@angular/compiler-cli/src/ngtsc/metadata';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +11,7 @@ import {Article} from '../model/article';
 export class ArticleHttpService {
 
   articles: any;
+
 
   constructor(private http: HttpClient) {
     this.load();
@@ -22,8 +25,15 @@ export class ArticleHttpService {
         err => console.log(err));
   }
 
-  findAll(): Array<Article> {
-    return this.articles;
+  findAll():Observable<any> {
+    return this.http.get('http://localhost:8080/article');
   }
 
+  findByNom(nom: string) : Observable<any> {
+    return this.http.get('http://localhost:8080/article/by-nom/' + nom)
+  }
+
+  findByTypeHydromel(typeHydromel: string) : Observable<any>{
+    return this.http.get('http://localhost:8080/article/by-typeHydromel/' + typeHydromel);
+  }
 }

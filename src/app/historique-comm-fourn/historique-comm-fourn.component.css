@@ -14,17 +14,3 @@ button {
   color: white;
   font-weight:bold;
 }
-
-img {
-  width: 150px;
-  height: 100px;
-}
-
-#validation {
-  text-align: center;
-}
-
-#validation2 {
-  width: 260px;
-  float: right;
-}

@@ -1,0 +1,96 @@
+<div class="card card-primary">
+  <div class="card-header"><h3>Mes informations utilisateurs</h3>
+  </div>
+
+  <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <label for="nom">Nom</label>
+          <input type="text" class="form-control" id="nom" [(ngModel)]="client.nom">
+        </div>
+        <div class="col">
+          <label for="prenom">Prénom</label>
+          <input type="text" class="form-control" id="prenom" [(ngModel)]="client.prenom">
+        </div>
+        <div class="col">
+          <label for="mai1">Mail</label>
+          <input type="text" class="form-control" id="mai1"  [(ngModel)]="utilisateur.mail">
+        </div>
+      </div>
+  </div>
+
+    <div class="card-header"><h3>Mes coordonnées</h3>
+    </div>
+    <div class="card-body" >
+      <select id="libelle" *ngIf="!ajouter||init" [(ngModel)]="idCoor" (ngModelChange)="editCoordonnee()" >
+        <option *ngFor="let coord of coordonnees" [value]="coord.id" [text]="coord.libelle" ></option>
+      </select>
+      <div class="col-4" *ngIf="ajouter" style="padding-left:0;">
+        <label for="libelleCoordonnee">Libellé:</label>
+        <input type="text" class="form-control" id="libelleCoordonnee" [(ngModel)]="coordonneeForm.libelle">
+      </div>
+      <div class="row" *ngIf="coordonneeForm">
+
+        <div class="col">
+            <label for="nomCoordonnee">Nom:</label>
+            <input type="text" class="form-control" id="nomCoordonnee" [(ngModel)]="coordonneeForm.nom">
+        </div>
+        <div class="col">
+          <label for="prenomCoordonnee">Prénom:</label>
+          <input type="text" class="form-control" id="prenomCoordonnee" [(ngModel)]="coordonneeForm.prenom">
+        </div>
+        <div class="col">
+          <label for="numTel">Numéro de téléphone:</label>
+          <input type="text" class="form-control" id="numTel" [(ngModel)]="coordonneeForm.numTel">
+        </div>
+        <div class="col">
+          <label for="mailCoordonnee">Mail:</label>
+          <input type="text" class="form-control" id="mailCoordonnee" [(ngModel)]="coordonneeForm.mail">
+        </div>
+        <div class="col" style="text-align: right">
+          <br>
+          <button type="button" class="btn btn-warning" (click)="modifierCoordonnee()" *ngIf="!ajouter">
+            <fa name="far fa-edit"></fa>
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="rue">Rue:</label>
+          <input type="text" class="form-control" id="rue" [(ngModel)]="coordonneeForm.rue">
+        </div>
+        <div class="col">
+          <label for="codePostal">Code Postal:</label>
+          <input type="text" class="form-control" id="codePostal" [(ngModel)]="coordonneeForm.codePostal">
+        </div>
+        <div class="col">
+          <label for="ville">Ville:</label>
+          <input type="text" class="form-control" id="ville" [(ngModel)]="coordonneeForm.ville">
+        </div>
+        <div class="col">
+          <label for="pays">Pays:</label>
+          <input type="text" class="form-control" id="pays" [(ngModel)]="coordonneeForm.pays">
+        </div>
+        <div class="col" style="text-align: right">
+          <br>
+          <button type="button" class="btn btn-warning" (click)="supprimerCoordonnee(coordonneeForm.id)" *ngIf="!ajouter">
+          <fa name="fas fa-trash"></fa>
+          </button>
+        </div>
+      </div>
+     </div>
+    <div class="card-footer" style="text-align: right">
+      <button type="button" class="btn btn-warning" (click)="ajouterCoordonnee()" *ngIf="!ajouter">Ajouter <fa name="fas fa-plus-circle"></fa></button>
+      <button type="button" class="btn btn-warning" (click)="modifierCoordonnee()" *ngIf="ajouter">Enregistrer <fa name="fas fa-save"></fa></button>
+     </div>
+  <div class="card-body" style="text-align: right">
+
+  </div>
+  <div class="card-footer" style="text-align: right">
+    <button type="button" class="btn btn-warning" (click)="modifier()">Enregistrer <fa name="fas fa-save"></fa></button>
+  </div>
+
+
+
+
+</div>

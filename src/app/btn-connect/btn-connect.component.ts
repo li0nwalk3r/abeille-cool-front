@@ -31,6 +31,10 @@ export class BtnConnectComponent implements OnInit {
       return sessionStorage.getItem(key);
   }
 
+  articles(){
+    this.router.navigate(['formulaire-article']);
+  }
+
   fournisseur(){
     this.router.navigate(['administrateur/fournisseurs/references']);
   }

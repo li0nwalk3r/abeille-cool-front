@@ -63,6 +63,8 @@ export class DetailhydromelComponent implements OnInit {
                 this.ligneCommande.commandeClient=this.commandeClient;
                 this.ligneCommandeService.save(this.ligneCommande);
                 sessionStorage.setItem("commande_id",String(this.commandeClient.id));
+                console.log(sessionStorage.getItem("commande_id"));
+
 
               });
               // this.commandeClientService.save(this.commandeClient).subscribe(;
@@ -74,7 +76,7 @@ export class DetailhydromelComponent implements OnInit {
             this.ligneCommande.commandeClient = this.listeCommandeClient[0];
             this.ligneCommandeService.save(this.ligneCommande);
             sessionStorage.setItem("commande_id",String(this.ligneCommande.commandeClient.id));
-            console.log(this.ligneCommande.commandeClient.id);
+            console.log(sessionStorage.getItem("commande_id"));
             this.listeCommandeClient[0].client = this.client;
             if(this.listeCommandeClient[0].lignesCommande==null){
               this.listeCommandeClient[0].lignesCommande = new Array<LigneCommande>();

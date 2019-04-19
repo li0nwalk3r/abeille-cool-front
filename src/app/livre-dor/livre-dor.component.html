@@ -1,0 +1,47 @@
+<h1 align="center" style="background-color: #f4c00b">Le livre d'or</h1>
+
+<div class="container mt-5">
+  <div class="card-group col-sm-12" style="padding-top: 10px; border-bottom-color: #f4a60e"
+       *ngFor="let avis of listeAvis()">
+    <div class="card col-sm-2 center" style="width: 50px ">
+      <p class="mt-1 ml-1" style="font-size: 50px">{{avis.note}} / 5</p>
+    </div>
+    <div class="card col-sm-10"
+         style="text-align:left;width: initial">
+      <div class="card-body">
+        <p class="card-text">" {{avis.avis}} "</p>
+      </div>
+    </div>
+  </div>
+  <div class="text-center mt-3">
+    <button class="btn btn-info" (click)="add()"> Ajouter un avis</button>
+  </div>
+
+
+  <div class="card card-primary mt-5" *ngIf="avisForm">
+    <div class="card-header">Avis</div>
+    <div class="card-body">
+      <div class="form-group">
+        <label for="note">Note:</label>
+        <input type="number" min="0" max="5" class="form-control" id="note" [(ngModel)]="avisForm.note">
+      </div>
+      <div *ngIf="avisForm.note > 5" class="text-danger bg-light form-control-sm">
+          La note doit être comprise entre 0 et 5
+      </div>
+      <div class="form-group">
+        <label for="avis">Commentaire</label>
+        <input type="text" class="form-control" id="avis" [(ngModel)]="avisForm.avis">
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="btn-group">
+        <button class="btn btn-success" (click)="save()">
+          <fa name="fas fa-check"></fa>
+        </button>
+        <button class="btn btn-warning" (click)="cancel()">
+          <fa name="fas fa-window-close"></fa>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

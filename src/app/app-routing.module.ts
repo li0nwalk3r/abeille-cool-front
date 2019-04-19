@@ -17,6 +17,7 @@ import {HistoriqueCommFournComponent} from './historique-comm-fourn/historique-c
 import {HistoriqueCommDetailComponent} from './historique-comm-detail/historique-comm-detail.component';
 import {FormulaireArticleComponent} from './formulaire-article/formulaire-article.component';
 import {InformationComponent} from './information/information.component';
+import {LivreDorComponent} from './livre-dor/livre-dor.component';
 
 const routes: Routes = [
   {path: 'connexion', component: ConnexionComponent},
@@ -39,7 +40,9 @@ const routes: Routes = [
   {path: 'formulaire-article/:id', component: FormulaireArticleComponent},
   {path: 'historiqueCommandeFournisseur', component: HistoriqueCommFournComponent},
   {path: 'historiqueCommandeFournisseur/:id', component: HistoriqueCommDetailComponent},
-  {path: '', redirectTo: 'actualite', pathMatch:'full'},
+  {path: 'livre-d\'or', component: LivreDorComponent},
+
+  {path: '', redirectTo:'actualite', pathMatch:'full'},
   {path: '**', redirectTo: 'actualite' }
 ];
 

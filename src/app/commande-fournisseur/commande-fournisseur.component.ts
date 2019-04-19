@@ -4,7 +4,10 @@ import {CommandeFournisseurHttpService} from './commande-fournisseur-http.servic
 
 import {HttpClient} from '@angular/common/http';
 import {Subscription} from 'rxjs';
-import {Produit} from "../model/produit";
+import {Produit} from '../model/produit';
+import {CommandeFournisseur} from '../model/commandeFournisseur';
+import {Administrateur} from '../model/administrateur';
+import {Fournisseur} from "../model/fournisseur";
 
 @Component({
   selector: 'commandeFournisseur',
@@ -14,9 +17,13 @@ import {Produit} from "../model/produit";
 export class CommandeFournisseurComponent implements OnInit {
 
   produits: Array<Produit> = new Array<Produit>();
-  valide: boolean = false;
+  valide = false;
   TauxTva: number = 20 / 100;
   prixTotalHT: number;
+  erreur = false;
+  commandeFournisseur: CommandeFournisseur = new CommandeFournisseur();
+  produit: Produit = new Produit();
+
 
   constructor(private commandeFournisseurService: CommandeFournisseurHttpService) {
   }
@@ -32,40 +39,46 @@ export class CommandeFournisseurComponent implements OnInit {
       err => console.log(err));
   }
 
-  valider() {
-    this.valide = true;
-  }
-
-
   calcul() {
-      for (const produit of this.produits) {
-        if (produit.qteDemande > 0 ) {
-          this.prixTotalHT = (produit.prixUnitaireHT * produit.qteDemande);
-          produit.prixTotal = (this.prixTotalHT * this.TauxTva) + this.prixTotalHT;
-        }
+    for (const produit of this.produits) {
+      if (produit.qteDemande > 0) {
+        this.prixTotalHT = (produit.prixUnitaireHT * produit.qteDemande);
+        produit.prixTotal = (this.prixTotalHT * this.TauxTva) + this.prixTotalHT;
       }
     }
+  }
 
-  // save() {
-  //   this.commandeFournisseurService.save(this.);
-  //
-  //   this. = null;
-  // }
+  save(qte, prix, id) {
+    for (const produit of this.produits) {
+      if (produit.qteDemande <= produit.qte) {
+        this.valide = true;
+        this.erreur = false;
+        this.commandeFournisseur.date = new Date();
+        this.commandeFournisseur.tauxTVA = 20;
+        this.commandeFournisseur.qte = qte;
+        this.commandeFournisseur.prixTotal = prix;
+        this.commandeFournisseur.produit = new Produit();
+        this.commandeFournisseur.produit.id = id;
+        this.commandeFournisseur.administrateur = new Administrateur();
+        this.commandeFournisseur.administrateur.id = Number(sessionStorage.getItem('type_id'));
+        this.commandeFournisseurService.save(this.commandeFournisseur);
+        this.commandeFournisseur.produit.qte = produit.qte - produit.qteDemande;
+        this.commandeFournisseurService.findById(id).subscribe(resp => {
+          this.produit = resp;
+          console.log(this.produit.nom);
+          this.produit.qte = this.commandeFournisseur.produit.qte;
+          console.log(this.produit.fournisseur.id);
+          this.commandeFournisseurService.edit(this.produit);
+        }, err => {
+          console.log(err);
+        });
 
-  // save(eleve: Eleve) {
-  //   if (eleve) {
-  //     if (!eleve.id) {
-  //       this.http.post('http://localhost:8080/api/eleve', eleve).subscribe(resp => {this.load(); eleve = null;},
-  //         err => console.log(err));
-  //
-  //     } else {
-  //       this.http.put('http://localhost:8080/api/eleve/' + eleve.id, eleve).subscribe(resp => {this.load(); eleve = null;},
-  //         err => console.log(err)
-  //       );
-  //     }
-  //   }
-  // }
-  //
+      } else if (produit.qteDemande >= produit.qte) {
+        this.valide = false;
+        this.erreur = true;
+      }
+    }
+  }
 
 
 }

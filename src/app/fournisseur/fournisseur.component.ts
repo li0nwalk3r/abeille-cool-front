@@ -33,6 +33,7 @@ export class FournisseurComponent implements OnInit {
     this.fournisseurService.findId(Number(sessionStorage.getItem('id'))).subscribe(resp => {
         this.temp = resp;
         this.utilisateur = this.temp;
+        this.utilisateur.mdp="";
       }
       , err => console.log(err));
   }

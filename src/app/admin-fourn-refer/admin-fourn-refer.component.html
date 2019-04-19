@@ -34,9 +34,13 @@
               <fa name="fas fa-check fa-2x"></fa>
             </button>
             <button class="btn btn-danger" style="background-color:#f4a60e" (click)="refuser(produit)">
-              <fa name="fas fa-trash fa-2x"></fa>
+              <fa name="fas fa-ban fa-2x"></fa>
             </button>
           </div>
+          <button class="btn btn-danger" (click)="remove(produit.id)">
+            <fa name="fas fa-trash fa-2x"></fa>
+          </button>
+
         </td>
       </tr>
     </table>

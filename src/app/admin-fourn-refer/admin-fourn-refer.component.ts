@@ -65,4 +65,9 @@ export class AdminFournReferComponent implements OnInit {
     this.produitList.valide = false;
     this.save();
   }
+
+  remove(id: number) {
+      this.adminFournReferService.delete(id).subscribe(resp => this.listProduitByFournisseur(),
+        err => console.log(err));
+    }
 }

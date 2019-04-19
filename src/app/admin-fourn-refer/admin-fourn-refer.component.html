@@ -29,14 +29,18 @@
         <td>{{produit.unite}}</td>
         <td>{{produit.prixUnitaireHT}}</td>
         <td>
-          <div class="btn-group btn-group-xs" >
-            <button class="btn btn-success" style="background-color:#f4a60e" (click)="accepter(produit.id)">
+          <div class="btn-group btn-group-xs" *ngIf="!produit.traite" >
+            <button class="btn btn-success" style="background-color:#f4a60e" (click)="accepter(produit)">
               <fa name="fas fa-check fa-2x"></fa>
             </button>
-            <button class="btn btn-danger" style="background-color:#f4a60e" (click)="rejeter(produit.id)">
-              <fa name="fas fa-trash fa-2x"></fa>
+            <button class="btn btn-danger" style="background-color:#f4a60e" (click)="refuser(produit)">
+              <fa name="fas fa-ban fa-2x"></fa>
             </button>
           </div>
+          <button class="btn btn-danger" (click)="remove(produit.id)">
+            <fa name="fas fa-trash fa-2x"></fa>
+          </button>
+
         </td>
       </tr>
     </table>

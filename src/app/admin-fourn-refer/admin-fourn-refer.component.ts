@@ -14,6 +14,7 @@ export class AdminFournReferComponent implements OnInit {
   // produitSearch: string = null;
   produitForm: Produit = null;
   produits: Array<Produit> = new Array<Produit>();
+  produitList: Produit = null;
 
   constructor(private adminFournReferService: AdminFournReferService, private router: Router) {
 
@@ -34,11 +35,11 @@ export class AdminFournReferComponent implements OnInit {
   list(): Array<Produit> {
     return this.adminFournReferService.findAll();
   }
- /* save() {
-    this.adminFournReferService.save(this.produitForm);
+  save() {
+    this.adminFournReferService.save(this.produitList);
 
-    this.produitForm = null;
-  }*/
+    this.produitList = null;
+  }
 
   listProduitByFournisseur() {
     this.adminFournReferService.findAllProduitByFournisseur().subscribe(resp => {
@@ -51,4 +52,22 @@ export class AdminFournReferComponent implements OnInit {
     this.listProduitByFournisseur();
   }
 
+  accepter(produit: Produit) {
+    this.produitList = produit;
+    this.produitList.traite = true;
+    this.produitList.valide = true;
+    this.save();
+  }
+
+  refuser(produit: Produit) {
+    this.produitList = produit;
+    this.produitList.traite = true;
+    this.produitList.valide = false;
+    this.save();
+  }
+
+  remove(id: number) {
+      this.adminFournReferService.delete(id).subscribe(resp => this.listProduitByFournisseur(),
+        err => console.log(err));
+    }
 }

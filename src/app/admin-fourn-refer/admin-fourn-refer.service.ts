@@ -58,19 +58,19 @@ export class AdminFournReferService {
   // }
 
 
-  // save(produit: Produit) {
-  //   if (produit) {
-  //     if (!produit.id) {
-  //       this.http.post('http://localhost:8080/produit', produit).subscribe(resp => {this.load(); produit = null; },
-  //         err => console.log(err));
-  //
-  //     } else {
-  //       this.http.put('http://localhost:8080/produit/' + produit.id, produit).subscribe(resp => {this.load(); produit = null; },
-  //         err => console.log(err)
-  //       );
-  //     }
-  //   }
-  // }
+  save(produit: Produit) {
+    if (produit) {
+      if (!produit.id) {
+        this.http.post('http://localhost:8080/produit', produit).subscribe(resp => {this.load(); produit = null; },
+          err => console.log(err));
+
+      } else {
+        this.http.put('http://localhost:8080/produit/' + produit.id, produit).subscribe(resp => {this.load(); produit = null; },
+          err => console.log(err)
+        );
+      }
+    }
+  }
 
   delete(id: number) {
     this.http.delete('http://localhost:8080/produit/' + id).subscribe(resp => this.load(),

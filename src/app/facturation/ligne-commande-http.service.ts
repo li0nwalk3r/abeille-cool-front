@@ -41,6 +41,7 @@ export class LigneCommandeHttpService {
           err => console.log(err));
 
       } else {
+        console.log(ligneCommande);
         this.http.put('http://localhost:8080/ligneCommande/' + ligneCommande.id, ligneCommande).subscribe(resp => {this.load(); ligneCommande = null;},
           err => console.log(err)
         );
@@ -49,7 +50,7 @@ export class LigneCommandeHttpService {
   }
 
   delete(id: number) {
-    this.http.delete('http://localhost:8080/cligneCommande/' + id).subscribe(resp => this.load(),
+    this.http.delete('http://localhost:8080/ligneCommande/' + id).subscribe(resp => this.load(),
       err => console.log(err));
 
   }

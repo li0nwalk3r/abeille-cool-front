@@ -12,11 +12,13 @@ export class Produit {
   unite: Unite;
   qteDemande: number;
   prixTotal: number;
+  traite: boolean;
+  valide: boolean;
   fournisseur: Fournisseur;
   produitCatProd: ProduitCatProd;
 
 
-  constructor(id?: number, version?: number, nom?: string, description?: string, qte?: number, prixUnitaireHT?: number, unite?: Unite, qteDemande?: number, prixTotal?: number, fournisseur?: Fournisseur, produitCatProd?: ProduitCatProd) {
+  constructor(id?: number, version?: number, nom?: string, description?: string, qte?: number, prixUnitaireHT?: number, unite?: Unite, qteDemande?: number, prixTotal?: number, traite?: boolean, valide?: boolean, fournisseur?: Fournisseur, produitCatProd?: ProduitCatProd) {
     this.id = id;
     this.version = version;
     this.nom = nom;
@@ -26,6 +28,8 @@ export class Produit {
     this.unite = unite;
     this.qteDemande = qteDemande;
     this.prixTotal = prixTotal;
+    this.traite = traite;
+    this.valide = valide;
     this.fournisseur = fournisseur;
     this.produitCatProd = produitCatProd;
   }

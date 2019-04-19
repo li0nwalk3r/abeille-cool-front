@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Produit} from "../model/produit";
 import {FournisseurProduitsHttpService} from "../fournisseur-produits/fournisseur-produits-http.service";
 import {Router} from "@angular/router";
+import {AdminFournReferService} from "./admin-fourn-refer.service";
 
 @Component({
   selector: 'app-admin-fourn-refer',
@@ -10,57 +11,63 @@ import {Router} from "@angular/router";
 })
 export class AdminFournReferComponent implements OnInit {
 
-  produitSearch: string = null;
+  // produitSearch: string = null;
   produitForm: Produit = null;
+  produits: Array<Produit> = new Array<Produit>();
+  produitList: Produit = null;
 
-  constructor(private fournisseurProduitsService: FournisseurProduitsHttpService,private router: Router) {
+  constructor(private adminFournReferService: AdminFournReferService, private router: Router) {
 
   }
 
-  commander(){
+  commander() {
     this.router.navigate(['commandeFournisseur']);
   }
 
-  search() {
-    if (this.produitSearch) {
-      this.fournisseurProduitsService.findByNom(this.produitSearch);
-    } else {
-      this.fournisseurProduitsService.load();
-    }
-  }
+  // search() {
+  //   if (this.produitSearch) {
+  //     this.adminFournReferService.findByNom(this.produitSearch);
+  //   } else {
+  //     this.adminFournReferService.load();
+  //   }
+  // }
 
   list(): Array<Produit> {
-    return this.fournisseurProduitsService.findAll();
+    return this.adminFournReferService.findAll();
   }
-
-  listUnite(): Array<object> {
-    return this.fournisseurProduitsService.findAllUnite();
-  }
-
-  add() {
-    this.produitForm = new Produit();
-  }
-
-  edit(id: number) {
-    this.fournisseurProduitsService.findById(id).subscribe(resp => {this.produitForm = resp; });
-  }
-
   save() {
-    this.fournisseurProduitsService.save(this.produitForm);
+    this.adminFournReferService.save(this.produitList);
 
-    this.produitForm = null;
+    this.produitList = null;
   }
 
-  remove(id: number) {
-    this.fournisseurProduitsService.delete(id);
-  }
-
-  cancel() {
-    console.log(this.produitForm);
-    this.produitForm = null;
+  listProduitByFournisseur() {
+    this.adminFournReferService.findAllProduitByFournisseur().subscribe(resp => {
+        this.produits = resp;
+      },
+      err => console.log(err));
   }
 
   ngOnInit() {
+    this.listProduitByFournisseur();
   }
 
+  accepter(produit: Produit) {
+    this.produitList = produit;
+    this.produitList.traite = true;
+    this.produitList.valide = true;
+    this.save();
+  }
+
+  refuser(produit: Produit) {
+    this.produitList = produit;
+    this.produitList.traite = true;
+    this.produitList.valide = false;
+    this.save();
+  }
+
+  remove(id: number) {
+      this.adminFournReferService.delete(id).subscribe(resp => this.listProduitByFournisseur(),
+        err => console.log(err));
+    }
 }

@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
@@ -20,12 +19,10 @@ import { ActualiteDetailComponent } from './actualite-detail/actualite-detail.co
 import {ArticleComponent} from "./article/article.component";
 import { FournisseurComponent } from './fournisseur/fournisseur.component';
 import {CommandeFournisseurComponent} from "./commande-fournisseur/commande-fournisseur.component";
+import { FormulaireArticleComponent } from './formulaire-article/formulaire-article.component';
 import {DetailhydromelComponent} from "./detailhydromel/detailhydromel.component";
 import { HistoriqueCommFournComponent } from './historique-comm-fourn/historique-comm-fourn.component';
 import { HistoriqueCommDetailComponent } from './historique-comm-detail/historique-comm-detail.component';
-
-
-
 
 @NgModule({
   declarations: [
@@ -47,6 +44,7 @@ import { HistoriqueCommDetailComponent } from './historique-comm-detail/historiq
     ConnexionComponent,
     CommandeFournisseurComponent,
     FournisseurProduitsComponent,
+    FormulaireArticleComponent,
     DetailhydromelComponent,
     HistoriqueCommFournComponent,
     HistoriqueCommDetailComponent

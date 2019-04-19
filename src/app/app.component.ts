@@ -14,7 +14,7 @@ export class AppComponent {
   }
 
   Panier(){
-    this.router.navigate(['mon-panier/']);
+    this.router.navigate(['mon-panier/' + sessionStorage.getItem("commande_id")]);
   }
 
   Accueil() {
@@ -26,26 +26,26 @@ export class AppComponent {
   }
 
   Classiques() {
-    this.router.navigate(['article']);
+    this.router.navigate(['article/Classique']);
   }
 
   Rhodomels() {
-    this.router.navigate(['article']);
+    this.router.navigate(['article/Rhodomel']);
   }
 
   Melomels() {
-    this.router.navigate(['article']);
+    this.router.navigate(['article/Melomel']);
   }
 
   Broggots() {
-    this.router.navigate(['article']);
+    this.router.navigate(['article/Broggot']);
   }
 
   Oxymels() {
-    this.router.navigate(['article']);
+    this.router.navigate(['article/Oxymel']);
   }
 
   Oenomels() {
-    this.router.navigate(['article']);
+    this.router.navigate(['article/Oenomel']);
   }
 }

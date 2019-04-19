@@ -3,6 +3,8 @@ import {HttpClient} from '@angular/common/http';
 
 
 import {Observable} from 'rxjs';
+import {CommandeFournisseur} from "../model/commandeFournisseur";
+import {Produit} from "../model/produit";
 
 
 @Injectable({
@@ -10,9 +12,18 @@ import {Observable} from 'rxjs';
 })
 export class CommandeFournisseurHttpService {
 
-  produits: any;
+  commandeFournisseur: any;
 
   constructor(private http: HttpClient) {
+    this.load();
+  }
+
+  load() {
+    this.http.get('http://localhost:8080/commandeFournisseur')
+      .subscribe(resp => {
+          this.commandeFournisseur = resp;
+        },
+        err => console.log(err));
   }
 
   findAllProduitByFournisseur(): Observable<any> {
@@ -20,20 +31,32 @@ export class CommandeFournisseurHttpService {
   }
 
 
-  // save(commandefournisseur: CommandeFournisseur) {
-  //   if (commandefournisseur) {
-  //     if (!commandefournisseur.id) {
-  //       this.http.post('http://localhost:8080/comandeFournisseur', ).subscribe(resp => {this.load(); eleve = null;},
-  //         err => console.log(err));
-  //
-  //     } else {
-  //       this.http.put('http://localhost:8080/api/eleve/' + eleve.id, eleve).subscribe(resp => {this.load(); eleve = null;},
-  //         err => console.log(err)
-  //       );
-  //     }
-  //   }
-  // }
+  save(commandefournisseur: CommandeFournisseur) {
+    if (commandefournisseur) {
+      console.log(commandefournisseur);
+      if (!commandefournisseur.id) {
+        this.http.post('http://localhost:8080/commandeFournisseur', commandefournisseur).
+        subscribe(resp => {this.load(); commandefournisseur = null;
+             },
+          err => console.log(err));
 
+        }
+      }
+    }
+
+    edit(produit: Produit) {
+    if (produit) {
+      if (produit.id) {
+        this.http.put('http://localhost:8080/produit/' + produit.id, produit).subscribe(resp => { produit = null; },
+          err => console.log(err)
+        );
+      }
+    }
+  }
+
+  findById(id: number): Observable<any> {
+      return this.http.get('http://localhost:8080/produit/' + id);
+  }
 
 }
 

@@ -31,15 +31,15 @@ const routes: Routes = [
   {path: 'actualite', component: AccueilComponent},
   {path: 'facturation/:id', component: FacturationComponent},
   {path: 'article', component: ArticleComponent},
-  {path: 'fournisseur', component: FournisseurComponent},
   {path: 'article/:type', component: ArticleComponent},
+  {path: 'fournisseur', component: FournisseurComponent},
   {path: 'mon-panier/:id', component: MonPanierComponent},
   {path: 'information-client', component: InformationComponent},
   {path: 'formulaire-article', component: FormulaireArticleComponent},
   {path: 'formulaire-article/:id', component: FormulaireArticleComponent},
   {path: 'historiqueCommandeFournisseur', component: HistoriqueCommFournComponent},
   {path: 'historiqueCommandeFournisseur/:id', component: HistoriqueCommDetailComponent},
-  {path: '', redirectTo:'actualite', pathMatch:'full'},
+  {path: '', redirectTo: 'actualite', pathMatch:'full'},
   {path: '**', redirectTo: 'actualite' }
 ];
 

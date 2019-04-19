@@ -3,12 +3,15 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Article} from '../model/article';
 
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class ArticleHttpService {
 
   articles: any;
+
 
   constructor(private http: HttpClient) {
     this.load();
@@ -22,10 +25,17 @@ export class ArticleHttpService {
         err => console.log(err));
   }
 
-  findAll(): Array<Article> {
-    return this.articles;
+  findAll():Observable<any> {
+    return this.http.get('http://localhost:8080/article');
   }
 
+  findByNom(nom: string) : Observable<any> {
+    return this.http.get('http://localhost:8080/article/by-nom/' + nom)
+  }
+
+  findByTypeHydromel(typeHydromel: string) : Observable<any>{
+    return this.http.get('http://localhost:8080/article/by-typeHydromel/' + typeHydromel);
+  }
   findById(id : number): Observable<any> {
     return this.http.get('http://localhost:8080/article/' + id);
   }

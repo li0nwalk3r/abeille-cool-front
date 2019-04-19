@@ -15,13 +15,13 @@
   <p> </p>
   <div class="form-group">
     <label>Nom de l'hydromel à rechercher : </label>
-    <input type="text" style="margin-left: 5px">
-    <button class="btn" style="background-color: #f4a60e;color: white;margin-left: 5px">Rechercher</button>
+    <input type="text" style="margin-left: 5px" [(ngModel)]="articleSearch" >
+    <button class="btn" style="background-color: #f4a60e;color: white;margin-left: 5px" (click)="search()">Rechercher</button>
   </div>
 
 
   <div class="container">
-    <div class="card-group" style="padding-top: 10px" *ngFor="let art of list()">
+    <div class="card-group" style="padding-top: 10px" *ngFor="let art of hydromelForm">
       <div class="card" style="border-color: #f4a60e;border-width: thin ">
         <div class="card-body text-center" style="height: 325px">
           <img class="card-img" src="{{art.photoURL}}" alt="Hydromel image" style="width:65%;margin-top: auto;margin-bottom: auto" >
@@ -62,9 +62,9 @@
     </div>
   </div>
 
-    <h4 style="padding-top: 15px">Mention légales</h4>
+    <h4 style="padding-top: 15px">Mentions légales</h4>
     <p>
-      bla bla bla
+      Mentions légales
     </p>
 
 

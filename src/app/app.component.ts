@@ -8,13 +8,19 @@ import {Router} from "@angular/router";
 })
 export class AppComponent {
   title = 'abeille-cool-front';
+  articleHydromels: string = null;
+  articleRhodomels: string = null;
 
   constructor(private router: Router) {
 
   }
 
-  Panier(){
-    this.router.navigate(['mon-panier/' + sessionStorage.getItem("commande_id")]);
+  Panier() {
+    if (sessionStorage.getItem("commande_id")) {
+      this.router.navigate(['mon-panier/' + sessionStorage.getItem("commande_id")]);
+    } else {
+      alert("Vous n'avez pas de panier en cours.");
+    }
   }
 
   Accueil() {

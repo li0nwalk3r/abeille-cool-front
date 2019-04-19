@@ -73,8 +73,7 @@ export class AdminFournReferService {
   }
 
   delete(id: number) {
-    this.http.delete('http://localhost:8080/produit/' + id).subscribe(resp => this.load(),
-      err => console.log(err));
+    return this.http.delete('http://localhost:8080/produit/' + id);
 
   }
 }

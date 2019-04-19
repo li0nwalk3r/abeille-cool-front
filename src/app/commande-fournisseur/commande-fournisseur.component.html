@@ -1,4 +1,6 @@
-
+<div id="card" class="card card-primary">
+  <div id="cardHeader" class="card-header">Liste des produits</div>
+  <div class="card-body">
 <div class="container mt-5">
   <img src="/assets/abeille-dessin-anime-pouce-air_70172-221.jpg">
 <table class="table table-hover">
@@ -7,7 +9,7 @@
     <th>Nom</th>
     <th>Prix Unitaire HT</th>
     <th>Quantité</th>
-    <th>Quantité souhaité</th>
+    <th>Quantité souhaitée</th>
     <th>Prix total</th>
     <th>Passer commande</th>
   </tr>
@@ -16,12 +18,19 @@
     <td>{{produit.nom}}</td>
     <td>{{produit.prixUnitaireHT|currency:'EUR'}}</td>
     <td>{{produit.qte}}</td>
-    <td ><input name="qtefournisseur" [(ngModel)]="produit.qteDemande" (ngModelChange)="calcul()" type="number" required [maxLength]="produit.qte"/></td>
-    <td>{{produit.prixTotal}}</td>
-    <td><button class="btn" (click)="valider()">Acheter</button></td>
+    <td ><input name="qtefournisseur" [(ngModel)]="produit.qteDemande" (ngModelChange)="calcul()" type="number" required /></td>
+    <td>{{produit.prixTotal|currency:'EUR'}}</td>
+    <td><button class="btn" (click)="save(produit.qteDemande,produit.prixTotal,produit.id)">Acheter</button></td>
   </tr>
 </table>
 <div id="validation2" class="card mt-5" *ngIf="valide" >
-  <div id="validation" class="card-body"><h6>Votre commande est validée</h6></div>
+  <div id="validation" class="card-body"><h6>Votre commande est validée</h6>
+    <button class="btn" [routerLink]="['/historiqueCommandeFournisseur']">Historique des commandes</button>
+  </div>
 </div>
+  <div id="validation3" class="card mt-5" *ngIf="erreur" >
+    <div  class="card-body"><h6>Votre demande dépasse la quantité disponible</h6></div>
+  </div>
+</div>
+  </div>
 </div>

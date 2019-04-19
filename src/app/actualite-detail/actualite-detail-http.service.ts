@@ -6,7 +6,7 @@ import {Observable} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ActualiteHttpService {
+export class ActualiteDetailHttpService {
 
   actualite : any;
   constructor(private http: HttpClient) {

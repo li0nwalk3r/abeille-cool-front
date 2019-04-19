@@ -13,6 +13,7 @@ import {AccueilComponent} from './accueil/accueil.component';
 import {FournisseurComponent} from "./fournisseur/fournisseur.component";
 import {CommandeFournisseurComponent} from './commande-fournisseur/commande-fournisseur.component';
 import {DetailhydromelComponent} from "./detailhydromel/detailhydromel.component";
+import {LivreDorComponent} from './livre-dor/livre-dor.component';
 
 const routes: Routes = [
   {path: 'connexion', component: ConnexionComponent},
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path: 'fournisseur', component: FournisseurComponent},
   {path: 'article', component: ArticleComponent},
   {path: 'mon-panier/:id', component: MonPanierComponent},
+  {path: 'livre-d\'or', component: LivreDorComponent},
 
   {path: '', redirectTo:'actualite', pathMatch:'full'},
   {path: '**', redirectTo: 'actualite' }

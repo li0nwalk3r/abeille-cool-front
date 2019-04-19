@@ -16,6 +16,7 @@ import {DetailhydromelComponent} from "./detailhydromel/detailhydromel.component
 import {HistoriqueCommFournComponent} from './historique-comm-fourn/historique-comm-fourn.component';
 import {HistoriqueCommDetailComponent} from './historique-comm-detail/historique-comm-detail.component';
 import {FormulaireArticleComponent} from './formulaire-article/formulaire-article.component';
+import {InformationComponent} from './information/information.component';
 
 const routes: Routes = [
   {path: 'connexion', component: ConnexionComponent},
@@ -33,6 +34,7 @@ const routes: Routes = [
   {path: 'article/:type', component: ArticleComponent},
   {path: 'fournisseur', component: FournisseurComponent},
   {path: 'mon-panier/:id', component: MonPanierComponent},
+  {path: 'information-client', component: InformationComponent},
   {path: 'formulaire-article', component: FormulaireArticleComponent},
   {path: 'formulaire-article/:id', component: FormulaireArticleComponent},
   {path: 'historiqueCommandeFournisseur', component: HistoriqueCommFournComponent},

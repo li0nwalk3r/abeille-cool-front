@@ -101,7 +101,7 @@ export class ConnexionComponent implements OnInit {
                 this.router.navigate(['client']);
               } else if (sessionStorage.getItem("type") == "FOURNISSEUR") {
                 this.router.navigate(['fournisseur']);
-              }else{
+              } else {
                 this.router.navigate(['']);
               }
             } else {

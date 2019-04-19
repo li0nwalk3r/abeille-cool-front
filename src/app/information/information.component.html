@@ -1,0 +1,160 @@
+<div class="card card-primary">
+  <div class="card-header"><h3>Mes informations utilisateurs</h3>
+  </div>
+
+  <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <label for="nom">Nom</label>
+          <input type="text" class="form-control" id="nom" [(ngModel)]="client.nom">
+        </div>
+        <div class="col">
+          <label for="prenom">Prénom</label>
+          <input type="text" class="form-control" id="prenom" [(ngModel)]="client.prenom">
+        </div>
+        <div class="col">
+          <label for="mail">e-mail :</label>
+          <input type="email" class="form-control" placeholder="e-mail" required name="mail" id="mail" #mail="ngModel"
+                 [(ngModel)]="utilisateur.mail" (ngModelChange)="checkexistmail()"/>
+          <div *ngIf="mail.invalid && (mail.dirty || mail.touched)" class="text-danger bg-light form-control-sm">
+            <div *ngIf="mail.errors.required">
+              Le mail est obligatoire au format text@domaine.com
+            </div>
+          </div>
+          <div *ngIf="mailExist && (mail.dirty || mail.touched)" class="text-danger bg-light form-control-sm">
+            <div *ngIf="mailExist">
+              Ce mail est interdit
+            </div>
+          </div>
+        </div>
+      </div>
+    <br>
+    <button type="button" class="btn btn-warning"  (click)="add()">
+      Changer le mot de passe
+    </button>
+  </div>
+  <div class="card card-body" *ngIf="mdpChange">
+    <form #changeMdp="ngForm" novalidate>
+      <div *ngIf="erreurmdp &&(amdp.dirty || amdp.touched)&&(mdp.dirty || mdp.touched)&&(mdp2.dirty || mdp2.touched)" class="text-danger bg-light form-control-sm">
+        <div *ngIf="erreurmdp">
+          Erreur sur le mot de passe
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="amdp">Ancien mot de passe :</label> <input required
+                                                               type="password" class="form-control" id="amdp"
+                                                               name="amdp"
+                                                               [(ngModel)]="ancienmdp"
+                                                               placeholder=" ancien mot de passe" #amdp="ngModel"/>
+        <div *ngIf="amdp.invalid && (amdp.dirty || amdp.touched)" class="text-danger bg-light form-control-sm">
+          <div *ngIf="amdp.errors.required">
+            L'ancien mot de passe est obligatoire
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="mdp">Nouveau mot de passe :</label> <input required
+                                                               type="password" class="form-control" id="mdp" name="mdp"
+                                                               [(ngModel)]="utilisateur.mdp"
+                                                               placeholder="mot de passe" #mdp="ngModel"
+                                                               (ngModelChange)="checkmdp()"/>
+        <div *ngIf="mdp.invalid && (mdp.dirty || mdp.touched)" class="text-danger bg-light form-control-sm">
+          <div *ngIf="mdp.errors.required">
+            Le nouveau mot de passe est obligatoire
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="mdp2"> Confirmez votre mot de passe :</label> <input type="password" class="form-control"
+                                                                         placeholder="confirmez le mot de passe"
+                                                                         id="mdp2" name="mdp2"
+                                                                         #mdp2="ngModel" [(ngModel)]="mdpverif"
+                                                                         (ngModelChange)="checkmdp()"/>
+        <div *ngIf="(notSameMdp && (mdp2.dirty || mdp2.touched))" class="text-danger bg-light form-control-sm">
+          <div *ngIf="(notSameMdp)">
+            Le mot de passe ne correspond pas
+          </div>
+        </div>
+      </div>
+      <div class="form-group mt-2">
+        <button type="button" class="btn btn-warning" [disabled]="changeMdp.invalid||notSameMdp"
+                (click)="savemdp()">Changer
+        </button>
+        &nbsp;
+        <button type="button" class="btn btn-danger"
+                (click)="cancel()">Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+    <div class="card-header"><h3>Mes coordonnées</h3>
+    </div>
+    <div class="card-body" >
+      <select id="libelle" *ngIf="!ajouter||init" [(ngModel)]="idCoor" (ngModelChange)="editCoordonnee()" >
+        <option *ngFor="let coord of coordonnees" [value]="coord.id" [text]="coord.libelle" ></option>
+      </select>
+      <div class="col-4" *ngIf="ajouter" style="padding-left:0;">
+        <label for="libelleCoordonnee">Libellé:</label>
+        <input type="text" class="form-control" id="libelleCoordonnee" [(ngModel)]="coordonneeForm.libelle">
+      </div>
+      <div class="row" *ngIf="coordonneeForm">
+
+        <div class="col">
+            <label for="nomCoordonnee">Nom:</label>
+            <input type="text" class="form-control" id="nomCoordonnee" [(ngModel)]="coordonneeForm.nom">
+        </div>
+        <div class="col">
+          <label for="prenomCoordonnee">Prénom:</label>
+          <input type="text" class="form-control" id="prenomCoordonnee" [(ngModel)]="coordonneeForm.prenom">
+        </div>
+        <div class="col">
+          <label for="numTel">Numéro de téléphone:</label>
+          <input type="text" class="form-control" id="numTel" [(ngModel)]="coordonneeForm.numTel">
+        </div>
+        <div class="col">
+          <label for="mailCoordonnee">Mail:</label>
+          <input type="text" class="form-control" id="mailCoordonnee" [(ngModel)]="coordonneeForm.mail">
+        </div>
+        <div class="col" style="text-align: right">
+          <br>
+          <button type="button" class="btn btn-warning" (click)="modifierCoordonnee()" *ngIf="!ajouter">
+            <fa name="far fa-edit"></fa>
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="rue">Rue:</label>
+          <input type="text" class="form-control" id="rue" [(ngModel)]="coordonneeForm.rue">
+        </div>
+        <div class="col">
+          <label for="codePostal">Code Postal:</label>
+          <input type="text" class="form-control" id="codePostal" [(ngModel)]="coordonneeForm.codePostal">
+        </div>
+        <div class="col">
+          <label for="ville">Ville:</label>
+          <input type="text" class="form-control" id="ville" [(ngModel)]="coordonneeForm.ville">
+        </div>
+        <div class="col">
+          <label for="pays">Pays:</label>
+          <input type="text" class="form-control" id="pays" [(ngModel)]="coordonneeForm.pays">
+        </div>
+        <div class="col" style="text-align: right">
+          <br>
+          <button type="button" class="btn btn-warning" (click)="supprimerCoordonnee(coordonneeForm.id)" *ngIf="!ajouter">
+          <fa name="fas fa-trash"></fa>
+          </button>
+        </div>
+      </div>
+     </div>
+    <div class="card-footer" style="text-align: right">
+      <button type="button" class="btn btn-warning" (click)="ajouterCoordonnee()" *ngIf="!ajouter">Ajouter <fa name="fas fa-plus-circle"></fa></button>
+      <button type="button" class="btn btn-warning" (click)="modifierCoordonnee()" *ngIf="ajouter">Enregistrer coordonnée <fa name="fas fa-save"></fa></button>
+     </div>
+  <div class="card-body" style="text-align: right">
+
+  </div>
+  <div class="card-footer" style="text-align: right">
+    <button type="button" class="btn btn-warning" (click)="modifier()">Enregistrer <fa name="fas fa-save"></fa></button>
+  </div>
+</div>

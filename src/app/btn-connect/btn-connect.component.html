@@ -1,13 +1,28 @@
-<a (click)="connecter()" class="lienNoir" *ngIf="readSessionStorage('connect')!='true'"><fa name="far fa-user-circle"></fa>{{texte}}</a>
+<a (click)="connecter()" class="lienNoir" *ngIf="readSessionStorage('connect')!='true'"><fa name="far fa-user-circle"></fa> {{texte}}</a>
 
 <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" style="padding-top:0;" *ngIf="readSessionStorage('connect')=='true'">
   <fa name="far fa-user-circle"></fa> Mon compte
 </button>
-<div class="dropdown-menu" *ngIf="readSessionStorage('connect')=='true'">
-  <a class="dropdown-item" href="#" >Mes informations</a>
+<div class="dropdown-menu" *ngIf="readSessionStorage('connect')=='true' && readSessionStorage('type')== 'CLIENT'">
+  <a class="dropdown-item" (click)="information()" >Mes informations</a>
   <a class="dropdown-item" href="#">Mes évenements</a>
   <a class="dropdown-item" href="#">Mes avis</a>
   <a class="dropdown-item" href="#">Mes achats passés</a>
   <a class="dropdown-item" href="#">Mes factures</a>
+  <a class="dropdown-item" (click)="deconnecter()">Deconnexion</a>
+</div>
+<div class="dropdown-menu" *ngIf="readSessionStorage('connect')=='true' && readSessionStorage('type')== 'ADMINISTRATEUR'">
+  <a class="dropdown-item" href="#" >MConsulter les ventes</a>
+  <a class="dropdown-item" href="#">Gérer les références cients</a>
+  <a class="dropdown-item" href="#">Gérer les avis</a>
+  <a class="dropdown-item" href="#">Les évenements</a>
+  <a class="dropdown-item" href="#">Gérer les fournisseurs</a>
+  <a class="dropdown-item" (click)="deconnecter()">Deconnexion</a>
+</div>
+<div class="dropdown-menu" *ngIf="readSessionStorage('connect')=='true' && readSessionStorage('type')== 'FOURNISSEUR'">
+  <a class="dropdown-item" href="#" >Mes coordonnées</a>
+  <a class="dropdown-item" href="#">Mes produits</a>
+  <a class="dropdown-item" href="#">Message à l'administrateur</a>
+  <a class="dropdown-item" href="#">Les commandes passées</a>
   <a class="dropdown-item" (click)="deconnecter()">Deconnexion</a>
 </div>

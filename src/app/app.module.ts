@@ -45,7 +45,11 @@ import { HistoriqueCommDetailComponent } from './historique-comm-detail/historiq
     ConnexionComponent,
     CommandeFournisseurComponent,
     FournisseurProduitsComponent,
-    DetailhydromelComponent
+    DetailhydromelComponent,
+    InformationComponent,
+    FormulaireArticleComponent,
+    HistoriqueCommFournComponent,
+    HistoriqueCommDetailComponent
   ],
   imports: [
     FormsModule,

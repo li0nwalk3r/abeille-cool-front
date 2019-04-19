@@ -1,0 +1,16 @@
+<div class="container mt-5">
+  <div class="card-header"><h4>Détail de la commande</h4></div>
+  <div class="card-body">
+    <div class="form-group">
+      <label><h5>Date de la commande : {{commandeFournisseurDetail?.date}}</h5></label><br>
+      <label><h5>Fournisseur : </h5></label><br>
+      <label><h5>Produit commandé : </h5></label><br>
+      <label><h5>Description du produit : </h5></label><br>
+      <label><h5>Prix unitaire HT : €</h5></label><br>
+      <label><h5>Quantité commandée : {{commandeFournisseurDetail?.qte}} kg</h5></label><br>
+      <label><h5>TVA appliquée : {{commandeFournisseurDetail?.tauxTVA}} %</h5></label><br>
+      <label><h5>Prix total payé : {{commandeFournisseurDetail?.prixTotal}} €</h5></label>
+    </div>
+    <div class="card-footer"><button class="btn" [routerLink]="['/historiqueCommandeFournisseur']">Retour à l'historique</button></div>
+  </div>
+</div>

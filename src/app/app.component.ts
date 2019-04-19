@@ -14,7 +14,7 @@ export class AppComponent {
   }
 
   Panier(){
-    this.router.navigate(['mon-panier/'+sessionStorage.getItem("commande_id")]);
+    this.router.navigate(['mon-panier/' + sessionStorage.getItem("commande_id")]);
   }
 
   Accueil() {

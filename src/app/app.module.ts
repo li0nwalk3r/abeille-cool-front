@@ -21,6 +21,8 @@ import { FournisseurComponent } from './fournisseur/fournisseur.component';
 import {CommandeFournisseurComponent} from "./commande-fournisseur/commande-fournisseur.component";
 import { FormulaireArticleComponent } from './formulaire-article/formulaire-article.component';
 import {DetailhydromelComponent} from "./detailhydromel/detailhydromel.component";
+import { HistoriqueCommFournComponent } from './historique-comm-fourn/historique-comm-fourn.component';
+import { HistoriqueCommDetailComponent } from './historique-comm-detail/historique-comm-detail.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import {DetailhydromelComponent} from "./detailhydromel/detailhydromel.component
     CommandeFournisseurComponent,
     FournisseurProduitsComponent,
     FormulaireArticleComponent,
-    DetailhydromelComponent
+    DetailhydromelComponent,
+    HistoriqueCommFournComponent,
+    HistoriqueCommDetailComponent
   ],
   imports: [
     FormsModule,

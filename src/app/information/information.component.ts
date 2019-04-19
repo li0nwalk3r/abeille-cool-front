@@ -42,7 +42,6 @@ export class InformationComponent implements OnInit {
   supprimerCoordonnee(id){
     this.coordonneeHttpService.delete(id);
     this.coordonneeForm = new Coordonnee();
-    this.ajouter = true;
   }
 
   modifier(){
@@ -54,11 +53,15 @@ export class InformationComponent implements OnInit {
       sessionStorage.setItem("mail", this.utilisateur.mail);
     }, err => console.log(err));
     this.coordonneeForm.client = this.client;
-    this.coordonneeHttpService.save(this.coordonneeForm);
+    this.coordonneeHttpService.savecoordonnee(this.coordonneeForm).subscribe(resp=>{
+      this.coordonneeHttpService.findByClientId(Number(sessionStorage.getItem('type_id'))).subscribe((resp => {this.coordonnees = resp;}));
+    },err=>console.log(err));
   }
   modifierCoordonnee(){
     this.coordonneeForm.client = this.client;
-    this.coordonneeHttpService.save(this.coordonneeForm);
+    this.coordonneeHttpService.savecoordonnee(this.coordonneeForm).subscribe(resp=>{
+      this.coordonneeHttpService.findByClientId(Number(sessionStorage.getItem('type_id'))).subscribe((resp => {this.coordonnees = resp;}));
+    },err=>console.log(err));
     this.ajouter=false;
   };
   ajouterCoordonnee(){

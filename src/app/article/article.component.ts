@@ -10,12 +10,11 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent implements OnInit {
-  user : boolean;
+  user: boolean;
   typeHydromel: string = null;
   articleSearch: string = null;
   hydromelForm: Array<Article>;
 
-  constructor(private articleService: ArticleHttpService) {}
 
   constructor(private articleService: ArticleHttpService, private next: ActivatedRoute) {
     this.next.params.subscribe(resp => {
@@ -29,24 +28,23 @@ export class ArticleComponent implements OnInit {
         this.list();
       }
     }, this.typeHydromel = null);
+  }
 
-  ngOnInit(){
-    if(sessionStorage.getItem("type")=="ADMINISTRATEUR"){
-      this.user=true;
-    }else{
-      this.user=false;
+  ngOnInit() {
+    if (sessionStorage.getItem('type') == 'ADMINISTRATEUR') {
+      this.user = true;
+    } else {
+      this.user = false;
     }
   }
 
 
-  ngOnInit() {
-
-  }
-
   list() {
-    this.articleService.findAll().subscribe(resp => {
-      this.hydromelForm = resp;
-    }, err => console.log(err));
+    this
+      .articleService.findAll().subscribe(resp => {
+        this.hydromelForm = resp;
+      },
+      err => console.log(err));
   }
 
   search() {
@@ -58,7 +56,8 @@ export class ArticleComponent implements OnInit {
   }
 
 
-  // this.next.params.subscribe(resp=>{
-  //
-  // },err=>console.log(err))
+// this.next.params.subscribe(resp=>{
+//
+// },err=>console.log(err))
+
 }

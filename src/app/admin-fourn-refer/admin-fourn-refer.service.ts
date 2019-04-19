@@ -37,21 +37,25 @@ export class AdminFournReferService {
     return this.produits;
   }
 
-  findAllUnite(): Array<object> {
-    return this.unites;
-  }
+  // findAllUnite(): Array<object> {
+  //   return this.unites;
+  // }
 
   findById(id: number): Observable<any> {
     return this.http.get('http://localhost:8080/produit/' + id);
   }
 
-  findByNom(nom: string) {
-    this.http.get('http://localhost:8080/api/produit/by-nom/' + nom)
-      .subscribe(resp => {
-          this.produits = resp;
-        },
-        err => console.log(err));
+  findAllProduitByFournisseur(): Observable<any> {
+    return this.http.get('http://localhost:8080/produit/by-fournisseur');
   }
+
+  // findByNom(nom: string) {
+  //   this.http.get('http://localhost:8080/api/produit/by-nom/' + nom)
+  //     .subscribe(resp => {
+  //         this.produits = resp;
+  //       },
+  //       err => console.log(err));
+  // }
 
 
   save(produit: Produit) {

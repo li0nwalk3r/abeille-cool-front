@@ -13,6 +13,9 @@ import {AccueilComponent} from './accueil/accueil.component';
 import {FournisseurComponent} from "./fournisseur/fournisseur.component";
 import {CommandeFournisseurComponent} from './commande-fournisseur/commande-fournisseur.component';
 import {DetailhydromelComponent} from "./detailhydromel/detailhydromel.component";
+import {HistoriqueCommFournComponent} from './historique-comm-fourn/historique-comm-fourn.component';
+import {HistoriqueCommDetailComponent} from './historique-comm-detail/historique-comm-detail.component';
+import {FormulaireArticleComponent} from './formulaire-article/formulaire-article.component';
 
 const routes: Routes = [
   {path: 'connexion', component: ConnexionComponent},
@@ -30,7 +33,10 @@ const routes: Routes = [
   {path: 'fournisseur', component: FournisseurComponent},
   {path: 'article/:type', component: ArticleComponent},
   {path: 'mon-panier/:id', component: MonPanierComponent},
-
+  {path: 'formulaire-article', component: FormulaireArticleComponent},
+  {path: 'formulaire-article/:id', component: FormulaireArticleComponent},
+  {path: 'historiqueCommandeFournisseur', component: HistoriqueCommFournComponent},
+  {path: 'historiqueCommandeFournisseur/:id', component: HistoriqueCommDetailComponent},
   {path: '', redirectTo:'actualite', pathMatch:'full'},
   {path: '**', redirectTo: 'actualite' }
 ];

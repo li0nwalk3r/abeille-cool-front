@@ -45,11 +45,20 @@
           <div class="btn-group btn-group-xs">
             <a class="btn" style="background-color: white;color: #f4a60e;margin-bottom: 2px" [routerLink]="['/detailhydromel/'+ art.id]"><b>En savoir plus</b>
             </a>
+            <div *ngIf="user">
+              <a class="btn" style="background-color: white;color: #f4a60e;margin-bottom: 2px" [routerLink]="['/formulaire-article/'+ art.id]"><b>Editer</b>
+              </a>
+            </div>
           </div>
 
         </div>
       </div>
 
+    </div>
+
+    <div class="mt-5" *ngIf="user">
+      <a class="btn btn-secondary" style="background-color: white;color: #f4a60e;margin-bottom: 2px" routerLink="/formulaire-article"><b>Créer un nouveau produit</b>
+      </a>
     </div>
   </div>
 

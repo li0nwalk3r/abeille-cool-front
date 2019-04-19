@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-
+import {Observable} from 'rxjs';
 import {Article} from '../model/article';
 
 @Injectable({
@@ -24,6 +24,24 @@ export class ArticleHttpService {
 
   findAll(): Array<Article> {
     return this.articles;
+  }
+
+  findById(id : number): Observable<any> {
+    return this.http.get('http://localhost:8080/article/' + id);
+  }
+
+  save(article: Article) {
+    if (article) {
+      if (!article.id) {
+        this.http.post('http://localhost:8080/article', article).subscribe(resp => {this.load(); article = null;},
+          err => console.log(err));
+
+      } else {
+        this.http.put('http://localhost:8080/article/' + article.id, article).subscribe(resp => {this.load(); article = null;},
+          err => console.log(err)
+        );
+      }
+    }
   }
 
 }

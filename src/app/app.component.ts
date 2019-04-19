@@ -23,6 +23,10 @@ export class AppComponent {
     }
   }
 
+  LivreDor(){
+    this.router.navigate(['livre-d\'or']);
+  }
+
   Accueil() {
     this.router.navigate(['']);
   }

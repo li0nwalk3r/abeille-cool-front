@@ -34,7 +34,7 @@ export class FacturationComponent implements OnInit {
       parameters => this.facturationService.findById(parameters.id).subscribe(
         resp => {
           this.facture = resp;
-          this.commandeService.findById(Number(sessionStorage.getItem('commande_id'))).subscribe(resp => {
+          this.commandeService.findById(149).subscribe(resp => {
             this.commande = resp;
             this.id = this.commande.coordonnee.id;
             this.coordonneeService.findById(this.id).subscribe(resp => {
@@ -46,7 +46,7 @@ export class FacturationComponent implements OnInit {
       )
     );
     console.log(this.facture);
-    this.administrateurService.findById(81).subscribe(resp => {
+    this.administrateurService.findById(163).subscribe(resp => {
       this.admin = resp;
     });
     console.log(this.facture);
@@ -56,7 +56,7 @@ export class FacturationComponent implements OnInit {
 
   list() {
 
-    this.ligneCommandeService.findByCommandeClient(Number(sessionStorage.getItem('commande_id'))).subscribe(resp => {
+    this.ligneCommandeService.findByCommandeClient(149).subscribe(resp => {
         this.listLigneCommande = resp;
     for (let i = 0; i < this.listLigneCommande.length; i++) {
       this.pxTotal = (this.listLigneCommande[i].article.prix*this.listLigneCommande[i].article.qte)+this.pxTotal;

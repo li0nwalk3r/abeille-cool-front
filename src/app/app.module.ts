@@ -24,6 +24,7 @@ import {DetailhydromelComponent} from "./detailhydromel/detailhydromel.component
 import { InformationComponent } from './information/information.component';
 import { HistoriqueCommFournComponent } from './historique-comm-fourn/historique-comm-fourn.component';
 import { HistoriqueCommDetailComponent } from './historique-comm-detail/historique-comm-detail.component';
+import {LivreDorComponent} from "./livre-dor/livre-dor.component";
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { HistoriqueCommDetailComponent } from './historique-comm-detail/historiq
     InformationComponent,
     FormulaireArticleComponent,
     HistoriqueCommFournComponent,
-    HistoriqueCommDetailComponent
+    HistoriqueCommDetailComponent,
+    LivreDorComponent
   ],
   imports: [
     FormsModule,

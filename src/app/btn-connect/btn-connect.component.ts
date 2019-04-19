@@ -31,9 +31,22 @@ export class BtnConnectComponent implements OnInit {
       return sessionStorage.getItem(key);
   }
 
+  fournisseur(){
+    this.router.navigate(['administrateur/fournisseurs/references']);
+  }
+
+  infoFour(){
+    this.router.navigate(['fournisseur']);
+  }
+
+  fourProduit(){
+    this.router.navigate(['fournisseur/mes-produits']);
+  }
+
   deconnecter(){
     sessionStorage.clear();
-    this.chargement()
+    this.chargement();
+    this.router.navigate(['']);
   }
 
   connecter(){

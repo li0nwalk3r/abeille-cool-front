@@ -5,24 +5,23 @@
 </button>
 <div class="dropdown-menu" *ngIf="readSessionStorage('connect')=='true' && readSessionStorage('type')== 'CLIENT'">
   <a class="dropdown-item" (click)="information()" >Mes informations</a>
-  <a class="dropdown-item" href="#">Mes évenements</a>
-  <a class="dropdown-item" href="#">Mes avis</a>
-  <a class="dropdown-item" href="#">Mes achats passés</a>
-  <a class="dropdown-item" href="#">Mes factures</a>
+  <a class="dropdown-item" >Mes évenements</a>
+  <a class="dropdown-item" >Mes avis</a>
+  <a class="dropdown-item" >Mes achats passés</a>
+  <a class="dropdown-item" >Mes factures</a>
   <a class="dropdown-item" (click)="deconnecter()">Deconnexion</a>
 </div>
 <div class="dropdown-menu" *ngIf="readSessionStorage('connect')=='true' && readSessionStorage('type')== 'ADMINISTRATEUR'">
-  <a class="dropdown-item" href="#" >MConsulter les ventes</a>
-  <a class="dropdown-item" href="#">Gérer les références cients</a>
-  <a class="dropdown-item" href="#">Gérer les avis</a>
-  <a class="dropdown-item" href="#">Les évenements</a>
-  <a class="dropdown-item" href="#">Gérer les fournisseurs</a>
+  <a class="dropdown-item" >Consulter les ventes</a>
+  <a class="dropdown-item" >Gérer les références clients</a>
+  <a class="dropdown-item" >Gérer les avis</a>
+  <a class="dropdown-item" >Les évenements</a>
+  <a class="dropdown-item" (click)="fournisseur()">Gérer les fournisseurs</a>
   <a class="dropdown-item" (click)="deconnecter()">Deconnexion</a>
 </div>
 <div class="dropdown-menu" *ngIf="readSessionStorage('connect')=='true' && readSessionStorage('type')== 'FOURNISSEUR'">
-  <a class="dropdown-item" href="#" >Mes coordonnées</a>
-  <a class="dropdown-item" href="#">Mes produits</a>
-  <a class="dropdown-item" href="#">Message à l'administrateur</a>
-  <a class="dropdown-item" href="#">Les commandes passées</a>
+  <a class="dropdown-item" (click)="infoFour()" >Mes coordonnées</a>
+  <a class="dropdown-item" (click)="fourProduit()" >Mes produits</a>
+  <a class="dropdown-item">Message à l'administrateur</a>
   <a class="dropdown-item" (click)="deconnecter()">Deconnexion</a>
 </div>

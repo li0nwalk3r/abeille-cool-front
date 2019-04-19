@@ -14,13 +14,13 @@
     <th>Passer commande</th>
   </tr>
   <tr *ngFor="let produit of produits" >
-    <td>{{produit.fournisseur.raisonSociale}}</td>
-    <td>{{produit.nom}}</td>
-    <td>{{produit.prixUnitaireHT|currency:'EUR'}}</td>
-    <td>{{produit.qte}}</td>
-    <td ><input name="qtefournisseur" [(ngModel)]="produit.qteDemande" (ngModelChange)="calcul()" type="number" required /></td>
-    <td>{{produit.prixTotal|currency:'EUR'}}</td>
-    <td><button class="btn" (click)="save(produit.qteDemande,produit.prixTotal,produit.id)">Acheter</button></td>
+    <td *ngIf="produit.valide">{{produit.fournisseur.raisonSociale}}</td>
+    <td *ngIf="produit.valide">{{produit.nom}}</td>
+    <td *ngIf="produit.valide">{{produit.prixUnitaireHT|currency:'EUR'}}</td>
+    <td *ngIf="produit.valide">{{produit.qte}}</td>
+    <td *ngIf="produit.valide"><input name="qtefournisseur" [(ngModel)]="produit.qteDemande" (ngModelChange)="calcul()" type="number" required /></td>
+    <td *ngIf="produit.valide">{{produit.prixTotal|currency:'EUR'}}</td>
+    <td *ngIf="produit.valide"><button class="btn" (click)="save(produit.qteDemande,produit.prixTotal,produit.id)">Acheter</button></td>
   </tr>
 </table>
 <div id="validation2" class="card mt-5" *ngIf="valide" >

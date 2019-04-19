@@ -37,7 +37,7 @@ const routes: Routes = [
   {path: 'formulaire-article/:id', component: FormulaireArticleComponent},
   {path: 'historiqueCommandeFournisseur', component: HistoriqueCommFournComponent},
   {path: 'historiqueCommandeFournisseur/:id', component: HistoriqueCommDetailComponent},
-  {path: '', redirectTo:'actualite', pathMatch:'full'},
+  {path: '', redirectTo: 'actualite', pathMatch:'full'},
   {path: '**', redirectTo: 'actualite' }
 ];
 

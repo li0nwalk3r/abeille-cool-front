@@ -1,0 +1,30 @@
+th {
+  background-color: #ff9e00;
+  color: white;
+}
+
+.table {
+  text-align: center;
+  border-collapse: collapse;
+  box-shadow: 0 9px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+
+button {
+  background-color: #f4c00b;
+  color: white;
+  font-weight:bold;
+}
+
+img {
+  width: 150px;
+  height: 100px;
+}
+
+#validation {
+  text-align: center;
+}
+
+#validation2 {
+  width: 260px;
+  float: right;
+}

@@ -10,10 +10,12 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent implements OnInit {
+  user : boolean;
   typeHydromel: string = null;
   articleSearch: string = null;
   hydromelForm: Array<Article>;
 
+  constructor(private articleService: ArticleHttpService) {}
 
   constructor(private articleService: ArticleHttpService, private next: ActivatedRoute) {
     this.next.params.subscribe(resp => {
@@ -28,6 +30,12 @@ export class ArticleComponent implements OnInit {
       }
     }, this.typeHydromel = null);
 
+  ngOnInit(){
+    if(sessionStorage.getItem("type")=="ADMINISTRATEUR"){
+      this.user=true;
+    }else{
+      this.user=false;
+    }
   }
 
 

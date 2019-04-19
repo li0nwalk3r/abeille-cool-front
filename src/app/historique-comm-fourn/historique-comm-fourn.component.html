@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <div class="card-header">Historique des commandes passées aux fournisseurs</div>
+  <div class="card-body">
+    <table class="table table-hover">
+      <tr>
+        <th>Date</th>
+        <th>Fournisseur</th>
+        <th>Produit</th>
+        <th>Quantité commandée</th>
+        <th>Prix total TTC</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let com of list()">
+        <td>{{com.date}}</td>
+        <td></td>
+        <td></td>
+        <td>{{com.qte}}</td>
+        <td>{{com.prixTotal|currency:'EUR'}}</td>
+        <td>
+          <button class="btn" [routerLink]="['/historiqueCommandeFournisseur/' + com.id]">Detail de la commande</button>
+        </td>
+      </tr>
+    </table>
+    <div class="card-footer">
+      <button class="btn" [routerLink]="['/commandeFournisseur']">Retour aux commandes</button>
+    </div>
+  </div>
+</div>

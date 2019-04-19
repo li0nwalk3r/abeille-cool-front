@@ -21,6 +21,8 @@ import {ArticleComponent} from "./article/article.component";
 import { FournisseurComponent } from './fournisseur/fournisseur.component';
 import {CommandeFournisseurComponent} from "./commande-fournisseur/commande-fournisseur.component";
 import {DetailhydromelComponent} from "./detailhydromel/detailhydromel.component";
+import { HistoriqueCommFournComponent } from './historique-comm-fourn/historique-comm-fourn.component';
+import { HistoriqueCommDetailComponent } from './historique-comm-detail/historique-comm-detail.component';
 
 
 
@@ -45,7 +47,9 @@ import {DetailhydromelComponent} from "./detailhydromel/detailhydromel.component
     ConnexionComponent,
     CommandeFournisseurComponent,
     FournisseurProduitsComponent,
-    DetailhydromelComponent
+    DetailhydromelComponent,
+    HistoriqueCommFournComponent,
+    HistoriqueCommDetailComponent
   ],
   imports: [
     FormsModule,

@@ -29,6 +29,10 @@ export class FacturationHttpService {
     return this.http.get('http://localhost:8080/facturation/' + id);
   }
 
+  savefacture(facturation){
+    return this.http.post('http://localhost:8080/facturation', facturation);
+  }
+
   save(facturation: Facturation) {
     if (facturation) {
       if (!facturation.id) {

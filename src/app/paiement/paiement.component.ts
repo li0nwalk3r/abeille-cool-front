@@ -12,7 +12,7 @@ export class PaiementComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => {
-      this.router.navigate(['facturation/30']);
+      this.router.navigate(['facturation/'+sessionStorage.getItem('facturation_id')]);
     }, 5000);
   }
 }

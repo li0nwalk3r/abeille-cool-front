@@ -3,6 +3,13 @@ import {ClientHttpService} from './client-http.service';
 import {CoordonneeHttpService} from './coordonnee-http.service';
 import {Client} from '../model/client';
 import {Coordonnee} from '../model/coordonnee';
+import {FacturationHttpService} from "../facturation/facturation-http.service";
+import {Facturation} from "../model/facturation";
+import {CommandeClient} from "../model/commande-client";
+import {CommandeClientHttpService} from "./commande-client-http.service";
+import {logger} from "codelyzer/util/logger";
+
+
 
 @Component({
   selector: 'app-formulaire-commande-client',
@@ -10,14 +17,17 @@ import {Coordonnee} from '../model/coordonnee';
   styleUrls: ['./formulaire-commande-client.component.css']
 })
 export class FormulaireCommandeClientComponent implements OnInit {
+  temp:any;
   idCoor: number;
   idClient: number;
   clientForm: Client = null;
   excli : Client;
   excoords : Array<Coordonnee>;
   coordonneeForm : Coordonnee = new Coordonnee();
+  facturation : Facturation= new Facturation();
+  commande:CommandeClient=new CommandeClient();
 
-  constructor(private clientService: ClientHttpService, private coordonneeService: CoordonneeHttpService) {
+  constructor(private clientService: ClientHttpService, private coordonneeService: CoordonneeHttpService, private facturationHttpService:FacturationHttpService, private commandeHttpService:CommandeClientHttpService) {
     if(sessionStorage.getItem("type")=="CLIENT"){
       this.idClient=Number(sessionStorage.getItem("type_id"));
     }
@@ -43,7 +53,20 @@ export class FormulaireCommandeClientComponent implements OnInit {
   }
 
   saveCoordonnee() {
-    this.coordonneeService.save(this.coordonneeForm);
+    this.coordonneeForm.client=this.excli;
+    this.facturation.date=new Date();
+    this.facturation.ref=new Date().toDateString();
+    this.facturationHttpService.savefacture(this.facturation).subscribe(resp=>{
+      this.temp=resp;
+      this.commandeHttpService.findById(Number(sessionStorage.getItem("commande_id"))).subscribe(resp=>{
+        this.commande=resp;
+        this.commande.facturation=this.temp;
+        this.commandeHttpService.save(this.commande);
+        sessionStorage.setItem('facturation_id',this.commande.facturation.id.toString());
+        }, err=>console.log(err))
+      this.coordonneeService.save(this.coordonneeForm);
+    },err=>console.log(err));
+
 
     this.coordonneeForm = new Coordonnee();;
   }

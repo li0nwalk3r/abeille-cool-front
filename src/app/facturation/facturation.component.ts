@@ -19,10 +19,11 @@ import {LigneCommandeHttpService} from './ligne-commande-http.service';
 export class FacturationComponent implements OnInit {
   facture: Facturation;
   admin: Administrateur;
-  commande: CommandeClient;
+  commande: CommandeClient = new CommandeClient();
   coordonnee: Coordonnee;
   listLigneCommande : Array<LigneCommande>;
   pxTotal: number = 0;
+  id: number;
 
   constructor(private route: ActivatedRoute, private facturationService: FacturationHttpService, private commandeService: CommandeClientHttpService, private administrateurService: AdministrateurHttpService, private coordonneeService: CoordonneeHttpService, private ligneCommandeService: LigneCommandeHttpService) {
 
@@ -33,9 +34,10 @@ export class FacturationComponent implements OnInit {
       parameters => this.facturationService.findById(parameters.id).subscribe(
         resp => {
           this.facture = resp;
-          this.commandeService.findByFactureId(this.facture.id).subscribe(resp => {
+          this.commandeService.findById(Number(sessionStorage.getItem('commande_id'))).subscribe(resp => {
             this.commande = resp;
-            this.coordonneeService.findById(this.commande.coordonnee.id).subscribe(resp => {
+            this.id = this.commande.coordonnee.id;
+            this.coordonneeService.findById(this.id).subscribe(resp => {
               this.coordonnee = resp;
             });
             this.list();
@@ -44,7 +46,7 @@ export class FacturationComponent implements OnInit {
       )
     );
     console.log(this.facture);
-    this.administrateurService.findById(70).subscribe(resp => {
+    this.administrateurService.findById(81).subscribe(resp => {
       this.admin = resp;
     });
     console.log(this.facture);
@@ -54,7 +56,7 @@ export class FacturationComponent implements OnInit {
 
   list() {
 
-    this.ligneCommandeService.findByCommandeClient(this.commande.id).subscribe(resp => {
+    this.ligneCommandeService.findByCommandeClient(Number(sessionStorage.getItem('commande_id'))).subscribe(resp => {
         this.listLigneCommande = resp;
     for (let i = 0; i < this.listLigneCommande.length; i++) {
       this.pxTotal = (this.listLigneCommande[i].article.prix*this.listLigneCommande[i].article.qte)+this.pxTotal;

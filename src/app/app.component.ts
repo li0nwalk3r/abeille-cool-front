@@ -8,13 +8,19 @@ import {Router} from "@angular/router";
 })
 export class AppComponent {
   title = 'abeille-cool-front';
+  articleHydromels: string = null;
+  articleRhodomels: string = null;
 
   constructor(private router: Router) {
 
   }
 
-  Panier(){
-    this.router.navigate(['mon-panier/']);
+  Panier() {
+    if (sessionStorage.getItem("commande_id")) {
+      this.router.navigate(['mon-panier/' + sessionStorage.getItem("commande_id")]);
+    } else {
+      alert("Vous n'avez pas de panier en cours.");
+    }
   }
 
   Accueil() {
@@ -26,26 +32,26 @@ export class AppComponent {
   }
 
   Classiques() {
-    this.router.navigate(['article']);
+    this.router.navigate(['article/Classique']);
   }
 
   Rhodomels() {
-    this.router.navigate(['article']);
+    this.router.navigate(['article/Rhodomel']);
   }
 
   Melomels() {
-    this.router.navigate(['article']);
+    this.router.navigate(['article/Melomel']);
   }
 
   Broggots() {
-    this.router.navigate(['article']);
+    this.router.navigate(['article/Broggot']);
   }
 
   Oxymels() {
-    this.router.navigate(['article']);
+    this.router.navigate(['article/Oxymel']);
   }
 
   Oenomels() {
-    this.router.navigate(['article']);
+    this.router.navigate(['article/Oenomel']);
   }
 }

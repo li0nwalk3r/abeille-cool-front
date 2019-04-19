@@ -52,4 +52,22 @@ export class CommandeClientHttpService {
       err => console.log(err));
 
   }
+  findPanier(id: number): Observable<any>{
+    return this.http.get('http://localhost:8080/commandeClient/by-client/'+id);
+  }
+
+  saveSubscribeOutside(commandeClient: CommandeClient): Observable<any> {
+    if (commandeClient) {
+      if (!commandeClient.id) {
+        return this.http.post('http://localhost:8080/commandeClient', commandeClient);//.subscribe(resp => {this.load(); commandeClient = null;},
+         // err => console.log(err));
+
+      } else {
+       return this.http.put('http://localhost:8080/commandeClient/' + commandeClient.id, commandeClient);//.subscribe(resp => {this.load(); commandeClient = null;},
+          //err => console.log(err)
+      }
+    }
+  }
+
+
 }

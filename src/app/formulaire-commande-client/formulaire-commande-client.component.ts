@@ -18,6 +18,9 @@ export class FormulaireCommandeClientComponent implements OnInit {
   coordonneeForm : Coordonnee = new Coordonnee();
 
   constructor(private clientService: ClientHttpService, private coordonneeService: CoordonneeHttpService) {
+    if(sessionStorage.getItem("type")=="CLIENT"){
+      this.idClient=Number(sessionStorage.getItem("type_id"));
+    }
     this.clientService.findById(this.idClient).subscribe(resp => {this.excli=resp},
       this.excli=null);
     this.coordonneeService.findByClientId(this.idClient).subscribe(resp => {this.excoords=resp},
@@ -25,9 +28,6 @@ export class FormulaireCommandeClientComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(sessionStorage.getItem("type")=="CLIENT"){
-      this.idClient=Number(sessionStorage.getItem("type_id"));
-    }
   }
 
   listCoordonnee(): Array<Coordonnee> {

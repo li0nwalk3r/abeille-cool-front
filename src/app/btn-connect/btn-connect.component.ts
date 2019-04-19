@@ -40,4 +40,6 @@ export class BtnConnectComponent implements OnInit {
     this.router.navigate(['connexion']);
   }
 
+
+  information(){this.router.navigate(['information-client']);}
 }

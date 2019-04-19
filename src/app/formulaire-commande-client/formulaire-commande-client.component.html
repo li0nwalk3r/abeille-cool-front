@@ -4,7 +4,7 @@
       <div class="form-group login-form-1" align="center">
         <label for="libelle">Vos adresses de facturation :</label><br>
         <select id="libelle" [(ngModel)]="idCoor" (ngModelChange)="editCoordonnee()" >
-          <option *ngFor="let el of excoords" [value]="el.id" [text]="el.libelle" ></option>
+          <option *ngFor="let el of excoords" [value]="el.id" [text]="el.libelle"></option>
         </select>
       </div>
       <div *ngIf="coordonneeForm">

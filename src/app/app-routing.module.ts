@@ -13,6 +13,10 @@ import {AccueilComponent} from './accueil/accueil.component';
 import {FournisseurComponent} from "./fournisseur/fournisseur.component";
 import {CommandeFournisseurComponent} from './commande-fournisseur/commande-fournisseur.component';
 import {DetailhydromelComponent} from "./detailhydromel/detailhydromel.component";
+import {HistoriqueCommFournComponent} from './historique-comm-fourn/historique-comm-fourn.component';
+import {HistoriqueCommDetailComponent} from './historique-comm-detail/historique-comm-detail.component';
+import {FormulaireArticleComponent} from './formulaire-article/formulaire-article.component';
+import {InformationComponent} from './information/information.component';
 import {LivreDorComponent} from './livre-dor/livre-dor.component';
 
 const routes: Routes = [
@@ -28,9 +32,14 @@ const routes: Routes = [
   {path: 'actualite', component: AccueilComponent},
   {path: 'facturation/:id', component: FacturationComponent},
   {path: 'article', component: ArticleComponent},
+  {path: 'article/:type', component: ArticleComponent},
   {path: 'fournisseur', component: FournisseurComponent},
-  {path: 'article', component: ArticleComponent},
   {path: 'mon-panier/:id', component: MonPanierComponent},
+  {path: 'information-client', component: InformationComponent},
+  {path: 'formulaire-article', component: FormulaireArticleComponent},
+  {path: 'formulaire-article/:id', component: FormulaireArticleComponent},
+  {path: 'historiqueCommandeFournisseur', component: HistoriqueCommFournComponent},
+  {path: 'historiqueCommandeFournisseur/:id', component: HistoriqueCommDetailComponent},
   {path: 'livre-d\'or', component: LivreDorComponent},
 
   {path: '', redirectTo:'actualite', pathMatch:'full'},

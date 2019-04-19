@@ -15,13 +15,13 @@
   <p> </p>
   <div class="form-group">
     <label>Nom de l'hydromel à rechercher : </label>
-    <input type="text" style="margin-left: 5px">
-    <button class="btn" style="background-color: #f4a60e;color: white;margin-left: 5px">Rechercher</button>
+    <input type="text" style="margin-left: 5px" [(ngModel)]="articleSearch" >
+    <button class="btn" style="background-color: #f4a60e;color: white;margin-left: 5px" (click)="search()">Rechercher</button>
   </div>
 
 
   <div class="container">
-    <div class="card-group" style="padding-top: 10px" *ngFor="let art of list()">
+    <div class="card-group" style="padding-top: 10px" *ngFor="let art of hydromelForm">
       <div class="card" style="border-color: #f4a60e;border-width: thin ">
         <div class="card-body text-center" style="height: 325px">
           <img class="card-img" src="{{art.photoURL}}" alt="Hydromel image" style="width:65%;margin-top: auto;margin-bottom: auto" >
@@ -45,17 +45,26 @@
           <div class="btn-group btn-group-xs">
             <a class="btn" style="background-color: white;color: #f4a60e;margin-bottom: 2px" [routerLink]="['/detailhydromel/'+ art.id]"><b>En savoir plus</b>
             </a>
+            <div *ngIf="user">
+              <a class="btn" style="background-color: white;color: #f4a60e;margin-bottom: 2px" [routerLink]="['/formulaire-article/'+ art.id]"><b>Editer</b>
+              </a>
+            </div>
           </div>
 
         </div>
       </div>
 
     </div>
+
+    <div class="mt-5" *ngIf="user">
+      <a class="btn btn-secondary" style="background-color: white;color: #f4a60e;margin-bottom: 2px" routerLink="/formulaire-article"><b>Créer un nouveau produit</b>
+      </a>
+    </div>
   </div>
 
-    <h4 style="padding-top: 15px">Mention légales</h4>
+    <h4 style="padding-top: 15px">Mentions légales</h4>
     <p>
-      bla bla bla
+      Mentions légales
     </p>
 
 

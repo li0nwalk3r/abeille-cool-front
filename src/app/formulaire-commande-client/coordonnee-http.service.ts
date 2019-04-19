@@ -34,6 +34,14 @@ export class CoordonneeHttpService {
     return this.http.get('http://localhost:8080/coordonnee/by-client/'+id);
   }
 
+  savecoordonnee(coordonnee: Coordonnee){
+    return this.http.post('http://localhost:8080/coordonnee', coordonnee);
+  }
+
+  deletecoordonnee(id: number){
+    this.http.delete('http://localhost:8080/coordonnee/' + id);
+  }
+
   save(coordonnee: Coordonnee) {
     if (coordonnee) {
       if (!coordonnee.id) {

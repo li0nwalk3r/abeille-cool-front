@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Actualite} from '../model/actualite';
-import {ActualiteHttpService} from '../actualite-detail/actualite-http.service';
+import {ActualiteHttpService} from './actualite-http.service';
 
 @Component({
   selector: 'app-accueil',
@@ -15,17 +15,18 @@ export class AccueilComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.list();
+    this.findByDate();
+    this.findByHorsDate();
   }
 
-  list() {
-    this.actualiteService.findAll().subscribe(resp => {
+  findByHorsDate() {
+    this.actualiteService.findByHorsDate().subscribe(resp => {
       this.actualites = resp; // là on met la réponse dans actualites et on peut boucler directement sur actualites dans le html
       return resp; // là on met la réponse dans la liste et on peut boucler dans la liste au niveau html
     }, err => console.log(err));
   }
 
-  listByDate() {
+  findByDate() {
     this.actualiteService.findByDate().subscribe(resp => {
       this.actualite = resp;
     }, err => console.log(err));

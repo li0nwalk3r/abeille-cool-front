@@ -1,14 +1,14 @@
 <div id="accueil">
-  <section class="jumbotron text-center" style="background-image: url('/assets/abeille.jpg');">
+  <section class="jumbotron text-center" style="background-color: white">
     <div class="container">
       <h1 class="jumbotron-heading">L'hydromel pour tous !</h1>
-      <p id="paragrapheColor" class="lead text-muted">Trouvez ici les meilleurs Hydromels et informations</p>
+      <p id="paragrapheColor" class="lead text-muted">Trouvez ici les meilleurs Hydromels</p>
     </div>
   </section>
 
   <div class="container">
     <div class="row">
-      <h1 id="titreActualite" class="m-auto pb-4">Actualités</h1>
+      <h1 id="titreActualite" class="m-auto pb-5">Actualités</h1>
       <div class="col-12">
         <div class="=card mb-4 shadow-sm">
           <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
@@ -16,9 +16,10 @@
                preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
             <rect width="100%" height="100%" fill="#55595c"></rect>
           </svg>
-          <div class="card-body"  >
-            <h2>{{actu.titre}}</h2>
-            <p class="card-text">{{actu.descriptif}}</p>
+          <div class="card-body">
+            <!-- on injecte directement le tittre et le descriptif de l'actu parce que la methode restController récupère déjà la derniere actu en date -->
+            <h2>{{actualite.titre}}</h2>
+            <p class="card-text">{{actualite.descriptif}}</p>
             <div class="btn">
               <button type="button" class="btn btn-sm btn-outline-secondary">Lire la suite</button>
             </div>
@@ -29,30 +30,14 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-4" *ngFor="let actu of actualites">
         <div class="=card mb-4 shadow-sm">
           <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
                xmlns="http://www.w3.org/2000/svg"
                preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
             <rect width="100%" height="100%" fill="#55595c"></rect>
           </svg>
-          <div class="card-body" *ngFor="let actu of actualites">
-            <h2>{{actu.titre}}</h2>
-            <p class="card-text">{{actu.descriptif}}</p>
-            <div class="btn">
-              <button type="button" class="btn btn-sm btn-outline-secondary">Lire la suite</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="=card mb-4 shadow-sm">
-          <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-               xmlns="http://www.w3.org/2000/svg"
-               preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
-            <rect width="100%" height="100%" fill="#55595c"></rect>
-          </svg>
-          <div class="card-body" *ngFor="let actu of actualites">
+          <div class="card-body" >
             <h2>{{actu.titre}}</h2>
             <p class="card-text">{{actu.descriptif}}</p>
             <div class="btn">

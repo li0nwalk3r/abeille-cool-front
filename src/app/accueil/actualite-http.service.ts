@@ -17,6 +17,9 @@ export class ActualiteHttpService {
     return this.http.get('http://localhost:8080/actualite/by-date');
   }
 
+  findByHorsDate(): Observable<any> {
+    return this.http.get('http://localhost:8080/actualite/by-hors-date');
+  }
 
 }
 
